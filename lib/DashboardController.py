@@ -80,6 +80,14 @@ class DashboardController(QObject):
 			print(">>>>>>>Headlights ON!")
 		else:
 			print(">>>>>>>Headlights OFF!")
+			
+			
+	@Slot()
+	def setRPM(self, rpm):
+		#naive method: set shared memory rpm to desired value
+		pass
+		
+		
 
 
 #Information Property Slots

@@ -16,7 +16,7 @@ Image {
 		anchors.leftMargin: 10
 		width: 184
 	}
-
+    //park button
 	Button {
 		id: park
 		text: "Park"
@@ -30,6 +30,8 @@ Image {
 		hoverEnabled: false
 		onClicked: {
 			DashboardController.setDirection("parked")
+			DashboardController.setRPM(200)
+			
 		}
 
 		background: Rectangle {
