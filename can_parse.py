@@ -72,8 +72,8 @@ while True:
 		curr_all_units = (raw_data >> 16) & 0xFFFF
 		latest_duty_cycle = raw_data & 0xFFFF
 		#print("RPM: " + str(rpm))
-		#print("Total current in all units * 10: " + str(curr_all_units))
-		#print("Latest duty cycle * 1,000: " + str(latest_duty_cycle))
+		#print("Total current in all units * 10.0: " + str(curr_all_units))
+		#print("Latest duty cycle * 1,000.0: " + str(latest_duty_cycle))
 		rpm_buffer[:] = rpm.to_bytes(32, byteorder='big')
 		current_buffer[:] = curr_all_units.to_bytes(16, byteorder='big')
 		
@@ -81,15 +81,15 @@ while True:
 	elif can_id == 3841:
 		watt_hrs = raw_data >> 32
 		watt_hrs_charged = raw_data & 0xFFFFFFFF
-		#print("Watt hrs * 10,000: " + str(watt_hrs))
-		#print("Watt hrs charged * 10,000: " + str(watt_hrs_charged))
+		#print("Watt hrs * 10,000.0: " + str(watt_hrs))
+		#print("Watt hrs charged * 10,000.0: " + str(watt_hrs_charged))
 		watt_hrs_buffer[:] = watt_hrs.to_bytes(32, "big")
 		watt_hrs_charged_buffer[:] = watt_hrs_charged.to_bytes(32, "big")
 
 	# can_id 0x1B01 (6913) is the Master CAN_STATUS_PACKET_5 that has tacho_value, v_in, and two reserved bytes
 	elif can_id == 6913:
 		v_in = (raw_data >> 16) & 0xFFFF
-		#print("V_in * 10: " str(v_in))
+		#print("V_in * 10.0: " str(v_in))
 		v_in_buffer[:] = v_in.to_bytes(16, byteorder='big')
 		
 	#print()
