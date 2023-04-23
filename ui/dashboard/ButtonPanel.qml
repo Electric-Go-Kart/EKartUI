@@ -65,7 +65,7 @@ Image {
 	//Settings Button
 	Button {
 		id: settings
-		text: "Settings"
+		text: "Info"
 		anchors.top: camera.bottom
 		anchors.right: parent.right
 		anchors.topMargin: innerMargin
@@ -77,7 +77,7 @@ Image {
 		font.pixelSize: 17
 		hoverEnabled: false
 		onClicked: {
-			DashboardController.state = "settings"
+			DashboardController.state = "power"
 		}
 
 		background: Rectangle {
@@ -167,6 +167,16 @@ Image {
 					visible: false
 					anchors.right: parent.right
 				}
+			},
+			State {
+				name: "power"
+				PropertyChanges {target: settings; visible: false}
+    				PropertyChanges {target: back; visible: true}
+    				PropertyChanges {
+        				target: lock
+        				visible: false
+        				anchors.right: parent.right
+    				}
 			},
 			State {
 				name: "locked"
