@@ -23,20 +23,38 @@ class DashboardController(QObject):
 	dashState = "locked"
 	isHeadlightOn = False
 	# Set up shared memory with can_parse.py for getting ERPM data
+	# Getting information from the CANBUS
 	try:
 		erpm_shm = SharedMemory(name="rpm")
 		erpm_buffer = erpm_shm.buf
+	except:
+		print("ERROR: Unable to connect to can_parse via shared memory. Check that can_parse.py is running.")
+		rpmVal = "ERROR"
+	try:
 		current_shm = SharedMemory(name="current")
 		current_buffer = current_shm.buf
+	except:
+		print("ERROR: Unable to connect to can_parse via shared memory. Check that can_parse.py is running.")
+		currentVal = "ERROR"
+	try:
 		watt_hrs_shm = SharedMemory(name="watt_hr")
 		watt_hrs_buffer = watt_hrs_shm.buf
+	except:
+		print("ERROR: Unable to connect to can_parse via shared memory. Check that can_parse.py is running.")
+		wattHrsVal = "ERROR"
+	try:
 		watt_hrs_charged_shm = SharedMemory(name="watt_hrs_charged")
 		watt_hrs_charged_buffer = watt_hrs_charged_shm.buf
+	except:
+		print("ERROR: Unable to connect to can_parse via shared memory. Check that can_parse.py is running.")
+		wattHrsChargedVal = "ERROR"
+	try:
 		v_in_shm = SharedMemory(name="v_in")
 		v_in_buffer = v_in_shm.buf
 	except:
 		print("ERROR: Unable to connect to can_parse via shared memory. Check that can_parse.py is running.")
-		rpmVal = "ERROR"
+		vinVal = "ERROR"
+
 	rpmChanged = Signal(int)
 	# TEST signals, to update Current, watt/hrs, watt/hrs consummed, v_in
 	currentChanged = Signal(float)				# Want to display current as a float so we can see 2.5A instead of 2A or 3A.
