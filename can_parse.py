@@ -2,12 +2,26 @@ import subprocess
 from multiprocessing.shared_memory import SharedMemory
 
 # CAMs note: This is running candump and looking at can version -can0. "can0" is not refering to master or slave ESC ID 
+print("first")
 process = subprocess.Popen(['candump', 'can0', '-L'], stdout=subprocess.PIPE, universal_newlines=True)
 rpm_shm = SharedMemory(name="rpm", create=True, size=32)
 rpm_buffer = rpm_shm.buf
 temp_rpm = 0
 rpm_buffer[:] = temp_rpm.to_bytes(32, byteorder='big')
 
+print("second")
+current_shm = SharedMemory(name="current", create=True, size=16)
+current_buffer = current_shm.buf
+temp_current = 0
+current_buffer[:4] = temp_current.to_bytes(4, byteorder='big')
+
+print("third")
+watt_hr_shm = SharedMemory(name="watt_hr", create=True, size=16)
+watt_hr_buffer = watt_hr_shm.buf
+temp_watt_hr = 0
+watt_hr_buffer[:4] = temp_watt_hr.to_bytes(4,byteorder='big')
+
+print("good")
 Iterations = 10000
 NUM_ITERATIONS = Iterations
 KNOWN_CAN_IDS = []
@@ -43,6 +57,7 @@ while True:
 		print("Latest duty cycle * 1000: " + str(latest_duty_cycle))
 		
 		rpm_buffer[:] = rpm.to_bytes(32, byteorder='big')
+		current_buffer[:] = curr_all_units.to_bytes(16, byteorder='big')
 		
 	# can_id 142 might not be total amphrs on current ESCs. Currently under Investigation	
 	elif can_id == 142:
@@ -50,8 +65,10 @@ while True:
 		total_regen_hrs = raw_data & 0xFFFFFFFF
 		print("Total amp hours consumed by unit * 10000: " + str(total_amphrs_consumed))
 		print("Total regen amp hours back into batt * 10000: " + str(total_regen_hrs))
-		
-	#print()
+	
+	#elif can_id == 3841:
+	#	watt_hr = raw_data >> 32
+	#	watt_hr_buffer[:] = watt_hrs.to_bytes(32, byteorder="big")
 	
 	# For CAN_SORTED_DATA no dupicate items are added. Each time code is run it check the new incomming data
 	# FIXME INCOMPLETE!!!
