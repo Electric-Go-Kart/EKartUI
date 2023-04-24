@@ -39,7 +39,7 @@ temp_watt_hrs_charged = 0
 watt_hrs_charged_buffer[:] = temp_watt_hrs_charged.to_bytes(32, byteorder='big')
 v_in_buffer = v_in_shm.buf
 temp_v_in = 0
-v_in_buffer[:] = temp_v_in.to_bytes(32, 'big')
+v_in_buffer[:] = temp_v_in.to_bytes(32, byteorder='big')
 
 Iterations = 10000
 NUM_ITERATIONS = Iterations
@@ -83,8 +83,8 @@ while True:
 		watt_hrs_charged = raw_data & 0xFFFFFFFF
 		#print("Watt hrs * 10,000.0: " + str(watt_hrs))
 		#print("Watt hrs charged * 10,000.0: " + str(watt_hrs_charged))
-		watt_hrs_buffer[:] = watt_hrs.to_bytes(32, "big")
-		watt_hrs_charged_buffer[:] = watt_hrs_charged.to_bytes(32, "big")
+		watt_hrs_buffer[:] = watt_hrs.to_bytes(32, byteorder="big")
+		watt_hrs_charged_buffer[:] = watt_hrs_charged.to_bytes(32, byteorder="big")
 
 	# can_id 0x1B01 (6913) is the Master CAN_STATUS_PACKET_5 that has tacho_value, v_in, and two reserved bytes
 	elif can_id == 6913:

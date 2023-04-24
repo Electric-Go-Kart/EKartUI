@@ -28,31 +28,31 @@ class DashboardController(QObject):
 		erpm_shm = SharedMemory(name="rpm")
 		erpm_buffer = erpm_shm.buf
 	except:
-		print("ERROR: Unable to connect to can_parse via shared memory. Check that can_parse.py is running.")
+		print("ERROR: Unable to connect to can_parse RPM shared memory. Check that can_parse.py is running.")
 		rpmVal = "ERROR"
 	try:
 		current_shm = SharedMemory(name="current")
 		current_buffer = current_shm.buf
 	except:
-		print("ERROR: Unable to connect to can_parse via shared memory. Check that can_parse.py is running.")
+		print("ERROR: Unable to connect to can_parse CURRENT shared memory. Check that can_parse.py is running.")
 		currentVal = "ERROR"
 	try:
 		watt_hrs_shm = SharedMemory(name="watt_hr")
 		watt_hrs_buffer = watt_hrs_shm.buf
 	except:
-		print("ERROR: Unable to connect to can_parse via shared memory. Check that can_parse.py is running.")
+		print("ERROR: Unable to connect to can_parse WATT_HRS shared memory. Check that can_parse.py is running.")
 		wattHrsVal = "ERROR"
 	try:
 		watt_hrs_charged_shm = SharedMemory(name="watt_hrs_charged")
 		watt_hrs_charged_buffer = watt_hrs_charged_shm.buf
 	except:
-		print("ERROR: Unable to connect to can_parse via shared memory. Check that can_parse.py is running.")
+		print("ERROR: Unable to connect to can_parse WATT_HRS_CHARGED shared memory. Check that can_parse.py is running.")
 		wattHrsChargedVal = "ERROR"
 	try:
 		v_in_shm = SharedMemory(name="v_in")
 		v_in_buffer = v_in_shm.buf
 	except:
-		print("ERROR: Unable to connect to can_parse via shared memory. Check that can_parse.py is running.")
+		print("ERROR: Unable to connect to can_parse V_IN shared memory. Check that can_parse.py is running.")
 		vinVal = "ERROR"
 
 	rpmChanged = Signal(int)
@@ -94,13 +94,13 @@ class DashboardController(QObject):
 		self.rpmVal = int(self.erpmVal / self.pole_pairs)
 		# Get Other Value
 		tempCurrent = int.from_bytes(self.current_buffer, byteorder='big')
-		self.currentVal = float(tempCurrent * 10)
+		self.currentVal = float(tempCurrent / 10.0)
 		tempWattHrs = int.from_bytes(self.watt_hrs_buffer, byteorder='big')
-		self.wattHrsVal = float(tempWattHrs * 10000)
+		self.wattHrsVal = float(tempWattHrs / 10000.0)
 		tempWattHrsCharged = int.from_bytes(self.watt_hrs_charged_buffer, byteorder='big')
-		self.wattHrsChargedVal = float(tempWattHrsCharged * 10000)
+		self.wattHrsChargedVal = float(tempWattHrsCharged / 10000.0)
 		tempVin = int.from_bytes(self.watt_hrs_buffer, byteorder='big')
-		self.vinVal = float(tempVin * 10)
+		self.vinVal = float(tempVin / 10.0)
 		self.batteryPercentage = ( ((self.vinVal - 42.0) / 8.2) * 100.0)	# 42V is empty, 50.2V is full. Sohuld be val in range (100.0 - 0.0)
 		
 		# TEMPORARY - Set battery value for display for e-days
@@ -137,9 +137,9 @@ class DashboardController(QObject):
 	def getRPM(self):
 		return str(self.rpmVal)
 
-	@Slot(result=float)
+	@Slot(result=str)
 	def getBatteryPercent(self):
-		return self.batteryPercentage
+		return str(self.batteryPercentage)
 	
 	# Gonna try turing the float into a str
 	@Slot(result=str)
@@ -219,7 +219,7 @@ class DashboardController(QObject):
 	#Information Properties
 	speed = Property(str, getSpeed, notify=rpmChanged)
 	rpm = Property(str, getRPM, notify=rpmChanged)
-	batteryPercent = Property(float, getBatteryPercent, notify=battPercentChanged)
+	batteryPercent = Property(str, getBatteryPercent, notify=battPercentChanged)
 	current = Property(str, getCurrentVal, notify=currentChanged)
 	wattHrs = Property(str, getWattHrs, notify=wattHrsChanged)
 	wattHrsCharged = Property(str, getWattHrsCharged, notify=wattHrsChargedChanged)
