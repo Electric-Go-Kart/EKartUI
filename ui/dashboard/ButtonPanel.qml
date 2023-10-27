@@ -61,11 +61,17 @@ Image {
 			color: parent.down ? "#c0c0c0" : "#f2f2f2"
 		}
 	}
-
-	//Settings Button
+		background: Rectangle {
+			implicitHeight: buttonSize
+			border.color: "#1a1a1a"
+			border.width: 4
+			radius: buttonRadius
+			color: parent.down ? "#c0c0c0" : "#f2f2f2"
+		}
+	}
 	Button {
-		id: settings
-		text: "Info"
+		id: backCamera
+		text: "Reverse Camera"
 		anchors.top: camera.bottom
 		anchors.right: parent.right
 		anchors.topMargin: innerMargin
@@ -77,33 +83,8 @@ Image {
 		font.pixelSize: 17
 		hoverEnabled: false
 		onClicked: {
-			DashboardController.state = "info"
-		}
-
-		background: Rectangle {
-			anchors.fill: parent
-			border.color: "#1a1a1a"
-			border.width: 4
-			radius: buttonRadius
-			color: parent.down ? "#c0c0c0" : "#f2f2f2"
-		}
-	}
-
-	//Settings Button
-	Button {
-		id: lock
-		text: DashboardController.locked ? "Unlock" : "Lock"
-		checked: DashboardController.locked
-		anchors.top: camera.bottom
-		anchors.left: parent.left
-		anchors.topMargin: innerMargin
-		anchors.leftMargin: outerMargin
-		font.family: "Haettenschweiler"
-		font.pixelSize: 22
-		hoverEnabled: false
-		onClicked: {
-			if(checked) DashboardController.state = "default"
-			else DashboardController.state = "locked"
+			backendInstance.use_back_camera()
+        	stateGroup.state = "backCamera"
 		}
 
 		background: Rectangle {
@@ -111,9 +92,63 @@ Image {
 			border.color: "#1a1a1a"
 			border.width: 4
 			radius: buttonRadius
-			color: parent.checked ? "#ffb0b0" : "#f2f2f2"
+			color: parent.down ? "#c0c0c0" : "#f2f2f2"
 		}
+
+
 	}
+	//Settings Button
+	//Button {
+	//	id: settings
+	//	text: "Info"
+	//	anchors.top: camera.bottom
+	//	anchors.right: parent.right
+	//	anchors.topMargin: innerMargin
+	//	anchors.rightMargin: outerMargin
+	//	anchors.leftMargin: outerMargin
+	//	implicitWidth: DashboardController.parked ? buttonSize : 183
+	//	implicitHeight: buttonSize
+	//	font.family: "Haettenschweiler"
+	//	font.pixelSize: 17
+	//	hoverEnabled: false
+	//	onClicked: {
+	//		DashboardController.state = "info"
+	//	}
+
+	//	background: Rectangle {
+	//		anchors.fill: parent
+	//		border.color: "#1a1a1a"
+	//		border.width: 4
+	//		radius: buttonRadius
+	//		color: parent.down ? "#c0c0c0" : "#f2f2f2"
+	//	}
+//	}
+
+	//Settings Button
+	//Button {
+	//	id: lock
+	//	text: DashboardController.locked ? "Unlock" : "Lock"
+	//	checked: DashboardController.locked
+	//	anchors.top: camera.bottom
+	//	anchors.left: parent.left
+	//	anchors.topMargin: innerMargin
+	//	anchors.leftMargin: outerMargin
+	//	font.family: "Haettenschweiler"
+	//	font.pixelSize: 22
+	//	hoverEnabled: false
+	//	onClicked: {
+	//		if(checked) DashboardController.state = "default"
+	//		else DashboardController.state = "locked"
+	//	}
+
+	//	background: Rectangle {
+	//		implicitHeight: buttonSize
+	//		border.color: "#1a1a1a"
+	//		border.width: 4
+	//		radius: buttonRadius
+	//		color: parent.checked ? "#ffb0b0" : "#f2f2f2"
+	//	}
+//	}
 
 	//Back Button
 	Button {
