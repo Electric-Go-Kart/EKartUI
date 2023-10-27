@@ -44,18 +44,7 @@ Image {
 
 	Text {
 		id: credits
-		text: "Credits:
-Team Lead: Vani Kapoor
-UI Design & Programming:
-    Andie Groeling
-APD System: Ryan Guidice
-Programming: Ryan Guidice
-    & Nikola Durand
-Power System:
-    David Neitenbach
-    & Rico Barela
-CAD & 3D Printing: Matt Gilmore
-EIR Mentor: Doug Bartlett"
+		text: "Current: " + DashboardController.current + " A\n"
 		anchors.top: parent.top
 		anchors.left: parent.left
 		anchors.topMargin: 85
@@ -68,6 +57,7 @@ EIR Mentor: Doug Bartlett"
 		anchors.horizontalCenter: parent.horizontalCenter
 		font.family: "Haettenschweiler"
 	}
+
 
 	//States & Transitions
 	StateGroup {

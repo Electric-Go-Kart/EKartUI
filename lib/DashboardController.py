@@ -11,6 +11,10 @@ class DashboardController(QObject):
 	testPlus = True #temp var used for test code
 	erpmVal = 0
 	rpmVal = 0
+
+	# new
+	currentVal = 0.0
+
 	# Pole pairs of motor - determined by counting number of poles inside motor
 	pole_pairs = 6
 	batteryPercentage = 0.0
@@ -24,10 +28,19 @@ class DashboardController(QObject):
 	except:
 		print("ERROR: Unable to connect to can_parse via shared memory. Check that can_parse.py is running.")
 		rpmVal = "ERROR"
+	try:
+		current_shm = SharedMemory(name="current")
+		current_buffer = current_shm.buf
+	except:
+		print("ERROR: Unable to connect to can_parse CURRENT shared memory. Check that can_parse.py is running.")
+		currentVal = "ERROR"
 	rpmChanged = Signal(int)
 	battPercentChanged = Signal(float)
 	directionChanged = Signal(str)
 	stateChanged = Signal(bool)
+	
+	# new
+	currentChanged = Signal(float)
 
 #Update Tick Functions
 	def __init__(self, parent=None):
@@ -57,11 +70,18 @@ class DashboardController(QObject):
 		self.erpmVal = int.from_bytes(self.erpm_buffer, byteorder='big')
 		self.rpmVal = int(self.erpmVal / self.pole_pairs)
 		
+		# new
+		tempCurrent = int.from_bytes(self.current_buffer, byteorder='big')
+		self.currentVal = float(tempCurrent / 10.0)
+
 		# TEMPORARY - Set battery value for display for e-days
 		self.batteryPercentage = 0.75 
 		
 		self.rpmChanged.emit(self.rpmVal)
 		self.battPercentChanged.emit(self.batteryPercentage)
+
+		# new
+		self.currentChanged.emit(self.currentVal)
 
 
 #Control Slots
@@ -91,6 +111,10 @@ class DashboardController(QObject):
 	def getBatteryPercent(self):
 		return self.batteryPercentage
 
+	# new
+	@Slot(result=str)
+	def getCurrentVal(self):
+		return str(self.currentVal)
 
 #Direction Property Slots
 	@Slot(str)
@@ -153,7 +177,8 @@ class DashboardController(QObject):
 	speed = Property(str, getSpeed, notify=rpmChanged)
 	rpm = Property(str, getRPM, notify=rpmChanged)
 	batteryPercent = Property(float, getBatteryPercent, notify=battPercentChanged)
-
+	current = Property(str, getCurrentVal, notify=currentChanged)
+	
 	#Direction Properties
 	atRest = Property(bool, getResting, notify=rpmChanged)
 	forward = Property(bool, getForward, notify=directionChanged)
