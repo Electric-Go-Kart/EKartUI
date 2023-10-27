@@ -1,6 +1,6 @@
 from PySide6.QtCore import QObject, Property, Slot, Signal
 from PySide6.QtQml import QmlElement, QmlSingleton
-import os
+import subprocess
 
 class Backend(QObject):
 
@@ -13,6 +13,14 @@ class Backend(QObject):
     def use_back_camera(self):
         # Run the detection model with the second camera source
         self.run_detection(source=2)
-
+    
     def run_detection(self, source):
-        os.system(f"python detect.py --weights ./home/gokart/projects/APD_deploy/yolov5/528Project/kittikaleov2-int8_320_edgetpu.tflite --img 320 --conf 0.25 --source {source}")
+        cmd = [
+            "python", 
+            "detect.py", 
+            "--weights", "./home/gokart/projects/APD_deploy/yolov5/528Project/kittikaleov2-int8_320_edgetpu.tflite",
+            "--img", "320", 
+            "--conf", "0.25", 
+            "--source", str(source)
+        ]
+        subprocess.run(cmd)
