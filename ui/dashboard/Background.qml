@@ -1,5 +1,6 @@
 import QtQuick 2.0
-
+import QtQuick.Controls
+import org.ekart.DashboardController 1.0
 Rectangle {
     width: 800  // adjust to your desired width
     height: 480 // adjust to your desired height
