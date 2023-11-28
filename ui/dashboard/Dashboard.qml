@@ -15,10 +15,16 @@ Item {
 		implicitHeight: 480
 	}
 
+	Background {
+		id: background
+		anchors.fill: parent
+		implicitWidth: 800
+		implicitHeight: 480
+	}
 	//CenterPanel
-	CenterPanel {
-		id: centerpanel
-		anchors.horizontalCenter: parent.horizontalCenter
+	//CenterPanel {
+	//	id: centerpanel
+	//	anchors.horizontalCenter: parent.horizontalCenter
 	}
 
 	//Info panel
