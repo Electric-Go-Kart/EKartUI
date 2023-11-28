@@ -3,6 +3,13 @@ import QtQuick
 import QtQuick.Controls
 import org.ekart.APDView 1.0
 
+Image {
+    id: backgroundImage
+    source: "speedometer2.png" 
+    anchors.fill: parent
+    z: -1 
+}
+
 Item {
 	anchors.fill: parent
 
