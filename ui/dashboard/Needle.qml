@@ -7,8 +7,5 @@ Image {
     source: "needle.png" 
     width: 10 
     height: 100 
-    anchors.bottom: speedometer.verticalCenter
-    anchors.horizontalCenter: speedometer.horizontalCenter
-    transformOrigin: Item.Bottom
     rotation: DashboardController.speed / 50 * 180 
 }
