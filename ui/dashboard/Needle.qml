@@ -12,5 +12,5 @@ Image {
     anchors.verticalCenterOffset: 30 // move down
     fillMode: Image.PreserveAspectFit
     transformOrigin: Item.Center
-    rotation: -150 + (DashboardController.speed / 50 * 180)
+    rotation: -150 
 }
