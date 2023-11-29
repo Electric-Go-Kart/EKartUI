@@ -56,7 +56,10 @@ Item {
 	Tachometer {
 		id: tachometer
 	}
-
+	Needle {
+		id: needle
+		anchors.fill: parent
+	}
 
 	//States & Transitions
 	StateGroup {
