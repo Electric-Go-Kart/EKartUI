@@ -12,5 +12,8 @@ Image {
     anchors.verticalCenterOffset: 30 // move down
     fillMode: Image.PreserveAspectFit
     transformOrigin: Item.Center
-    rotation: DashboardController.speed / 50 * 180 - 90
+    let zeroAngle = 210; // Angle at 0 MPH
+    let maxAngle = 90; // Angle at max speed (50 MPH for example)
+    let range = zeroAngle - maxAngle; // Total range of motion
+    rotation: zeroAngle - (DashboardController.speed / 50 * range)
 }
