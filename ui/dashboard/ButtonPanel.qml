@@ -82,6 +82,22 @@ Image {
         color: parent.down ? "#c0c0c0" : "#f2f2f2"
     	}
 	}
+	
+	Dialog {
+    id: shutdownDialog
+    title: "Confirm Shutdown"
+    modal: true
+    standardButtons: Dialog.Yes | Dialog.No
+
+    onAccepted: {
+        DashboardController.shutdownSystem()
+    }
+
+    Text {
+        text: "Are you sure you want to shutdown the system?"
+        anchors.centerIn: parent
+    	}
+	}
 
 	//Settings Button
 	Button {
