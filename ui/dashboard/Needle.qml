@@ -11,5 +11,5 @@ Image {
     anchors.horizontalCenterOffset: -250 // move to the left
     anchors.verticalCenterOffset: 30 // move down
     fillMode: Image.PreserveAspectFit
-    rotation: DashboardController.speed / 50 * 180 
+    rotation: DashboardController.speed / 50 * 180 - 90
 }
