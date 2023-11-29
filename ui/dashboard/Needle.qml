@@ -5,7 +5,7 @@ import org.ekart.DashboardController 1.0
 Image {
     id: needle
     source: "../images/needle.png" 
-    width: 10 
-    height: 100 
+    width: 5 
+    height: 50
     rotation: DashboardController.speed / 50 * 180 
 }
