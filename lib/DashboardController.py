@@ -1,7 +1,7 @@
 from PySide6.QtCore import QObject, Property, Slot, Signal
 from PySide6.QtQml import QmlElement, QmlSingleton
 from multiprocessing.shared_memory import SharedMemory
-
+import os
 QML_IMPORT_NAME = "org.ekart.DashboardController"
 QML_IMPORT_MAJOR_VERSION = 1
 
@@ -93,7 +93,10 @@ class DashboardController(QObject):
 		else:
 			print(">>>>>>>Headlights OFF!")
 
-
+	@Slot()
+	def shutdownSystem(self):
+		print(">>>>>>>Shutting Down System!")
+		os.system("sudo shutdown -h now")
 #Information Property Slots
 	@Slot(result=str)
 	def getSpeed(self):
@@ -172,6 +175,7 @@ class DashboardController(QObject):
 	def getLocked(self):
 		return self.dashState == "locked"
 
+	
 
 	#Information Properties
 	speed = Property(str, getSpeed, notify=rpmChanged)

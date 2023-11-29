@@ -62,6 +62,27 @@ Image {
 		}
 	}
 
+	Button {
+    id: shutdownButton
+    text: "Shutdown"
+    anchors.bottom: parent.bottom
+    anchors.right: parent.right
+    anchors.bottomMargin: outerMargin
+    anchors.rightMargin: outerMargin
+    font.family: "Haettenschweiler"
+    font.pixelSize: 22
+    hoverEnabled: false
+    onClicked: DashboardController.shutdownSystem()
+    background: Rectangle {
+        implicitWidth: buttonSize
+        implicitHeight: buttonSize
+        border.color: "#1a1a1a"
+        border.width: 4
+        radius: buttonRadius
+        color: parent.down ? "#c0c0c0" : "#f2f2f2"
+    	}
+	}
+
 	//Settings Button
 	Button {
 		id: settings
