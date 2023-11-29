@@ -58,7 +58,7 @@ Item {
 	}
 	Needle {
 		id: needle
-		anchors.fill: parent
+		anchors.fill: parent.horizontalCenter
 	}
 
 	//States & Transitions
