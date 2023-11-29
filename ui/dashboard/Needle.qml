@@ -8,7 +8,7 @@ Image {
     width: 300
     height: 150
     anchors.centerIn: parent
-    anchors.horizontalCenterOffset: -400 // move to the left
+    anchors.horizontalCenterOffset: -250 // move to the left
     anchors.verticalCenterOffset: 30 // move down
     fillMode: Image.PreserveAspectFit
     rotation: DashboardController.speed / 50 * 180 
