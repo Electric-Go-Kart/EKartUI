@@ -72,7 +72,7 @@ Image {
     font.family: "Haettenschweiler"
     font.pixelSize: 22
     hoverEnabled: false
-    onClicked: DashboardController.shutdownSystem()
+    onClicked: shutdownDialog.open()
     background: Rectangle {
         implicitWidth: buttonSize
         implicitHeight: buttonSize
@@ -82,7 +82,7 @@ Image {
         color: parent.down ? "#c0c0c0" : "#f2f2f2"
     	}
 	}
-	
+
 	Dialog {
     id: shutdownDialog
     title: "Confirm Shutdown"
