@@ -12,5 +12,5 @@ Image {
     anchors.verticalCenterOffset: 32 // move down
     fillMode: Image.PreserveAspectFit
     transformOrigin: Item.Center
-    rotation: -150 
+    rotation: -145 
 }
