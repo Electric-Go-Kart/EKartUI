@@ -8,8 +8,8 @@ Image {
     width: 300
     height: 150
     anchors.centerIn: parent
-    anchors.horizontalCenterOffset: -250 // move to the left
-    anchors.verticalCenterOffset: 30 // move down
+    anchors.horizontalCenterOffset: -248 // move to the left
+    anchors.verticalCenterOffset: 32 // move down
     fillMode: Image.PreserveAspectFit
     transformOrigin: Item.Center
     rotation: -150 
