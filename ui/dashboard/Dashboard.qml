@@ -18,8 +18,6 @@ Item {
 	Background {
 		id: background
 		anchors.horizontalCenter: parent.horizontalCenter
-		implicitWidth: 640
-		implicitHeight: 480
 	}
 
 	CenterPanel {
