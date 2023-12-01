@@ -1,6 +1,8 @@
 from PySide6.QtCore import QObject, Property, Slot, Signal
 from PySide6.QtQml import QmlElement, QmlSingleton
 from multiprocessing.shared_memory import SharedMemory
+import RPi.GPIO as GPIO
+
 
 QML_IMPORT_NAME = "org.ekart.DashboardController"
 QML_IMPORT_MAJOR_VERSION = 1
@@ -14,7 +16,7 @@ class DashboardController(QObject):
 
 	# new
 	currentVal = 0.0
-
+	reverse_pin = 26
 	# Pole pairs of motor - determined by counting number of poles inside motor
 	pole_pairs = 6
 	batteryPercentage = 0.0
@@ -43,9 +45,17 @@ class DashboardController(QObject):
 	currentChanged = Signal(float)
 
 #Update Tick Functions
+	
+
 	def __init__(self, parent=None):
 		QObject.__init__(self, parent)
 		self.startTimer(25)		
+	def setupGPIO(self):
+		GPIO.setmode(GPIO.BCM)  # Use Broadcom pin-numbering scheme
+		GPIO.setup(self.REVERSE_SWITCH_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
+	def readReverseSwitch(self):
+		return GPIO.input(self.REVERSE_SWITCH_PIN) == GPIO.HIGH
 
 	def timerEvent(self, event):
 		self.update()
@@ -57,6 +67,10 @@ class DashboardController(QObject):
 			# self.batteryPercentage += 0.005
 		# else:
 			# self.batteryPercentage -= 0.005
+		if self.readReverseSwitch():
+			self.setDirection("reverse")
+		else:
+			self.setDirection("forward")
 
 		# if self.batteryPercentage >= 1:
 			# self.testPlus = False
@@ -82,7 +96,8 @@ class DashboardController(QObject):
 
 		# new
 		self.currentChanged.emit(self.currentVal)
-
+	def __del__(self):
+		GPIO.cleanup()
 
 #Control Slots
 	@Slot()
@@ -106,7 +121,7 @@ class DashboardController(QObject):
 	@Slot(result=str)
 	def getRPM(self):
 		return str(self.rpmVal)
-
+	
 	@Slot(result=float)
 	def getBatteryPercent(self):
 		return self.batteryPercentage
