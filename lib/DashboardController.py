@@ -49,7 +49,8 @@ class DashboardController(QObject):
 
 	def __init__(self, parent=None):
 		QObject.__init__(self, parent)
-		self.startTimer(25)		
+		self.startTimer(25)	
+			
 	def setupGPIO(self):
 		GPIO.setmode(GPIO.BCM)  # Use Broadcom pin-numbering scheme
 		GPIO.setup(self.REVERSE_SWITCH_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
