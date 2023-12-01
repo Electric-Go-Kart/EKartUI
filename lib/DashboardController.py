@@ -52,7 +52,7 @@ class DashboardController(QObject):
 		self.startTimer(25)		
 	def setupGPIO(self):
 		GPIO.setmode(GPIO.BCM)  # Use Broadcom pin-numbering scheme
-        GPIO.setup(self.REVERSE_SWITCH_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)  # Setup pin as input with pull-up
+		GPIO.setup(self.REVERSE_SWITCH_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 	def readReverseSwitch(self):
 		return GPIO.input(self.REVERSE_SWITCH_PIN) == GPIO.HIGH
