@@ -6,7 +6,7 @@ import sys
 GPIO.setmode(GPIO.BCM)
 
 # Set up pin 26 as an output pin
-GPIO.setup(26, GPIO.OUT)
+GPIO.setup(37, GPIO.OUT)
 
 # Get the command from the terminal
 command = sys.argv[1]
