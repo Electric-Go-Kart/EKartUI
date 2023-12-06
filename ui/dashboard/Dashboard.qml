@@ -20,16 +20,16 @@ Item {
 		anchors.horizontalCenter: parent.horizontalCenter
 	}
 
-	CenterPanel {
-		id: centerpanel
-		anchors.horizontalCenter: parent.horizontalCenter
-	}
+	//CenterPanel {
+	//	id: centerpanel
+	//	anchors.horizontalCenter: parent.horizontalCenter
+	//}
 
 	//Info panel
-	InfoPanel {
-		id: infoPanel
-		anchors.verticalCenter: parent.verticalCenter
-	}
+	//InfoPanel {
+	//	id: infoPanel
+	//	anchors.verticalCenter: parent.verticalCenter
+	//}
 
 	//Button panel
 	ButtonPanel {
@@ -78,7 +78,7 @@ Item {
 				}
 				PropertyChanges {target: buttonPanel; x: 597}
 				PropertyChanges {target: tachometer; x: 560; y: 253}
-				PropertyChanges {target: infoPanel; x: 0}
+				//PropertyChanges {target: infoPanel; x: 0}
 				PropertyChanges {target: batteryPanel; anchors.bottomMargin: 0}
 			},
 			State {
@@ -93,7 +93,7 @@ Item {
 				}
 				PropertyChanges {target: buttonPanel; x: 800}
 				PropertyChanges {target: tachometer; x: 770; y: 450}
-				PropertyChanges {target: infoPanel; x: -240}
+				//PropertyChanges {target: infoPanel; x: -240}
 				PropertyChanges {target: batteryPanel; anchors.bottomMargin: -56}
 			}
 		]
@@ -106,16 +106,16 @@ Item {
 						property: "opacity"
 						duration: 150
 					}
-					PropertyAnimation {
-						target: centerpanel
-						property: "y"
-						duration: 150
-					}
-					PropertyAnimation {
-						target: infoPanel
-						property: "x"
-						duration: 150
-					}
+					//PropertyAnimation {
+					//	target: centerpanel
+					//	property: "y"
+					//	duration: 150
+					//}
+					//PropertyAnimation {
+					//	target: infoPanel
+					//	property: "x"
+					//	duration: 150
+					//}
 					PropertyAnimation {
 						target: buttonPanel
 						property: "x"
