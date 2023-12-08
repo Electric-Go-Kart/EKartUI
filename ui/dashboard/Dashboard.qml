@@ -13,6 +13,7 @@ Item {
 		anchors.horizontalCenter: parent.horizontalCenter
 		implicitWidth: 640
 		implicitHeight: 480
+		visible: false
 	}
 
 	//Button panel
@@ -84,7 +85,8 @@ Item {
 			State {
 				name: "camera"
 				PropertyChanges {
-					target: apdView; opacity: 1
+					target: apdView
+					visible: true
 				}
 				//PropertyChanges {
 				//	target: centerpanel
@@ -100,12 +102,16 @@ Item {
 		
 		transitions: [
 			Transition {
-				ParallelAnimation {
-					PropertyAnimation {
-						target: apdView
-						property: "opacity"
-						duration: 150
-					}
+				from: "default"
+   				to: "camera"
+    			SequentialAnimation {
+        			PropertyAnimation {
+            			target: apdView
+            			property: "opacity"
+            			from: 0
+            			to: 1
+            			duration: 150
+        }
 					//PropertyAnimation {
 					//	target: centerpanel
 					//	property: "y"
