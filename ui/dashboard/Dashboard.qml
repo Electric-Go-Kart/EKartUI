@@ -15,6 +15,11 @@ Item {
 		implicitHeight: 480
 	}
 
+	//Button panel
+	ButtonPanel {
+		id: buttonPanel
+	}
+
 	Background {
 		id: background
 		anchors.horizontalCenter: parent.horizontalCenter
@@ -30,12 +35,6 @@ Item {
 	//	id: infoPanel
 	//	anchors.verticalCenter: parent.verticalCenter
 	//}
-
-	//Button panel
-	ButtonPanel {
-		id: buttonPanel
-	}
-
 /*
 	//Regenerative braking panel
 	RegenPanel {
@@ -56,6 +55,7 @@ Item {
 	Tachometer {
 		id: tachometer
 	}
+	
 	Needle {
 		id: needle
 		anchors.fill: parent.horizontalCenter
