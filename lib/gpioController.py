@@ -1,5 +1,9 @@
+from PySide6.QtCore import QObject, Property, Slot, Signal
+from PySide6.QtQml import QmlElement, QmlSingleton
+from multiprocessing.shared_memory import SharedMemory
 import RPi.GPIO as GPIO
-
+import os
+        
 class GPIOController(QObject):
     def __init__(self):
         super().__init__()
