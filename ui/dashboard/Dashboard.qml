@@ -24,10 +24,10 @@ Item {
 		anchors.horizontalCenter: parent.horizontalCenter
 	}
 
-	// CenterPanel {
-	// 	id: centerpanel
-	// 	anchors.horizontalCenter: parent.horizontalCenter
-	// }
+	CenterPanel {
+		id: centerpanel
+		anchors.horizontalCenter: parent.horizontalCenter
+	}
 
 	//Info panel
 	//InfoPanel {
@@ -73,13 +73,13 @@ Item {
 				PropertyChanges {
 					target: apdView; opacity: 0
 				}
-				PropertyChanges {
-					target: centerpanel
-					open: true
-					y: 0
-				}
+				// PropertyChanges {
+				// 	target: centerpanel
+				// 	open: true
+				// 	y: 0
+				// }
 				PropertyChanges {target: buttonPanel; x: 597}
-				PropertyChanges {target: tachometer; x: 560; y: 253}
+				//PropertyChanges {target: tachometer; x: 560; y: 253}
 				//PropertyChanges {target: infoPanel; x: 0}
 				PropertyChanges {target: batteryPanel; anchors.bottomMargin: 0}
 			},
@@ -88,17 +88,17 @@ Item {
 				PropertyChanges {
 					target: apdView; opacity: 1
 				}
-				// PropertyChanges {
-				// 	target: centerpanel
-				// 	open: false
-				// 	y: -350
-				// }
+				 PropertyChanges {
+				 	target: centerpanel
+				 	open: false
+				 	y: -350
+				 }
 
 				PropertyChanges {target: buttonPanel; visible: false}
             	PropertyChanges {target: background; visible: false}
             	//PropertyChanges {target: centerpanel; visible: false}
             	PropertyChanges {target: batteryPanel; visible: false}
-            	PropertyChanges {target: tachometer; visible: false}
+            	//PropertyChanges {target: tachometer; visible: false}
 				PropertyChanges {target: needle; visible: false}
 			}
 		]
@@ -126,16 +126,16 @@ Item {
 						property: "x"
 						duration: 150
 					}
-					PropertyAnimation {
-						target: tachometer
-						property: "x"
-						duration: 150
-					}
-					PropertyAnimation {
-						target: tachometer
-						property: "y"
-						duration: 150
-					}
+					// PropertyAnimation {
+					// 	target: tachometer
+					// 	property: "x"
+					// 	duration: 150
+					// }
+					// PropertyAnimation {
+					// 	target: tachometer
+					// 	property: "y"
+					// 	duration: 150
+					// }
 					PropertyAnimation {
 						target: batteryPanel
 						property: "anchors.bottomMargin"
