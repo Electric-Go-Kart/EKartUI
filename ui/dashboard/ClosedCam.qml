@@ -18,7 +18,9 @@ Button {
     hoverEnabled: false
     onClicked: stateGroup.state = "default"
 
-    background: Rectangle {
+    background: Image {
+        id: background
+        source: "../images/batteryPanel.png"
         implicitWidth: 400
         implicitHeight: 150
         border.color: "#1a1a1a"
