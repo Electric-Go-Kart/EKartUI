@@ -57,6 +57,7 @@ Rectangle {
 		onClicked: stateGroup.state = "camera"
 
 		background: Rectangle {
+			implicitWidth: buttonSize
 			implicitHeight: buttonSize
 			border.color: "#1a1a1a"
 			border.width: 4
@@ -147,6 +148,7 @@ Rectangle {
 		}
 
 		background: Rectangle {
+			implicitWidth: buttonSize
 			implicitHeight: buttonSize
 			border.color: "#1a1a1a"
 			border.width: 4
@@ -171,6 +173,7 @@ Rectangle {
 		onClicked: DashboardController.state = "default"
 
 		background: Rectangle {
+			implicitWidth: buttonSize
 			implicitHeight: buttonSize
 			border.color: "#1a1a1a"
 			border.width: 4
