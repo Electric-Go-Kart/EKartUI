@@ -93,7 +93,11 @@ Item {
 					open: false
 					y: -350
 				}
-				PropertyChanges {target: buttonPanel; x: 800}
+				PropertyChanges {
+                	target: buttonPanel
+                	x: parent.width 
+                
+            	}
 				PropertyChanges {target: tachometer; x: 770; y: 450}
 				//PropertyChanges {target: infoPanel; x: -240}
 				PropertyChanges {target: batteryPanel; anchors.bottomMargin: -56}
