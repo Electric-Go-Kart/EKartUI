@@ -113,7 +113,6 @@ Rectangle {
 
 	Button {
 		id: forward
-		text: "Forward"
 		width: buttonSize
 		anchors.centerIn: parent
 		font.family: "Haettenschweiler"
