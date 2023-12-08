@@ -24,10 +24,10 @@ Item {
 		anchors.horizontalCenter: parent.horizontalCenter
 	}
 
-	CenterPanel {
-		id: centerpanel
-		anchors.horizontalCenter: parent.horizontalCenter
-	}
+	// CenterPanel {
+	// 	id: centerpanel
+	// 	anchors.horizontalCenter: parent.horizontalCenter
+	// }
 
 	//Info panel
 	//InfoPanel {
@@ -88,19 +88,15 @@ Item {
 				PropertyChanges {
 					target: apdView; opacity: 1
 				}
-				PropertyChanges {
-					target: centerpanel
-					open: false
-					y: -350
-				}
-				PropertyChanges {
-                	target: buttonPanel
-                	x: parent.width 
-                
-            	}
+				// PropertyChanges {
+				// 	target: centerpanel
+				// 	open: false
+				// 	y: -350
+				// }
+
 				PropertyChanges {target: buttonPanel; visible: false}
             	PropertyChanges {target: background; visible: false}
-            	PropertyChanges {target: centerpanel; visible: false}
+            	//PropertyChanges {target: centerpanel; visible: false}
             	PropertyChanges {target: batteryPanel; visible: false}
             	PropertyChanges {target: tachometer; visible: false}
 			}
@@ -114,11 +110,11 @@ Item {
 						property: "opacity"
 						duration: 150
 					}
-					PropertyAnimation {
-						target: centerpanel
-						property: "y"
-						duration: 150
-					}
+					// PropertyAnimation {
+					// 	target: centerpanel
+					// 	property: "y"
+					// 	duration: 150
+					// }
 					//PropertyAnimation {
 					//	target: infoPanel
 					//	property: "x"
