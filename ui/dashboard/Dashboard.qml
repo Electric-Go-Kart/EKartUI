@@ -99,6 +99,7 @@ Item {
             	//PropertyChanges {target: centerpanel; visible: false}
             	PropertyChanges {target: batteryPanel; visible: false}
             	PropertyChanges {target: tachometer; visible: false}
+				PropertyChanges {target: needle; visible: false}
 			}
 		]
 		
