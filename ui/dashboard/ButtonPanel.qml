@@ -88,6 +88,52 @@ Rectangle {
     	}
 	}
 
+	Button {
+		id: reverse
+		text: "Reverse"
+		width: buttonSize
+		anchors.top: parent.top
+        anchors.right: shutdownButton.left
+        anchors.topMargin: outerMargin
+        anchors.rightMargin: outerMargin
+		font.family: "Haettenschweiler"
+		font.pixelSize: 22
+		hoverEnabled: false
+		onClicked: gpioController.setLow()
+
+		background: Rectangle {
+			implicitWidth: buttonSize
+			implicitHeight: buttonSize
+			border.color: "#1a1a1a"
+			border.width: 4
+			radius: buttonRadius
+			color: parent.down ? "#c0c0c0" : "#f2f2f2"
+		}
+	}
+
+	Button {
+		id: forward
+		text: "Forward"
+		width: buttonSize
+		anchors.top: parent.top
+        anchors.right: reverse.left
+        anchors.topMargin: outerMargin
+        anchors.rightMargin: outerMargin
+		font.family: "Haettenschweiler"
+		font.pixelSize: 22
+		hoverEnabled: false
+		onClicked: gpioController.setHigh()
+
+		background: Rectangle {
+			implicitWidth: buttonSize
+			implicitHeight: buttonSize
+			border.color: "#1a1a1a"
+			border.width: 4
+			radius: buttonRadius
+			color: parent.down ? "#c0c0c0" : "#f2f2f2"
+		}
+	}
+
 	Dialog {
     id: shutdownDialog
     title: "Confirm Shutdown"
