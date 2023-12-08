@@ -21,7 +21,7 @@ Rectangle {
 		id: lights
 		text: "Lights"
 		anchors.top: parent.top
-		anchors.left: parent.left
+		anchors.left: camera.left
 		anchors.topMargin: outerMargin
 		anchors.leftMargin: outerMargin
 		font.family: "Haettenschweiler"
@@ -135,8 +135,7 @@ Rectangle {
 		text: DashboardController.locked ? "Unlock" : "Lock"
 		checked: DashboardController.locked
 		width: buttonSize
-		anchors.top: camera.bottom
-		anchors.left: parent.left
+		anchors.left: shutdown.left
 		anchors.topMargin: innerMargin
 		font.family: "Haettenschweiler"
 		font.pixelSize: 22
