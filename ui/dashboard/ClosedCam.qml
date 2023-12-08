@@ -18,7 +18,7 @@ Button {
 
     background: Image {
         id: background
-        source: "../images/batteryPanel.png"
+        source: "../images/centerpanel.png"
         fillMode: Image.PreserveAspectFit
     }
 }
