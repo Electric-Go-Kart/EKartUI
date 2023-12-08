@@ -71,7 +71,7 @@ Rectangle {
     text: "Shutdown"
 	width: buttonSize
     anchors.top: parent.top
-    anchors.right: camera.left
+    anchors.right: reverse.right
     anchors.topMargin: outerMargin
     anchors.rightMargin: outerMargin
     font.family: "Haettenschweiler"
@@ -93,7 +93,7 @@ Rectangle {
 		text: "Reverse"
 		width: buttonSize
 		anchors.top: parent.top
-        anchors.right: shutdownButton.left
+        anchors.left: parent.left
         anchors.topMargin: outerMargin
         anchors.rightMargin: outerMargin
 		font.family: "Haettenschweiler"
