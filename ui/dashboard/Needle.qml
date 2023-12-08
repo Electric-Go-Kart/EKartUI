@@ -9,7 +9,7 @@ Image {
     height: 150
     anchors.centerIn: parent
     anchors.horizontalCenterOffset: -234 // move to the left
-    anchors.verticalCenterOffset: 20 // move down
+    anchors.verticalCenterOffset: 10 // move down
     fillMode: Image.PreserveAspectFit
     transformOrigin: Item.Center
     rotation: -140 
