@@ -92,7 +92,7 @@ Rectangle {
 		id: reverse
 		width: buttonSize
 		anchors.centerIn: parent
-		anchors.verticalCenterOffset: -20
+		anchors.verticalCenterOffset: 30
 		font.family: "Haettenschweiler"
 		font.pixelSize: 22
 		hoverEnabled: false
@@ -110,7 +110,7 @@ Rectangle {
 		id: forward
 		width: buttonSize
 		anchors.centerIn: parent
-		anchors.verticalCenterOffset: 20
+		anchors.verticalCenterOffset: -20
 		font.family: "Haettenschweiler"
 		font.pixelSize: 22
 		hoverEnabled: false
