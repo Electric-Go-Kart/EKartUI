@@ -21,7 +21,6 @@ Button {
     background: Image {
         id: background
         source: "../images/batteryPanel.png"
-        implicitWidth: 400
-        implicitHeight: 150
+        fillMode: Image.PreserveAspectFit
     }
 }
