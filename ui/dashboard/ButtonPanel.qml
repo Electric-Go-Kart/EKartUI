@@ -140,82 +140,82 @@ Rectangle {
 	}
 
 	//Settings Button
-	Button {
-		id: settings
-		text: "Info"
-		anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.topMargin: outerMargin
-		implicitWidth: DashboardController.parked ? buttonSize : 183
-		implicitHeight: buttonSize
-		font.family: "Haettenschweiler"
-		font.pixelSize: 17
-		hoverEnabled: false
-		onClicked: {
-			DashboardController.state = "info"
-		}
+	//Button {
+	//	id: settings
+	//	text: "Info"
+	//	anchors.top: parent.top
+    //    anchors.left: parent.left
+    //  anchors.topMargin: outerMargin
+	//	implicitWidth: DashboardController.parked ? buttonSize : 183
+	//	implicitHeight: buttonSize
+	//	font.family: "Haettenschweiler"
+	//	font.pixelSize: 17
+	//	hoverEnabled: false
+	//	onClicked: {
+	//		DashboardController.state = "info"
+	//	}
 
-		background: Rectangle {
-			anchors.fill: parent
-			border.color: "#1a1a1a"
-			border.width: 4
-			radius: buttonRadius
-			color: parent.down ? "#c0c0c0" : "#f2f2f2"
-		}
-	}
+	//	background: Rectangle {
+	//		anchors.fill: parent
+	//		border.color: "#1a1a1a"
+	//		border.width: 4
+	//		radius: buttonRadius
+	//		color: parent.down ? "#c0c0c0" : "#f2f2f2"
+	//	}
+	//}
 
 	//Settings Button
-	Button {
-		id: lock
-		text: DashboardController.locked ? "Unlock" : "Lock"
-		checked: DashboardController.locked
-		width: buttonSize
-		anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.topMargin: outerMargin
-        anchors.rightMargin: outerMargin
-		font.family: "Haettenschweiler"
-		font.pixelSize: 22
-		hoverEnabled: false
-		onClicked: {
-			if(checked) DashboardController.state = "default"
-			else DashboardController.state = "locked"
-		}
+	//Button {
+	//	id: lock
+	//	text: DashboardController.locked ? "Unlock" : "Lock"
+	//	checked: DashboardController.locked
+	//	width: buttonSize
+	//	anchors.top: parent.top
+    //    anchors.left: parent.left
+    //    anchors.topMargin: outerMargin
+    //    anchors.rightMargin: outerMargin
+	//	font.family: "Haettenschweiler"
+	//	font.pixelSize: 22
+	//	hoverEnabled: false
+	//	onClicked: {
+	//		if(checked) DashboardController.state = "default"
+	//		else DashboardController.state = "locked"
+	//	}
 
-		background: Rectangle {
-			implicitWidth: buttonSize
-			implicitHeight: buttonSize
-			border.color: "#1a1a1a"
-			border.width: 4
-			radius: buttonRadius
-			color: parent.checked ? "#ffb0b0" : "#f2f2f2"
-		}
-	}
+	//	background: Rectangle {
+	//		implicitWidth: buttonSize
+	//		implicitHeight: buttonSize
+	//		border.color: "#1a1a1a"
+	//		border.width: 4
+	//		radius: buttonRadius
+	//		color: parent.checked ? "#ffb0b0" : "#f2f2f2"
+	//	}
+	//}
 
 	//Back Button
-	Button {
-		id: back
-		text: "Back"
-		anchors.top: camera.bottom
-		anchors.left: parent.left
-		anchors.right: parent.right
-		anchors.topMargin: innerMargin
-		anchors.leftMargin: outerMargin
-		anchors.rightMargin: outerMargin
-		font.family: "Haettenschweiler"
-		font.pixelSize: 22
-		hoverEnabled: false
-		onClicked: DashboardController.state = "default"
+	//Button {
+	//	id: back
+	//	text: "Back"
+	//	anchors.top: camera.bottom
+	//	anchors.left: parent.left
+	//	anchors.right: parent.right
+	//	anchors.topMargin: innerMargin
+	//	anchors.leftMargin: outerMargin
+	//	anchors.rightMargin: outerMargin
+	//	font.family: "Haettenschweiler"
+	//	font.pixelSize: 22
+	//	hoverEnabled: false
+	//	onClicked: DashboardController.state = "default"
 
-		background: Rectangle {
-			implicitWidth: buttonSize
-			implicitHeight: buttonSize
-			border.color: "#1a1a1a"
-			border.width: 4
-			radius: buttonRadius
-			color: parent.down ? "#c0c0c0" : "#f2f2f2"
-		}
-	}
+	//		background: Rectangle {
+	//		implicitWidth: buttonSize
+	//		implicitHeight: buttonSize
+	//		border.color: "#1a1a1a"
+	//		border.width: 4
+	//		radius: buttonRadius
+	//		color: parent.down ? "#c0c0c0" : "#f2f2f2"
+	//	}
+	//}
 
 	//States & Transitions
 	StateGroup {
