@@ -49,7 +49,6 @@ Rectangle {
 		width: buttonSize
 		anchors.top: parent.top
 		anchors.right: parent.right
-		anchors.left: lights.right
 		anchors.topMargin: outerMargin
 		font.family: "Haettenschweiler"
 		font.pixelSize: 22
