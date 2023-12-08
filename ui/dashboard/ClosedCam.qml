@@ -9,7 +9,7 @@ Button {
 		id: closecamera
 		text: "Close Camera"
 		width: 150
-        height: 150
+        height: 20
         anchors.verticalCenter: parent.verticalCenter
         anchors.top: parent.top
 		font.family: "Haettenschweiler"
