@@ -52,9 +52,9 @@ Item {
 	}
 
 	//Tachometer
-	Tachometer {
-		id: tachometer
-	}
+	//Tachometer {
+	//	id: tachometer
+	//}
 	
 	Needle {
 		id: needle
@@ -77,7 +77,7 @@ Item {
 					y: 0
 				}
 				PropertyChanges {target: buttonPanel; x: 597}
-				PropertyChanges {target: tachometer; x: 560; y: 253}
+				//PropertyChanges {target: tachometer; x: 560; y: 253}
 				//PropertyChanges {target: infoPanel; x: 0}
 				PropertyChanges {target: batteryPanel; anchors.bottomMargin: 0}
 			},
@@ -92,7 +92,7 @@ Item {
 					y: -350
 				}
 				PropertyChanges {target: buttonPanel; x: 800}
-				PropertyChanges {target: tachometer; x: 770; y: 450}
+				//PropertyChanges {target: tachometer; x: 770; y: 450}
 				//PropertyChanges {target: infoPanel; x: -240}
 				PropertyChanges {target: batteryPanel; anchors.bottomMargin: -56}
 			}
@@ -121,16 +121,16 @@ Item {
 						property: "x"
 						duration: 150
 					}
-					PropertyAnimation {
-						target: tachometer
-						property: "x"
-						duration: 150
-					}
-					PropertyAnimation {
-						target: tachometer
-						property: "y"
-						duration: 150
-					}
+					// PropertyAnimation {
+					// 	target: tachometer
+					// 	property: "x"
+					// 	duration: 150
+					// }
+					// PropertyAnimation {
+					// 	target: tachometer
+					// 	property: "y"
+					// 	duration: 150
+					// }
 					PropertyAnimation {
 						target: batteryPanel
 						property: "anchors.bottomMargin"
