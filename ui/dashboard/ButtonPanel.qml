@@ -3,14 +3,18 @@ import QtQuick
 import QtQuick.Controls
 import org.ekart.DashboardController 1.0
 
-Image {
-	readonly property int buttonSize: 65
-	readonly property int buttonRadius: 15
-	readonly property int outerMargin: 10
-	readonly property int innerMargin: 5
+Rectangle {
+    id: buttonPanel
+    readonly property int buttonSize: 65
+    readonly property int buttonRadius: 15
+    readonly property int outerMargin: 10
+    readonly property int innerMargin: 5
 
-	source: "../images/buttonpanel.png"
-	fillMode: Image.PreserveAspectFit
+    
+    width: 300
+    height: parent.height
+    color: "#444444"
+    anchors.centerIn: parent
 
 	//Lights Toggle
 	Button {
