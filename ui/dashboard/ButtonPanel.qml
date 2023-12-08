@@ -5,7 +5,7 @@ import org.ekart.DashboardController 1.0
 
 Rectangle {
     id: buttonPanel
-    readonly property int buttonSize: 25
+    readonly property int buttonSize: 65
     readonly property int buttonRadius: 15
     readonly property int outerMargin: 10
     readonly property int innerMargin: 5
