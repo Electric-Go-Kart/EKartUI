@@ -5,7 +5,7 @@ import org.ekart.DashboardController 1.0
 
 Rectangle {
     id: buttonPanel
-    readonly property int buttonSize: 65
+    readonly property int buttonSize: 80
     readonly property int buttonRadius: 15
     readonly property int outerMargin: 10
     readonly property int innerMargin: 5
@@ -20,7 +20,7 @@ Rectangle {
 	Button {
 		id: lights
 		text: "Lights"
-		 anchors.top: camera.bottom
+		anchors.top: camera.bottom
         anchors.right: parent.right
         anchors.topMargin: outerMargin
         anchors.rightMargin: outerMargin
@@ -136,8 +136,9 @@ Rectangle {
 		checked: DashboardController.locked
 		width: buttonSize
 		anchors.top: camera.bottom
-		anchors.left: shutdown.left
-		anchors.topMargin: innerMargin
+        anchors.right: parent.right
+        anchors.topMargin: outerMargin
+        anchors.rightMargin: outerMargin
 		font.family: "Haettenschweiler"
 		font.pixelSize: 22
 		hoverEnabled: false
