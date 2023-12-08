@@ -10,7 +10,6 @@ Button {
     text: "Close Camera"
     anchors.horizontalCenter: parent.horizontalCenter
     anchors.top: parent.top
-    anchors.topMargin: 10 // You can adjust this margin as needed
     font.family: "Haettenschweiler"
     font.pixelSize: 22
     hoverEnabled: false
