@@ -92,6 +92,7 @@ Rectangle {
 		id: reverse
 		width: buttonSize
 		anchors.centerIn: parent
+		anchors.verticalCenterOffset: -20
 		font.family: "Haettenschweiler"
 		font.pixelSize: 22
 		hoverEnabled: false
@@ -100,8 +101,6 @@ Rectangle {
 		background: Image {
 			source: "../images/arrow.png"
 			anchors.fill: parent
-			anchors.verticalCenter: parent.verticalCenter
-        	anchors.verticalCenterOffset: -50 
 			rotation: 180
 			fillMode: Image.PreserveAspectFit
 		}
@@ -111,6 +110,7 @@ Rectangle {
 		id: forward
 		width: buttonSize
 		anchors.centerIn: parent
+		anchors.verticalCenterOffset: 20
 		font.family: "Haettenschweiler"
 		font.pixelSize: 22
 		hoverEnabled: false
@@ -119,8 +119,6 @@ Rectangle {
 		background: Image {
 			source: "../images/arrow.png"
 			anchors.fill: parent
-			anchors.verticalCenter: parent.verticalCenter
-        	anchors.verticalCenterOffset: -50 
 			fillMode: Image.PreserveAspectFit
 		}
 	}
