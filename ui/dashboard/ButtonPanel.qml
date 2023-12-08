@@ -115,7 +115,7 @@ Rectangle {
 		id: forward
 		text: "Forward"
 		width: buttonSize
-		achors.centerIn: parent
+		anchors.centerIn: parent
 		font.family: "Haettenschweiler"
 		font.pixelSize: 22
 		hoverEnabled: false
