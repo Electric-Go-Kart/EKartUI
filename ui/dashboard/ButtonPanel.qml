@@ -46,12 +46,11 @@ Rectangle {
 	Button {
 		id: camera
 		text: "Camera"
+		width: buttonSize
 		anchors.top: parent.top
 		anchors.right: parent.right
 		anchors.left: lights.right
 		anchors.topMargin: outerMargin
-		anchors.rightMargin: outerMargin
-		anchors.leftMargin: innerMargin
 		font.family: "Haettenschweiler"
 		font.pixelSize: 22
 		hoverEnabled: false
@@ -69,10 +68,10 @@ Rectangle {
 	Button {
     id: shutdownButton
     text: "Shutdown"
+	width: buttonSize
     anchors.bottom: lock.bottom
     anchors.right: parent.right
     anchors.bottomMargin: outerMargin
-    anchors.rightMargin: outerMargin
     font.family: "Haettenschweiler"
     font.pixelSize: 22
     hoverEnabled: false
@@ -135,10 +134,10 @@ Rectangle {
 		id: lock
 		text: DashboardController.locked ? "Unlock" : "Lock"
 		checked: DashboardController.locked
+		width: buttonSize
 		anchors.top: camera.bottom
 		anchors.left: parent.left
 		anchors.topMargin: innerMargin
-		anchors.leftMargin: outerMargin
 		font.family: "Haettenschweiler"
 		font.pixelSize: 22
 		hoverEnabled: false
