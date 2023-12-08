@@ -19,14 +19,16 @@ Item {
 		id: closecamera
 		anchors.horizontalCenter: parent.horizontalCenter
 	}
-	//Button panel
-	ButtonPanel {
-		id: buttonPanel
-	}
+	
 
 	Background {
 		id: background
 		anchors.horizontalCenter: parent.horizontalCenter
+	}
+	
+	//Button panel
+	ButtonPanel {
+		id: buttonPanel
 	}
 
 	// CenterPanel {
