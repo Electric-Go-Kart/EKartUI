@@ -10,9 +10,10 @@ Item {
 	//Camera View
 	APDView {
 		id: apdView
-		anchors.horizontalCenter: parent
+		anchors.horizontalCenter: parent.horizontalCenter
+		implicitWidth: 640
+		implicitHeight: 480
 	}
-
 	//Button panel
 	ButtonPanel {
 		id: buttonPanel
@@ -23,16 +24,20 @@ Item {
 		anchors.horizontalCenter: parent.horizontalCenter
 	}
 
-	//CenterPanel {
-	//	id: centerpanel
-	//	anchors.horizontalCenter: parent.horizontalCenter
-	//}
+	CenterPanel {
+		id: centerpanel
+		anchors.horizontalCenter: parent.horizontalCenter
+	}
 
 	//Info panel
 	//InfoPanel {
 	//	id: infoPanel
 	//	anchors.verticalCenter: parent.verticalCenter
 	//}
+
+
+
+
 /*
 	//Regenerative braking panel
 	RegenPanel {
@@ -50,10 +55,9 @@ Item {
 	}
 
 	//Tachometer
-	//Tachometer {
-	//	id: tachometer
-	//}
-	
+	Tachometer {
+		id: tachometer
+	}
 	Needle {
 		id: needle
 		anchors.fill: parent.horizontalCenter
@@ -69,13 +73,13 @@ Item {
 				PropertyChanges {
 					target: apdView; opacity: 0
 				}
-				//PropertyChanges {
-				//	target: centerpanel
-				//	open: true
-				//	y: 0
-				//}
+				PropertyChanges {
+					target: centerpanel
+					open: true
+					y: 0
+				}
 				PropertyChanges {target: buttonPanel; x: 597}
-				//PropertyChanges {target: tachometer; x: 560; y: 253}
+				PropertyChanges {target: tachometer; x: 560; y: 253}
 				//PropertyChanges {target: infoPanel; x: 0}
 				PropertyChanges {target: batteryPanel; anchors.bottomMargin: 0}
 			},
@@ -84,13 +88,13 @@ Item {
 				PropertyChanges {
 					target: apdView; opacity: 1
 				}
-				//PropertyChanges {
-				//	target: centerpanel
-				//	open: false
-				//	y: -350
-				//}
+				PropertyChanges {
+					target: centerpanel
+					open: false
+					y: -350
+				}
 				PropertyChanges {target: buttonPanel; x: 800}
-				//PropertyChanges {target: tachometer; x: 770; y: 450}
+				PropertyChanges {target: tachometer; x: 770; y: 450}
 				//PropertyChanges {target: infoPanel; x: -240}
 				PropertyChanges {target: batteryPanel; anchors.bottomMargin: -56}
 			}
@@ -104,11 +108,11 @@ Item {
 						property: "opacity"
 						duration: 150
 					}
-					//PropertyAnimation {
-					//	target: centerpanel
-					//	property: "y"
-					//	duration: 150
-					//}
+					PropertyAnimation {
+						target: centerpanel
+						property: "y"
+						duration: 150
+					}
 					//PropertyAnimation {
 					//	target: infoPanel
 					//	property: "x"
@@ -119,16 +123,16 @@ Item {
 						property: "x"
 						duration: 150
 					}
-					// PropertyAnimation {
-					// 	target: tachometer
-					// 	property: "x"
-					// 	duration: 150
-					// }
-					// PropertyAnimation {
-					// 	target: tachometer
-					// 	property: "y"
-					// 	duration: 150
-					// }
+					PropertyAnimation {
+						target: tachometer
+						property: "x"
+						duration: 150
+					}
+					PropertyAnimation {
+						target: tachometer
+						property: "y"
+						duration: 150
+					}
 					PropertyAnimation {
 						target: batteryPanel
 						property: "anchors.bottomMargin"
