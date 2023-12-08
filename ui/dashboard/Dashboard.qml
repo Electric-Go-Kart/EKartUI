@@ -14,6 +14,11 @@ Item {
 		implicitWidth: 640
 		implicitHeight: 480
 	}
+
+	ClosedCam {
+		id: closecamera
+		anchors.horizontalCenter: parent.horizontalCenter
+	}
 	//Button panel
 	ButtonPanel {
 		id: buttonPanel
@@ -100,6 +105,7 @@ Item {
             	PropertyChanges {target: batteryPanel; visible: false}
             	//PropertyChanges {target: tachometer; visible: false}
 				PropertyChanges {target: needle; visible: false}
+				PropertyChanges {target: closecamera; visible: true}
 			}
 		]
 		

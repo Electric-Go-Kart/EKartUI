@@ -66,25 +66,6 @@ Rectangle {
 		}
 	}
 
-
-	Button {
-    	id: closeCameraButton
-    	text: "Close Camera"
-    	anchors.centerIn: parent
-		font.family: "Haettenschweiler"
-		font.pixelSize: 22
-    	visible: stateGroup.state === "camera" // Visible only in camera state
-    	onClicked: stateGroup.state = "default" // Set state back to default on click
-
-		background: Rectangle {
-			anchors.fill: parent
-			border.color: "#1a1a1a"
-			border.width: 4
-			radius: buttonRadius
-			color: parent.down ? "#c0c0c0" : "#f2f2f2"
-		}
-	}
-
 	Button {
     id: shutdownButton
     text: "Shutdown"
