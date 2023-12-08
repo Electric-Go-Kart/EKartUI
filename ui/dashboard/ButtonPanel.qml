@@ -69,7 +69,7 @@ Rectangle {
     id: shutdownButton
     text: "Shutdown"
 	width: buttonSize
-    anchors.bottom: lock.bottom
+    anchors.bottom: camera.bottom
     anchors.right: parent.right
     anchors.bottomMargin: outerMargin
     font.family: "Haettenschweiler"
@@ -135,6 +135,7 @@ Rectangle {
 		text: DashboardController.locked ? "Unlock" : "Lock"
 		checked: DashboardController.locked
 		width: buttonSize
+		anchors.top: camera.bottom
 		anchors.left: shutdown.left
 		anchors.topMargin: innerMargin
 		font.family: "Haettenschweiler"
