@@ -4,7 +4,7 @@ from PySide6.QtQml import QQmlApplicationEngine
 import lib.DashboardController
 import lib.APDView
 from PySide6.QtCore import QObject, Slot
-from gpioController import GPIOController
+from lib.gpioController import GPIOController
 	
 app = QGuiApplication([])
 engine = QQmlApplicationEngine()
