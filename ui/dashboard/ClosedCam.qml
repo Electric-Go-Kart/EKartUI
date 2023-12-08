@@ -8,8 +8,6 @@ import org.ekart.DashboardController 1.0
 Button {
     id: closecamera
     text: "Close Camera"
-    width: 400
-    height: 150
     anchors.horizontalCenter: parent.horizontalCenter
     anchors.top: parent.top
     anchors.topMargin: 10 // You can adjust this margin as needed
