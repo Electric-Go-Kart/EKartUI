@@ -101,7 +101,7 @@ Rectangle {
 			source: "../images/arrow.png"
 			anchors.fill: parent
 			anchors.verticalCenter: parent.verticalCenter
-        	anchors.verticalCenterOffset: 50 
+        	anchors.verticalCenterOffset: -50 
 			rotation: 180
 			fillMode: Image.PreserveAspectFit
 		}
