@@ -115,22 +115,16 @@ Rectangle {
 		id: forward
 		text: "Forward"
 		width: buttonSize
-		anchors.top: parent.top
-        anchors.left: reverse.right
-        anchors.topMargin: outerMargin
-        anchors.rightMargin: outerMargin
+		achors.centerIn: parent
 		font.family: "Haettenschweiler"
 		font.pixelSize: 22
 		hoverEnabled: false
 		onClicked: gpioController.setHigh()
 
-		background: Rectangle {
-			implicitWidth: buttonSize
-			implicitHeight: buttonSize
-			border.color: "#1a1a1a"
-			border.width: 4
-			radius: buttonRadius
-			color: parent.down ? "#c0c0c0" : "#f2f2f2"
+		background: Image {
+			source: "images/arrow.png"
+			anchors.fill: parent
+			fillMode: Image.PreserveAspectFit
 		}
 	}
 
