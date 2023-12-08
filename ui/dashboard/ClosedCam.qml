@@ -3,12 +3,15 @@ import QtQuick
 import QtQuick.Controls
 import org.ekart.DashboardController 1.0
 
+
+
 Button {
 		id: closecamera
 		text: "Close Camera"
-		width: 80
-        height: 80
+		width: 150
+        height: 150
         anchors.verticalCenter: parent.verticalCenter
+        anchors.top: parent.top
 		font.family: "Haettenschweiler"
 		font.pixelSize: 22
 		hoverEnabled: false
