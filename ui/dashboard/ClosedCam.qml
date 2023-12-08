@@ -8,7 +8,7 @@ import org.ekart.DashboardController 1.0
 Button {
     id: closecamera
     text: "Close Camera"
-    width: 150
+    width: 400
     height: 150
     anchors.horizontalCenter: parent.horizontalCenter
     anchors.top: parent.top
@@ -19,7 +19,7 @@ Button {
     onClicked: stateGroup.state = "default"
 
     background: Rectangle {
-        implicitWidth: 150
+        implicitWidth: 400
         implicitHeight: 150
         border.color: "#1a1a1a"
         border.width: 4
