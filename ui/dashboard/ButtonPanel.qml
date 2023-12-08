@@ -20,10 +20,10 @@ Rectangle {
 	Button {
 		id: lights
 		text: "Lights"
-		anchors.top: parent.top
-		anchors.left: camera.left
-		anchors.topMargin: outerMargin
-		anchors.leftMargin: outerMargin
+		 anchors.top: camera.bottom
+        anchors.right: parent.right
+        anchors.topMargin: outerMargin
+        anchors.rightMargin: outerMargin
 		font.family: "Haettenschweiler"
 		font.pixelSize: 22
 		hoverEnabled: false
@@ -48,8 +48,9 @@ Rectangle {
 		text: "Camera"
 		width: buttonSize
 		anchors.top: parent.top
-		anchors.right: parent.right
-		anchors.topMargin: outerMargin
+        anchors.right: parent.right
+        anchors.topMargin: outerMargin
+        anchors.rightMargin: outerMargin
 		font.family: "Haettenschweiler"
 		font.pixelSize: 22
 		hoverEnabled: false
@@ -69,9 +70,10 @@ Rectangle {
     id: shutdownButton
     text: "Shutdown"
 	width: buttonSize
-    anchors.bottom: camera.bottom
-    anchors.right: parent.right
-    anchors.bottomMargin: outerMargin
+    anchors.top: parent.top
+    anchors.right: camera.left
+    anchors.topMargin: outerMargin
+    anchors.rightMargin: outerMargin
     font.family: "Haettenschweiler"
     font.pixelSize: 22
     hoverEnabled: false
@@ -106,11 +108,9 @@ Rectangle {
 	Button {
 		id: settings
 		text: "Info"
-		anchors.top: camera.bottom
-		anchors.right: parent.right
-		anchors.topMargin: innerMargin
-		anchors.rightMargin: outerMargin
-		anchors.leftMargin: outerMargin
+		anchors.top: shutdownButton.bottom
+        anchors.right: shutdownButton.right
+        anchors.topMargin: outerMargin
 		implicitWidth: DashboardController.parked ? buttonSize : 183
 		implicitHeight: buttonSize
 		font.family: "Haettenschweiler"
