@@ -18,7 +18,7 @@ Button {
 
     background: Image {
         id: background
-        source: "../images/centerpanel.png"
+        source: "../images/closeCam.png"
         fillMode: Image.PreserveAspectFit
     }
 }
