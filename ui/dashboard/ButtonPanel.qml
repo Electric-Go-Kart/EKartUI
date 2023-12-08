@@ -89,7 +89,7 @@ Rectangle {
 	}
 
 	Button {
-		id: forward
+		id: reverse
 		width: buttonSize
 		anchors.centerIn: parent
 		font.family: "Haettenschweiler"
