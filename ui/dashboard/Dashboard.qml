@@ -70,7 +70,7 @@ Item {
 			State {
 				name: "default"
 				PropertyChanges {
-					target: apdView; opacity: 0
+					target: apdView
 				}
 				//PropertyChanges {
 				//	target: centerpanel
