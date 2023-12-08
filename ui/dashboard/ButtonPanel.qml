@@ -143,8 +143,8 @@ Rectangle {
 	Button {
 		id: settings
 		text: "Info"
-		anchors.top: shutdownButton.bottom
-        anchors.right: shutdownButton.right
+		anchors.top: parent.top
+        anchors.left: parent.left
         anchors.topMargin: outerMargin
 		implicitWidth: DashboardController.parked ? buttonSize : 183
 		implicitHeight: buttonSize
@@ -170,8 +170,8 @@ Rectangle {
 		text: DashboardController.locked ? "Unlock" : "Lock"
 		checked: DashboardController.locked
 		width: buttonSize
-		anchors.top: camera.bottom
-        anchors.right: parent.right
+		anchors.top: parent.top
+        anchors.left: parent.left
         anchors.topMargin: outerMargin
         anchors.rightMargin: outerMargin
 		font.family: "Haettenschweiler"
