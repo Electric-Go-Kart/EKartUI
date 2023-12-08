@@ -122,7 +122,7 @@ Rectangle {
 		onClicked: gpioController.setHigh()
 
 		background: Image {
-			source: "images/arrow.png"
+			source: "../images/arrow.png"
 			anchors.fill: parent
 			fillMode: Image.PreserveAspectFit
 		}
