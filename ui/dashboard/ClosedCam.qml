@@ -18,11 +18,11 @@ Button {
 		onClicked: stateGroup.state = "default"
 
 		background: Rectangle {
-			implicitWidth: buttonSize
-			implicitHeight: buttonSize
+			implicitWidth: 150
+			implicitHeight: 150
 			border.color: "#1a1a1a"
 			border.width: 4
-			radius: buttonRadius
+			radius: 15
 			color: parent.down ? "#c0c0c0" : "#f2f2f2"
 	}
 }
