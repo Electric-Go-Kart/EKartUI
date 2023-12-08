@@ -71,11 +71,11 @@ Item {
 				PropertyChanges {
 					target: apdView; opacity: 0
 				}
-				PropertyChanges {
-					target: centerpanel
-					open: true
-					y: 0
-				}
+				//PropertyChanges {
+				//	target: centerpanel
+				//	open: true
+				//	y: 0
+				//}
 				PropertyChanges {target: buttonPanel; x: 597}
 				//PropertyChanges {target: tachometer; x: 560; y: 253}
 				//PropertyChanges {target: infoPanel; x: 0}
@@ -86,11 +86,11 @@ Item {
 				PropertyChanges {
 					target: apdView; opacity: 1
 				}
-				PropertyChanges {
-					target: centerpanel
-					open: false
-					y: -350
-				}
+				//PropertyChanges {
+				//	target: centerpanel
+				//	open: false
+				//	y: -350
+				//}
 				PropertyChanges {target: buttonPanel; x: 800}
 				//PropertyChanges {target: tachometer; x: 770; y: 450}
 				//PropertyChanges {target: infoPanel; x: -240}

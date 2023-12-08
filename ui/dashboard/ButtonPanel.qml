@@ -11,7 +11,7 @@ Rectangle {
     readonly property int innerMargin: 5
 
     
-    width: 800
+    width: 790
     height: parent.height
     color: "#444444"
     anchors.centerIn: parent
@@ -69,7 +69,7 @@ Rectangle {
 	Button {
     id: shutdownButton
     text: "Shutdown"
-    anchors.bottom: settings.bottom
+    anchors.bottom: lock.bottom
     anchors.right: parent.right
     anchors.bottomMargin: outerMargin
     anchors.rightMargin: outerMargin
