@@ -98,9 +98,11 @@ Item {
                 	x: parent.width 
                 
             	}
-				PropertyChanges {target: tachometer; x: 770; y: 450}
-				//PropertyChanges {target: infoPanel; x: -240}
-				PropertyChanges {target: batteryPanel; anchors.bottomMargin: -56}
+				PropertyChanges {target: buttonPanel; visible: false}
+            	PropertyChanges {target: background; visible: false}
+            	PropertyChanges {target: centerpanel; visible: false}
+            	PropertyChanges {target: batteryPanel; visible: false}
+            	PropertyChanges {target: tachometer; visible: false}
 			}
 		]
 		
