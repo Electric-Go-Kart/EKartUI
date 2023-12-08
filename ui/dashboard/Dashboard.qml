@@ -29,10 +29,10 @@ Item {
 		anchors.horizontalCenter: parent.horizontalCenter
 	}
 
-	CenterPanel {
-		id: centerpanel
-		anchors.horizontalCenter: parent.horizontalCenter
-	}
+	// CenterPanel {
+	// 	id: centerpanel
+	// 	anchors.horizontalCenter: parent.horizontalCenter
+	// }
 
 	//Info panel
 	//InfoPanel {
@@ -59,10 +59,10 @@ Item {
 		anchors.bottom: parent.bottom
 	}
 
-	//Tachometer
-	Tachometer {
-		id: tachometer
-	}
+	// //Tachometer
+	// Tachometer {
+	// 	id: tachometer
+	// }
 	Needle {
 		id: needle
 		anchors.fill: parent.horizontalCenter
@@ -93,11 +93,11 @@ Item {
 				PropertyChanges {
 					target: apdView; opacity: 1
 				}
-				 PropertyChanges {
-				 	target: centerpanel
-				 	open: false
-				 	y: -350
-				 }
+				//  PropertyChanges {
+				//  	target: centerpanel
+				//  	open: false
+				//  	y: -350
+				//  }
 
 				PropertyChanges {target: buttonPanel; visible: false}
             	PropertyChanges {target: background; visible: false}

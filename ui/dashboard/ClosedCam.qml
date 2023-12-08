@@ -6,11 +6,9 @@ import org.ekart.DashboardController 1.0
 Button {
 		id: closecamera
 		text: "Close Camera"
-		width: buttonSize
-		anchors.top: parent.top
-        anchors.right: parent.right
-        anchors.topMargin: outerMargin
-        anchors.rightMargin: outerMargin
+		width: 80
+        height: 80
+        anchors.verticalCenter: parent.verticalCenter
 		font.family: "Haettenschweiler"
 		font.pixelSize: 22
 		hoverEnabled: false
