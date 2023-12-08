@@ -23,9 +23,5 @@ Button {
         source: "../images/batteryPanel.png"
         implicitWidth: 400
         implicitHeight: 150
-        border.color: "#1a1a1a"
-        border.width: 4
-        radius: 15
-        color: parent.down ? "#c0c0c0" : "#f2f2f2"
     }
 }
