@@ -13,7 +13,7 @@ Rectangle {
     
     width: 790
     height: parent.height
-    color: "#444444"
+    color: "#44444400"
     anchors.centerIn: parent
 
 	//Lights Toggle
