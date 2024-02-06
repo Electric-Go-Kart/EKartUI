@@ -9,7 +9,7 @@ pip install -r requirements.txt
 ```
 3. Run the EKartUI
 ```bash
-python3 main.py
+./start_ui.sh
 ```
 If you are in a virtual environment, install:
 ```bash
