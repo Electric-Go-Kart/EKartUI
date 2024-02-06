@@ -3,36 +3,35 @@ from multiprocessing.shared_memory import SharedMemory
 
 # CAMs note: This is running candump and looking at can version -can0. "can0" is not refering to master or slave ESC ID 
 print("first")
-process = subprocess.Popen(['candump', 'can0', '-L'], stdout=subprocess.PIPE, universal_newlines=True)
-rpm_shm = SharedMemory(name="rpm", create=True, size=32)
-rpm_buffer = rpm_shm.buf
-temp_rpm = 0
-rpm_buffer[:] = temp_rpm.to_bytes(32, byteorder='big')
+# Edit to vcan0 or can0
+if input("Would you like to use vcan0? (ensure that vcan-run.sh is running as a background process) (y/n): ") == "y":
+	process = subprocess.Popen(['candump', 'vcan0', '-L'], stdout=subprocess.PIPE, universal_newlines=True)
+else:
+	process = subprocess.Popen(['candump', 'can0', '-L'], stdout=subprocess.PIPE, universal_newlines=True)
+# Check to see if shared memory is already created
+if SharedMemory._posix_ipc_shared_memory is None:
+	# Create shared memory
+	rpm_shm = SharedMemory(name="rpm", create=True, size=32)
+	rpm_buffer = rpm_shm.buf
+	temp_rpm = 0
+	rpm_buffer[:] = temp_rpm.to_bytes(32, byteorder='big')
 
-print("second")
-current_shm = SharedMemory(name="current", create=True, size=16)
-current_buffer = current_shm.buf
-temp_current = 0
-current_buffer[:4] = temp_current.to_bytes(4, byteorder='big')
+	current_shm = SharedMemory(name="current", create=True, size=16)
+	current_buffer = current_shm.buf
+	temp_current = 0
+	current_buffer[:4] = temp_current.to_bytes(4, byteorder='big')
 
-print("third")
-watt_hr_shm = SharedMemory(name="watt_hr", create=True, size=16)
-watt_hr_buffer = watt_hr_shm.buf
-temp_watt_hr = 0
-watt_hr_buffer[:4] = temp_watt_hr.to_bytes(4,byteorder='big')
-
-print("good")
-Iterations = 10000
-NUM_ITERATIONS = Iterations
-KNOWN_CAN_IDS = []
-CAN_UNSORTED = ""
+	watt_hr_shm = SharedMemory(name="watt_hr", create=True, size=16)
+	watt_hr_buffer = watt_hr_shm.buf
+	temp_watt_hr = 0
+	watt_hr_buffer[:4] = temp_watt_hr.to_bytes(4,byteorder='big')
 
 print("Entering Loop: ")
 
 while True:
 	# while statement is blocked until there is a new line to read
 	output = process.stdout.readline()
-	#print(output.strip())
+	print(output.strip())
 	
 	timestamp, interface, data = output = output.strip().split(" ",2)
 	can_id, raw_data = data.split("#",1)
