@@ -2,7 +2,7 @@ import sys
 from PySide6.QtGui import QGuiApplication, QFontDatabase
 from PySide6.QtQml import QQmlApplicationEngine
 import lib.controllers.DashboardController
-import lib.APDView
+import lib.controllers.APDView
 	
 app = QGuiApplication([])
 engine = QQmlApplicationEngine()
