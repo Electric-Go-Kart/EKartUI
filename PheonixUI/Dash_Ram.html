@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en-US" class="no-js">
+<head>
+	<link rel="manifest" href="https://brand.colostate.edu/wp-content/themes/csu-theme/manifest.json">
+	<script>
+		// registering service worker
+		if ('serviceWorker' in navigator) {  
+			navigator.serviceWorker.register('https://brand.colostate.edu/wp-content/themes/csu-theme/sw.js', {scope: "/"})
+			.then(function (registration) {    // Registration was successful                 
+				console.log('ServiceWorker registration successful with scope: ', registration.scope);  
+			})
+			.catch(function (err) {    // registration failed :(           
+				console.log('ServiceWorker registration failed: ', err);  
+			});
+		}
+	</script>
+
+	<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);if (typeof console == "undefined") { this.console = {log: function() {}};};var isIE11 = !!(navigator.userAgent.match(/Trident/) && navigator.userAgent.match(/rv[ :]11/));</script>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<script type="text/javascript">
+/* <![CDATA[ */
+ var gform;gform||(document.addEventListener("gform_main_scripts_loaded",function(){gform.scriptsLoaded=!0}),window.addEventListener("DOMContentLoaded",function(){gform.domLoaded=!0}),gform={domLoaded:!1,scriptsLoaded:!1,initializeOnLoaded:function(o){gform.domLoaded&&gform.scriptsLoaded?o():!gform.domLoaded&&gform.scriptsLoaded?window.addEventListener("DOMContentLoaded",o):document.addEventListener("gform_main_scripts_loaded",o)},hooks:{action:{},filter:{}},addAction:function(o,n,r,t){gform.addHook("action",o,n,r,t)},addFilter:function(o,n,r,t){gform.addHook("filter",o,n,r,t)},doAction:function(o){gform.doHook("action",o,arguments)},applyFilters:function(o){return gform.doHook("filter",o,arguments)},removeAction:function(o,n){gform.removeHook("action",o,n)},removeFilter:function(o,n,r){gform.removeHook("filter",o,n,r)},addHook:function(o,n,r,t,i){null==gform.hooks[o][n]&&(gform.hooks[o][n]=[]);var e=gform.hooks[o][n];null==i&&(i=n+"_"+e.length),gform.hooks[o][n].push({tag:i,callable:r,priority:t=null==t?10:t})},doHook:function(n,o,r){var t;if(r=Array.prototype.slice.call(r,1),null!=gform.hooks[n][o]&&((o=gform.hooks[n][o]).sort(function(o,n){return o.priority-n.priority}),o.forEach(function(o){"function"!=typeof(t=o.callable)&&(t=window[t]),"action"==n?t.apply(null,r):r[0]=t.apply(null,r)})),"filter"==n)return r[0]},removeHook:function(o,n,t,i){var r;null!=gform.hooks[o][n]&&(r=(r=gform.hooks[o][n]).filter(function(o,n,r){return!!(null!=i&&i!=o.tag||null!=t&&t!=o.priority)}),gform.hooks[o][n]=r)}}); 
+/* ]]> */
+</script>
+
+
+	<link rel="shortcut icon" type="image/x-icon" href="https://brand.colostate.edu/wp-content/themes/csu-theme/favicon.png" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+	<script>
+	//enterDom
+	!function(e){"use strict";var t,n=[],r=e.document,o=e.MutationObserver||e.WebKitMutationObserver;function c(){for(var e,t,o=0,c=n.length;o<c;o++){e=n[o];for(var l,u=0,i=(t=r.querySelectorAll(e.selector)).length;u<i;u++)(l=t[u]).enterDom||(l.enterDom=!0,e.fn.call(l,l))}}e.enterDom=function(e,l){n.push({selector:e,fn:l}),t||(t=new o(c)).observe(r.documentElement,{childList:!0,subtree:!0}),c()}}(window);
+
+	//add class to links that only contain images
+	enterDom('a > img', function(el) {
+		el.parentElement.classList.add('imagelink');
+	});
+	</script>
+	
+	<!-- Google Tag Manager (roll-up) -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-NXMZ4TD');</script>
+	<!-- End Google Tag Manager -->
+	
+	<link rel="https://static.colostate.edu/logo/reslogo-v2/assets/img/csu-responsive-symbol.min.svg" as="image" crossorigin="crossorigin"/>
+
+	<style>
+		/*.brandbar {height:64px;}*/
+		.vc_single_image-wrapper {display:inline !important;}
+	</style>
+	<style id="critical">
+	.container{position:relative;margin-left:auto;margin-right:auto;padding-right:16px;padding-left:16px}@media(min-width: 769px){.container{width:736px;max-width:100%}}@media(min-width: 993px){.container{width:960px;max-width:100%}}@media(min-width: 1201px){.container{width:1168px;max-width:100%}}@media(min-width: 1401px){.container{width:1368px;max-width:100%}}.container-fluid{position:relative;margin-left:auto;margin-right:auto;padding-right:16px;padding-left:16px}.row{display:flex;flex-wrap:wrap;margin-right:-16px;margin-left:-16px}.no-gutters{margin-right:0;margin-left:0}.no-gutters>.col,.no-gutters>[class*=col-]{padding-right:0;padding-left:0}:root{--scrollwidth: 0px}*,*:before,*:after{box-sizing:border-box}html{overflow-x:hidden}body{margin:0;color:#6c6c6c;background-color:#f4f4f4;font-family:sans-serif}.no-js body{font-family:prox-regular,sans-serif}.fonts-loaded body{font-family:prox-regular,sans-serif}.hide{display:none}.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);border:0}h1,h2,h3,h4,h5,h6,ul,ol,dl,blockquote,p,address,table,fieldset,figure,pre{margin-top:0;margin-bottom:1.8rem}main.main li ul,main.main li ol{margin-bottom:0}h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{font-family:sans-serif;font-weight:300;line-height:1.1;color:#196f43}.no-js h1,.no-js h2,.no-js h3,.no-js h4,.no-js h5,.no-js h6,.no-js .h1,.no-js .h2,.no-js .h3,.no-js .h4,.no-js .h5,.no-js .h6{font-family:"Lato",sans-serif}.fonts-loaded h1,.fonts-loaded h2,.fonts-loaded h3,.fonts-loaded h4,.fonts-loaded h5,.fonts-loaded h6,.fonts-loaded .h1,.fonts-loaded .h2,.fonts-loaded .h3,.fonts-loaded .h4,.fonts-loaded .h5,.fonts-loaded .h6{font-family:"Lato",sans-serif}a{color:#2c723f}a:hover{color:#bab34d}main.main.col-sm-12>.page-header:first-child,main.main.col-sm-8,aside>div.sidebar-content{padding-top:15px}header#mainheader{position:relative;z-index:1}div#maincontent{position:relative;z-index:0}.nav-component{min-height:50px;background:#1e4d2b;width:100%}.nav-container{margin:0 auto;position:relative;display:flex;justify-content:space-between;flex-wrap:wrap}.nav-container.reverse{flex-direction:row-reverse}@media(min-width: 768px){.nav-container{flex-wrap:initial}}.nav-brand{line-height:50px;text-transform:uppercase;font-size:1.4em;margin-right:16px;margin-left:16px;order:1}.nav-brand a{color:#9dc5b4;text-decoration:none}@media(min-width: 768px){.nav-brand{margin-left:0}}body.touching .nav-container a:hover:before,body.touching .nav-container a:hover:after{content:initial !important}.nav-container .generated-link{display:none}@media screen and (min-width: 768px)and (-ms-high-contrast: active),(min-width: 768px)and (-ms-high-contrast: none){.nav-container ul ul{display:block !important;height:0;overflow:hidden !important}.nav-container ul ul.active{overflow:visible !important;height:auto !important}.nav-container ul ul li{display:block !important}}@media(min-width: 768px){.nav-container .generated-link{display:initial}}@media screen and (min-width: 768px)and (-ms-high-contrast: active),(min-width: 768px)and (-ms-high-contrast: none){.nav-container .generated-link{display:block}}.nav-container b.dropdown-icon{display:inline-block;width:0;height:0;margin-left:2px;vertical-align:middle;border-top:4px solid;border-right:4px solid rgba(0,0,0,0);border-left:4px solid rgba(0,0,0,0)}.nav-container ul li a{white-space:nowrap}.nav-container nav{order:3;width:100%}.nav-container nav>ul{display:flex;flex-direction:column;position:relative;max-height:0px;overflow:hidden}.nav-container nav>ul li a{padding:15px;line-height:20px}.nav-container nav>ul li ul li a{padding-left:30px}@media(max-width: 767px){.nav-container nav>ul.active{display:flex;max-height:800px;overflow:auto;height:auto}}.nav-container nav ul{list-style-type:none;margin:0;padding:0;transition:all .5s cubic-bezier(0.6, 0.07, 0.28, 0.98)}.nav-container nav ul.inactive{transition:none}.nav-container nav ul li{position:relative}.nav-container nav ul li a{display:block;padding:0 20px;line-height:50px;background:#1e4d2b;color:#9dc5b4;text-decoration:none}.nav-container nav ul li a:hover{background:rgba(0,0,0,0);color:#ddebe5}.nav-container nav ul li ul.active{background:#fff;display:block}.nav-container nav ul li ul li{width:100%}.nav-container nav ul li ul a{padding:15px;line-height:20px}@media(min-width: 768px){.nav-container nav{width:auto}.nav-container nav ul{flex-direction:row;flex-wrap:wrap;max-height:initial;overflow:initial}}@media screen and (min-width: 768px)and (-ms-high-contrast: active),(min-width: 768px)and (-ms-high-contrast: none){.nav-container nav ul{max-height:auto;overflow:visible}}.nav-dropdown{z-index:1;position:static}@media(min-width: 768px){.nav-dropdown{display:none;position:absolute;box-shadow:0 3px 12px rgba(0,0,0,.15)}.nav-dropdown li{min-width:190px}}.nav-toggle-container{display:flex;align-items:center;justify-content:center;background:#1e4d2b;height:50px;width:50px;order:2}.nav-toggle-container:first-child{margin-left:auto}@media(min-width: 768px){.nav-toggle-container{display:none}}.c-hamburger{display:block;position:relative;overflow:hidden;margin:0;padding:0;width:40px;height:32px;font-size:0;text-indent:-9999px;box-shadow:none;border-radius:0;border:none;cursor:pointer;transition:background .3s;background:rgba(255,255,255,.15);border-radius:3px}.c-hamburger span{cursor:pointer;display:block;position:absolute;top:calc(50% - 2px);left:0px;right:0px;height:2px;background:#fff;transition:background 0s .3s;margin:1px 6px}.c-hamburger span:before,.c-hamburger span:after{position:absolute;display:block;left:0;width:100%;height:2px;background-color:#fff;content:"";transition-duration:.3s,.3s;transition-delay:.3s,0s}.c-hamburger span:before{transition-property:top,transform;top:calc(-400% + 1px)}.c-hamburger span:after{transition-property:bottom,transform;bottom:calc(-400% + 1px)}.nav-toggle.active span{background-color:rgba(0,0,0,0)}.nav-toggle.active span:before{top:0;transform:rotate(45deg);transition-delay:0s,.3s}.nav-toggle.active span:after{bottom:0;transform:rotate(-45deg);transition-delay:0s,.3s}.nav-container{font-weight:300}.nav-container nav ul.nav-dropdown li a{font-weight:normal;font-size:.9em;background:#fff;color:#1e4d2b}.nav-container nav ul.nav-dropdown li a:hover{color:#2c723f;background-color:#eee}body.mobile .nav-container nav ul li:not(:last-child) a{border-bottom:1px solid #255f35}body.mobile .nav-container nav>ul li a{background-color:#215430}body.mobile .nav-container nav ul.nav-dropdown a{color:#ddebe5;background-color:#215430;font:inherit;position:relative}body.mobile .nav-container nav ul.nav-dropdown a:hover:after,body.mobile .nav-container nav ul.nav-dropdown a:focus:after{content:"";position:absolute;left:8px;right:8px;display:block;height:2px;border-bottom:2px solid #c8c372;top:80%}body.mobile .nav-container nav ul li.nav-dropdown-item b{display:none}.nav-container nav>ul>li{font-size:1.1em}.nav-container nav>ul>li>a{position:relative}.nav-container nav>ul>li>a:hover:after,.nav-container nav>ul>li>a:focus:after{content:"";position:absolute;left:8px;right:8px;display:block;height:2px;border-bottom:2px solid #c8c372;top:80%}.input-group{display:flex}.topbar{width:auto;background:#284c3a;min-height:35px}.topbar .search{width:200px;display:inline-block;float:left}.topbar .search form{padding:0px;margin:0px}.topbar .search form label{display:none}.topbar .search form .form-control,.topbar .search form .btn{height:35px;border:0px}.topbar .search form .form-control{background:rgba(156,156,156,.3);color:#e8e8e8 !important;font-size:12px}.topbar .search form .btn{width:39px;background:#4c695a;color:rgba(255,255,255,.3);font-size:22px;border-right:1px solid #102f1f;border-left:1px solid #102f1f;padding:0px}.topbar .search form .btn:hover{color:#fff;background:#4c695a}.titlebar{background:#143828;padding:10px 0px;min-height:74px}.titlebar .row{position:relative}.title{float:left}@media all and (-ms-high-contrast: none),(-ms-high-contrast: active){.brandbar svg{height:50px !important}}.brandbar{background:#1e4d2b;min-height:68px}.brandbar .row{display:flex;flex-wrap:wrap;justify-content:space-between}.brandbar .row:before,.brandbar .row:after{content:none}.brandbar .row div.signature{padding-left:5px;padding-top:5px;padding-bottom:5px;width:auto}@media(max-width: 767px){.brandbar .row div.signature{width:100%;flex:initial}}.brandbar div.social{display:flex}@media(max-width: 767px){.brandbar div.social{flex:initial;height:0px;position:relative;z-index:450}.brandbar div.social ul{transform:scale(0.7);transform-origin:left top;position:relative;left:10px;top:12px}}.brandbar div.social p{font-family:sans-serif}.no-js .brandbar div.social p{font-family:factoria-book,sans-serif}.fonts-loaded .brandbar div.social p{font-family:factoria-book,sans-serif}.brandbar div.social ul{display:flex;list-style-type:none;padding:0px;margin:0px}.brandbar div.social ul li{padding:0px;margin:0px;display:block;height:35px;width:35px;border-right:1px solid #102f1f;margin-right:1px}.brandbar div.social ul li a{display:block;text-align:center;line-height:35px;font-size:1.5em;width:35px;background:rgba(255,255,255,.2);color:rgba(255,255,255,.4)}.brandbar div.social ul li a:hover{color:#fff;background:rgba(255,255,255,.4)}.brandbar div.subhead{background:#286739}.brandbar div.subhead p{margin-left:-9px;margin-top:0px;padding-top:2px;margin-bottom:0px;color:#b9dbc2;font-family:sans-serif;font-weight:300;letter-spacing:1.5px}.no-js .brandbar div.subhead p{font-family:"factoria-book",sans-serif}.fonts-loaded .brandbar div.subhead p{font-family:"factoria-book",sans-serif}.brandbar div.subhead p:empty{display:none}.top-navbar{background:#1e4d2b}div.azList{height:35px;background:#c8c372}div.azList .row{position:relative}div.azList p{float:left;margin:0px;display:block;color:#fff;line-height:35px;padding-right:10px;font-size:1.1em;font-weight:300}div.azList ul{list-style:none;margin:0px;padding:0px;float:left;display:block;letter-spacing:0px;word-spacing:-3px;white-space:nowrap}div.azList ul li{display:inline-block;margin:0px;text-transform:lowercase;font-size:1.1em;font-weight:300}div.azList a{color:#1e4d2b;text-decoration:none;position:relative;line-height:35px;display:inline-block;height:35px;padding:0px 6px}div.azList a:hover{top:-5px;position:relative;z-index:1}div.azList a:hover:after{content:"";display:block;background:rgba(116,112,45,.6);position:absolute;top:5px;left:0px;bottom:-5px;right:0px;z-index:-1}div.azList .search{position:absolute;top:0px;right:0px;width:250px}@media(max-width: 991px){div.azList .search{width:140px}}div.azList .search label{display:none}div.azList .search .form-control{background:#dddaa9;color:#868134;font-size:12px;border-color:#99933b;border-width:0px 1px;width:100%;padding-left:10px}div.azList .search .btn{display:block;background-color:#bab34d;border:none;border:none;padding:0px;height:35px;width:40px;color:#1e4d2b}div.azList .search .btn:hover{background-color:#aba543;z-index:auto}@media(max-width: 767px){div.azList{display:none}}.sidebar .dropdown-menu{position:static;top:initial;display:block;float:none;min-width:auto;padding:0;margin:0;background-color:rgba(0,0,0,0);border:none;box-shadow:none}.sidebar .dropdown-menu a{padding-left:45px}.sidebar .dropdown-menu a:hover{color:#aa974d}.sidebar .dropdown-menu .active a{background-color:inherit;color:inherit}.sidebar .dropdown-menu .active a:hover{color:#aa974d;background:rgba(0,0,0,.1)}.sidebar.sidebar-left .sidebar-content:after{left:initial;right:-16px}.sidebar-content{margin-bottom:15px;position:relative}@media(min-width: 768px){.sidebar-content:after{content:"";display:block;position:absolute;width:0px;left:-16px;top:10px;bottom:0px;border-left:1px solid rgba(59,150,84,.7);z-index:0}.sidebar-content section:first-child h3{padding-top:0px}}.sidebar-content h3{margin:0px;padding:10px 5px 10px 5px;font-size:1.6em;font-family:sans-serif;letter-spacing:.05em}.no-js .sidebar-content h3{font-family:factoria-book,sans-serif}.fonts-loaded .sidebar-content h3{font-family:factoria-book,sans-serif}.sidebar-content ul{list-style:none;margin:0px;padding:0px}.sidebar-content ul.nav-dropdown{box-shadow:none;display:block;position:static;padding-left:20px}.sidebar-content li{margin:0px;padding:0px}.sidebar-content li a{padding:5px 10px 5px 15px;text-decoration:none;display:block;transition:background .3s}.sidebar-content li a:hover{background:rgba(0,0,0,.1);text-decoration:none}@media(min-width: 769px){main.main,aside.sidebar{padding-right:16px;padding-left:16px}main.main.col-sm-8{flex:0 0 66.66667%;max-width:66.66667%}main.main.col-sm-8.sidebar-left{order:2}aside.sidebar.col-sm-4{flex:0 0 33.33333%;max-width:33.33333%}aside.sidebar.col-sm-4.sidebar-left{order:1}}@media(min-width: 1401px){aside.sidebar.col-sm-4{flex:0 0 28%;max-width:28%}main.main.col-sm-8{flex:0 0 72%;max-width:72%}}[class*=vc_col-]{padding-left:15px;padding-right:15px}.vc_row{margin-left:-15px;margin-right:-15px}.elementor-section-stretched{margin-left:calc(0px - (50vw - 50%) + var(--scrollwidth)/2);margin-right:calc(0px - (50vw - 50%) + var(--scrollwidth)/2);width:calc(100vw - var(--scrollwidth)) !important}#BrandLogo{display:inline-flex;line-height:0}#BrandLogo .fontLarge{font-size:19px}div#responsiveLogo{box-sizing:border-box;display:inherit;align-self:stretch;align-items:center;width:124px;min-width:124px}div#responsiveLogo *{box-sizing:border-box}@media screen and (min-width: 600px){div#responsiveLogo{width:187px;min-width:187px}}@media screen and (min-width: 800px){div#responsiveLogo{width:384px;min-width:384px}}div#responsiveLogo h1{padding:5px 0px 5px 0px;margin:0;display:block;overflow-x:hidden;width:100%}div#responsiveLogo [id=svgsignature]{height:45px;text-align:center;display:block}#responsiveLogoSubsytem{display:inherit;align-self:stretch;align-items:center;margin:8px 0;padding-left:32px;position:relative}#responsiveLogoSubsytem:before{content:"";display:block;position:absolute;top:0;left:0;bottom:0;right:0;border-left:2px solid #fff;margin-left:15px;z-index:0}#responsiveLogoSubsytem p,#responsiveLogoSubsytem h2{font-family:"prox-light",sans-serif !important;color:#fff !important;margin:0px;letter-spacing:.11em;line-height:1.1em;font-size:14px;font-weight:100;text-transform:uppercase;position:relative;z-index:1}#responsiveLogoSubsytem p a,#responsiveLogoSubsytem h2 a{color:inherit;text-decoration:none}.notification-bar__message{background:#323c34;padding:.25rem;border:1px solid rgba(255,255,255,.2);border-width:1px 0px;display:flex}.notification-bar__message a{color:#ffcc4d;text-decoration:underline}.notification-bar__message a:hover{color:#fff0c9}/*# sourceMappingURL=critical.css.map */	</style>
+	<noscript><style>body:before {display:none;}</style></noscript>
+	<style id="non-critical"></style>
+	<style>
+.elementor-section .elementor-section {
+    margin-bottom: 20px;
+}
+
+.elementor-section .wp-caption {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    display: inline-block;
+    max-width: 100%;
+}
+
+.sidebar-content {
+    display: flex;
+    height: calc(100% - 20px);
+    margin-bottom: 20px;
+    flex-direction: column;
+}
+
+.sidebar-content section {
+    width: 100%;
+}
+
+.elementor-element .wp-caption figcaption {
+    text-align: left;
+    line-height: 1.6;
+    font-size: .85rem;
+    opacity: .8;
+    padding: .8rem 0rem;
+}
+
+.download-icon {
+    background-repeat: no-repeat;
+    display: block;
+    background-size: 30px;
+    background-position: 15px 15px;
+    padding: 15px 15px 30px 60px;
+    border: 1px solid #e4e4e4;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+.download-icon.download-icon-doc {
+	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1OC40OCA3My43OSI+PHRpdGxlPndlYi1pY29uczwvdGl0bGU+PGcgaWQ9IkxheWVyXzYiIGRhdGEtbmFtZT0iTGF5ZXIgNiI+PHBhdGggZD0iTTQxLDFIMi44OUExLjksMS45LDAsMCwwLDEsMi45MXY2OGExLjksMS45LDAsMCwwLDEuOSwxLjlINTUuNTZhMS45LDEuOSwwLDAsMCwxLjktMS45VjIwLjM2IiBmaWxsPSJub25lIiBzdHJva2U9IiNhNWE1YTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZD0iTTQxLDFWMTguNDZhMS45LDEuOSwwLDAsMCwxLjksMS45SDU3LjQ2WiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYTVhNWE1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIvPjxwYXRoIGQ9Ik0yMy4xOCwzOS4yLDE5LjQxLDI4LjQxLDE1LjY0LDM5LjIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2E1YTVhNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiLz48bGluZSB4MT0iMjMuMTgiIHkxPSIzOS4yIiB4Mj0iMjciIHkyPSIyNy41NSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYTVhNWE1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIvPjxsaW5lIHgxPSIxNS42NCIgeTE9IjM5LjIiIHgyPSIxMS44MSIgeTI9IjI3LjU1IiBmaWxsPSJub25lIiBzdHJva2U9IiNhNWE1YTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIi8+PGxpbmUgeDE9IjMxLjE3IiB5MT0iMzUuMyIgeDI9IjQ3LjI1IiB5Mj0iMzUuMyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYTVhNWE1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIvPjxsaW5lIHgxPSIxMS44MSIgeTE9IjQ3LjgiIHgyPSI0Ny4yNSIgeTI9IjQ3LjgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2E1YTVhNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiLz48bGluZSB4MT0iMTEuODEiIHkxPSI2MC4zIiB4Mj0iNDcuMjUiIHkyPSI2MC4zIiBmaWxsPSJub25lIiBzdHJva2U9IiNhNWE1YTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9nPjwvc3ZnPg==);
+}
+
+.download-icon.download-icon-photo {
+	background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1OC40OCA3My43OSI+PHRpdGxlPndlYi1pY29uczwvdGl0bGU+PHBhdGggZD0iTTQxLDFIMi45MUExLjksMS45LDAsMCwwLDEsMi45MXY2OGExLjksMS45LDAsMCwwLDEuOSwxLjlINTUuNThhMS45LDEuOSwwLDAsMCwxLjktMS45VjIwLjM2IiBmaWxsPSJub25lIiBzdHJva2U9IiNhNWE1YTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZD0iTTQxLDFWMTguNDZhMS45LDEuOSwwLDAsMCwxLjksMS45SDU3LjQ4WiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYTVhNWE1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIvPjxwb2x5Z29uIHBvaW50cz0iNTAuNTkgNjEuODQgNy45MiA2MS44NCA3LjkyIDYxLjY5IDcuOTIgMjkuODQgNTAuNTkgMjkuODQgNTAuNTkgNjEuODQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2E1YTVhNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiLz48cG9seWxpbmUgcG9pbnRzPSI1MC41OSA1OC4wNCAzNi44OCA0MS4zNSAyMS42MyA2MS44NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYTVhNWE1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIvPjxwb2x5bGluZSBwb2ludHM9IjI1Ljc2IDUzLjI4IDE5Ljc2IDQ1Ljk4IDcuOTUgNjEuODQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2E1YTVhNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiLz48cGF0aCBkPSJNMjYuODYsMzguM2ExLjEsMS4xLDAsMSwxLTEuMS0xLjExQTEuMSwxLjEsMCwwLDEsMjYuODYsMzguM1oiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2E1YTVhNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiLz48L3N2Zz4=);
+}
+
+.download-icon.download-icon-presentation {
+	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1OC40OCA3My43OSI+PHRpdGxlPndlYi1pY29uczwvdGl0bGU+PGcgaWQ9IkxheWVyXzMiIGRhdGEtbmFtZT0iTGF5ZXIgMyI+PHBhdGggZD0iTTQxLDFIMi45QTEuOSwxLjksMCwwLDAsMSwyLjl2NjhhMS45LDEuOSwwLDAsMCwxLjksMS45SDU1LjU3YTEuOSwxLjksMCwwLDAsMS45LTEuOVYyMC4zNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYTVhNWE1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIvPjxwYXRoIGQ9Ik00MSwxVjE4LjQ1YTEuOSwxLjksMCwwLDAsMS45LDEuOUg1Ny40N1oiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2E1YTVhNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiLz48bGluZSB4MT0iNTAuNTgiIHkxPSI1My4xMSIgeDI9IjUwLjU4IiB5Mj0iMjkuODMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2E1YTVhNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiLz48bGluZSB4MT0iNy45MSIgeTE9IjUyLjk1IiB4Mj0iNy45MSIgeTI9IjI5LjgzIiBmaWxsPSJub25lIiBzdHJva2U9IiNhNWE1YTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIi8+PGxpbmUgeDE9IjUwLjU4IiB5MT0iMjkuODMiIHgyPSI3LjkxIiB5Mj0iMjkuODMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2E1YTVhNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiLz48bGluZSB4MT0iNTAuNTgiIHkxPSI1My4xMSIgeDI9IjcuOTEiIHkyPSI1My4xMSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYTVhNWE1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIvPjxsaW5lIHgxPSIzOC42NCIgeTE9IjYyLjQ2IiB4Mj0iMjkuNDUiIHkyPSI1My4yNiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYTVhNWE1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIvPjxsaW5lIHgxPSIyOS40NSIgeTE9IjUzLjI2IiB4Mj0iMjAuMjYiIHkyPSI2Mi40NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYTVhNWE1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIvPjwvZz48L3N2Zz4=);
+}
+
+.download-icon.download-icon-swatch {
+	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1OC40OCA3My43OSI+PHRpdGxlPndlYi1pY29uczwvdGl0bGU+PGcgaWQ9IkxheWVyXzUiIGRhdGEtbmFtZT0iTGF5ZXIgNSI+PHBhdGggZD0iTTQxLDFIMi44OUExLjksMS45LDAsMCwwLDEsMi45MXY2OGExLjksMS45LDAsMCwwLDEuOSwxLjlINTUuNTZhMS45LDEuOSwwLDAsMCwxLjktMS45VjIwLjM2IiBmaWxsPSJub25lIiBzdHJva2U9IiNhNWE1YTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZD0iTTQxLDFWMTguNDZhMS45LDEuOSwwLDAsMCwxLjksMS45SDU3LjQ2WiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYTVhNWE1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIvPjxyZWN0IHg9IjkuMTQiIHk9IjI4Ljg0IiB3aWR0aD0iMTQuODQiIGhlaWdodD0iMTEuODUiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlPSIjYTVhNWE1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGZpbGw9Im5vbmUiLz48cmVjdCB4PSIzMi42NCIgeT0iMjguODQiIHdpZHRoPSIxNC44NCIgaGVpZ2h0PSIxMS44NSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2U9IiNhNWE1YTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZmlsbD0ibm9uZSIvPjxyZWN0IHg9IjkuMTQiIHk9IjQ3LjQxIiB3aWR0aD0iMTQuODQiIGhlaWdodD0iMTEuODUiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlPSIjYTVhNWE1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGZpbGw9Im5vbmUiLz48cmVjdCB4PSIzMi42NCIgeT0iNDcuNDEiIHdpZHRoPSIxNC44NCIgaGVpZ2h0PSIxMS44NSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2U9IiNhNWE1YTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZmlsbD0ibm9uZSIvPjwvZz48L3N2Zz4=);
+}
+
+.download-icon.download-icon-vector {
+	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1OC40OCA3My43OSI+PHRpdGxlPndlYi1pY29uczwvdGl0bGU+PGcgaWQ9IkxheWVyXzQiIGRhdGEtbmFtZT0iTGF5ZXIgNCI+PHBhdGggZD0iTTQxLDFIMi44OUExLjksMS45LDAsMCwwLDEsMi45MXY2OGExLjksMS45LDAsMCwwLDEuODksMS45SDU1LjU3YTEuOSwxLjksMCwwLDAsMS45LTEuOVYyMC4zNiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYTVhNWE1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIvPjxwYXRoIGQ9Ik00MSwxVjE4LjQ2YTEuOSwxLjksMCwwLDAsMS45LDEuOUg1Ny40N1oiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2E1YTVhNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiLz48cGF0aCBkPSJNMTEuODksMjcuMTNDMjEuMTIsMjkuODUsMjcuNzksMzcuNywyNy43OSw0N3MtNi42NywxNy4xLTE1LjksMTkuODMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2E1YTVhNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiLz48cmVjdCB4PSIyNS42IiB5PSI0NC43NyIgd2lkdGg9IjQuMzgiIGhlaWdodD0iNC4zOCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzQuNzQgMTkuMTcpIHJvdGF0ZSg5MCkiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlPSIjYTVhNWE1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGZpbGw9Im5vbmUiLz48bGluZSB4MT0iMjcuNzIiIHkxPSI0OC42IiB4Mj0iMjcuNzIiIHkyPSI2NS44IiBmaWxsPSJub25lIiBzdHJva2U9IiNhNWE1YTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZD0iTTI3LjcyLDY0Ljc1YTEsMSwwLDEsMCwxLjA1LDFBMSwxLDAsMCwwLDI3LjcyLDY0Ljc1WiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYTVhNWE1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIvPjxsaW5lIHgxPSIyNy43MiIgeTE9IjQ1LjMyIiB4Mj0iMjcuNzIiIHkyPSIyOC4xMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYTVhNWE1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIvPjxjaXJjbGUgY3g9IjI3LjcyIiBjeT0iMjguMTIiIHI9IjEuMDUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2E1YTVhNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiLz48bGluZSB4MT0iNDMuODYiIHkxPSIzMC4xNSIgeDI9IjQ3LjQzIiB5Mj0iMjYuNTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2E1YTVhNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiLz48cG9seWxpbmUgcG9pbnRzPSIzMy4zMyA0NS4xOSAzOC4wNiAzMy40NCA0My44NiAzMS4xMSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYTVhNWE1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIvPjxsaW5lIHgxPSI0OC4zNyIgeTE9IjM0LjY2IiB4Mj0iNTIuMDMiIHkyPSIzMS4xNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYTVhNWE1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIvPjxwb2x5bGluZSBwb2ludHM9IjMzLjMzIDQ1LjE5IDQ1LjA4IDQwLjQ2IDQ3LjQxIDM0LjY2IiBmaWxsPSJub25lIiBzdHJva2U9IiNhNWE1YTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIi8+PGxpbmUgeDE9IjQwLjYzIiB5MT0iMzcuODkiIHgyPSI0MC4yMyIgeTI9IjM4LjI5IiBmaWxsPSJub25lIiBzdHJva2U9IiNhNWE1YTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIi8+PGxpbmUgeDE9IjQzLjg2IiB5MT0iMzAuMTUiIHgyPSI0OC4zNyIgeTI9IjM0LjY2IiBmaWxsPSJub25lIiBzdHJva2U9IiNhNWE1YTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIi8+PGxpbmUgeDE9IjQ3LjQ3IiB5MT0iMjYuNiIgeDI9IjUxLjk4IiB5Mj0iMzEuMTEiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2E1YTVhNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiLz48L2c+PC9zdmc+);
+}
+
+.download-icon.download-icon-zip {
+	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1OC40OCA3My43OSI+PHRpdGxlPndlYi1pY29uczwvdGl0bGU+PGcgaWQ9IkxheWVyXzIiIGRhdGEtbmFtZT0iTGF5ZXIgMiI+PHBhdGggZD0iTTQxLDFIMi45QTEuOSwxLjksMCwwLDAsMSwyLjkxdjY5YzAsMS4wNS44NS45LDEuOS45SDU1LjU4YTEuOSwxLjksMCwwLDAsMS45LTEuOVYyMC4zNiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYTVhNWE1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIvPjxwYXRoIGQ9Ik00MSwxVjE4LjQ2YTEuOSwxLjksMCwwLDAsMS45LDEuOUg1Ny40OFoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2E1YTVhNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiLz48cGF0aCBkPSJNMTcuMzQsMTkuNDNhMS40LDEuNCwwLDAsMC0uODgsMS4yMWwtLjgsMTMuNTdBNC4zMSw0LjMxLDAsMCwwLDIwLDM4Ljc3aC41M2E0LjMsNC4zLDAsMCwwLDQuMjktNC41NkwyNCwyMC42NGExLjM5LDEuMzksMCwwLDAtLjg0LTEuMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYTVhNWE1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIvPjxwYXRoIGQ9Ik0yNC4wNywyMi4xOUE2LjE1LDYuMTUsMCwwLDAsMjUsMjAuNWExOC4yNCwxOC4yNCwwLDAsMSwyLjQzLTQuODEsNS44Niw1Ljg2LDAsMCwwLTEuMzMtOC4zMywxMC4zOCwxMC4zOCwwLDAsMC01LjktMS41OSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYTVhNWE1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIvPjxwYXRoIGQ9Ik0xNi4zNywyMi4xOWE2LDYsMCwwLDEtMS4wNi0xLjgzQTE4LDE4LDAsMCwwLDEzLDE1LjcxYTUuODYsNS44NiwwLDAsMSwxLjMyLTguMzUsMTAuMzMsMTAuMzMsMCwwLDEsNS45LTEuNTkiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2E1YTVhNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiLz48bGluZSB4MT0iMjAuMjIiIHkxPSIyMC42IiB4Mj0iMjAuMTciIHkyPSIxMS4xNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYTVhNWE1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIvPjxjaXJjbGUgY3g9IjIwLjE5IiBjeT0iMzMuNTkiIHI9IjAuMTgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2E1YTVhNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiLz48bGluZSB4MT0iMTguNzQiIHkxPSI0MC43NyIgeDI9IjE0Ljc1IiB5Mj0iNDAuNzciIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2E1YTVhNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiLz48bGluZSB4MT0iMjQuMzciIHkxPSI0NC4xNiIgeDI9IjIwLjM3IiB5Mj0iNDQuMTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2E1YTVhNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiLz48bGluZSB4MT0iMTguNzQiIHkxPSI0Ny4zNSIgeDI9IjE0Ljc1IiB5Mj0iNDcuMzUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2E1YTVhNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiLz48bGluZSB4MT0iMjQuMzciIHkxPSI1MC43NCIgeDI9IjIwLjM3IiB5Mj0iNTAuNzQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2E1YTVhNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiLz48bGluZSB4MT0iMTguNzQiIHkxPSI1My45NCIgeDI9IjE0Ljc1IiB5Mj0iNTMuOTQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2E1YTVhNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiLz48bGluZSB4MT0iMjQuMzciIHkxPSI1Ny4zMyIgeDI9IjIwLjM3IiB5Mj0iNTcuMzMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2E1YTVhNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiLz48bGluZSB4MT0iMTguNzQiIHkxPSI2MC41MiIgeDI9IjE0Ljc1IiB5Mj0iNjAuNTIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2E1YTVhNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiLz48bGluZSB4MT0iMjQuMzciIHkxPSI2My43MyIgeDI9IjIwLjM3IiB5Mj0iNjMuNzMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2E1YTVhNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiLz48bGluZSB4MT0iMTguNzQiIHkxPSI2Ny45IiB4Mj0iMTQuNzUiIHkyPSI2Ny45IiBmaWxsPSJub25lIiBzdHJva2U9IiNhNWE1YTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIi8+PGxpbmUgeDE9IjI0LjM3IiB5MT0iNzEuMTEiIHgyPSIyMC4zNyIgeTI9IjcxLjExIiBmaWxsPSJub25lIiBzdHJva2U9IiNhNWE1YTUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9nPjwvc3ZnPg==);
+}
+.elementor-widget-html {
+   margin-bottom:0px !important;
+}
+.download-icon.wc-btn {
+    background-image: none !important;
+}
+</style>		<title>Symbol | Brand | Colorado State University</title>
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//static.colostate.edu' />
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/brand.colostate.edu\/wp-includes\/js\/wp-emoji-release.min.js?ver=ef7f21eeb4885ad895f27ba45cf817e4"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<link rel="stylesheet" href="https://brand.colostate.edu/wp-content/themes/csu-theme/adminpanel/nuxy/metaboxes/assets/vendors/trumbowyg/ctrumbowyg.css?ver=ef7f21eeb4885ad895f27ba45cf817e4" media="print" onload="this.media=(('media' in this.dataset) ? this.dataset.media : 'all')">
+<noscript><link rel="stylesheet" href="https://brand.colostate.edu/wp-content/themes/csu-theme/adminpanel/nuxy/metaboxes/assets/vendors/trumbowyg/ctrumbowyg.css?ver=ef7f21eeb4885ad895f27ba45cf817e4" media="all">
+</noscript><link rel="stylesheet" href="https://brand.colostate.edu/wp-content/themes/csu-theme/adminpanel/nuxy/metaboxes/assets/vendors/trumbowyg/color-trumbowyg.css?ver=ef7f21eeb4885ad895f27ba45cf817e4" media="print" onload="this.media=(('media' in this.dataset) ? this.dataset.media : 'all')">
+<noscript><link rel="stylesheet" href="https://brand.colostate.edu/wp-content/themes/csu-theme/adminpanel/nuxy/metaboxes/assets/vendors/trumbowyg/color-trumbowyg.css?ver=ef7f21eeb4885ad895f27ba45cf817e4" media="all">
+</noscript><link rel="preload" href="https://brand.colostate.edu/wp-content/themes/csu-theme/assets/css/style.css?ver=1.0.4" as="style">
+<link rel="stylesheet" href="https://brand.colostate.edu/wp-content/themes/csu-theme/assets/css/style.css?ver=1.0.4" media="print" onload="this.media=(('media' in this.dataset) ? this.dataset.media : 'all')">
+<noscript><link rel="stylesheet" href="https://brand.colostate.edu/wp-content/themes/csu-theme/assets/css/style.css?ver=1.0.4" media="all">
+</noscript><link rel="preload" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,100italic,300italic,400italic,700italic" as="style">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,100italic,300italic,400italic,700italic" media="print" onload="this.media=(('media' in this.dataset) ? this.dataset.media : 'all')">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,100italic,300italic,400italic,700italic" media="all">
+</noscript><link rel="preload" href="https://static.colostate.edu/fonts/factoria/factoria.css" as="style">
+<link rel="stylesheet" href="https://static.colostate.edu/fonts/factoria/factoria.css" media="print" onload="this.media=(('media' in this.dataset) ? this.dataset.media : 'all')">
+<noscript><link rel="stylesheet" href="https://static.colostate.edu/fonts/factoria/factoria.css" media="all">
+</noscript><link rel="stylesheet" href="https://brand.colostate.edu/wp-content/themes/csu-theme/assets/css/vc-overrides.css?ver=1.0.2" media="print" onload="this.media=(('media' in this.dataset) ? this.dataset.media : 'all')">
+<noscript><link rel="stylesheet" href="https://brand.colostate.edu/wp-content/themes/csu-theme/assets/css/vc-overrides.css?ver=1.0.2" media="all">
+</noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css?ver=ef7f21eeb4885ad895f27ba45cf817e4" media="print" onload="this.media=(('media' in this.dataset) ? this.dataset.media : 'all')">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css?ver=ef7f21eeb4885ad895f27ba45cf817e4" media="all">
+</noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/v4-shims.min.css?ver=ef7f21eeb4885ad895f27ba45cf817e4" media="print" onload="this.media=(('media' in this.dataset) ? this.dataset.media : 'all')">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/v4-shims.min.css?ver=ef7f21eeb4885ad895f27ba45cf817e4" media="all">
+</noscript><style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel="stylesheet" href="https://brand.colostate.edu/wp-content/plugins/gravityview-az-filters/assets/css/gravityview-az-filters.css?ver=ef7f21eeb4885ad895f27ba45cf817e4" media="print" onload="this.media=(('media' in this.dataset) ? this.dataset.media : 'all')">
+<noscript><link rel="stylesheet" href="https://brand.colostate.edu/wp-content/plugins/gravityview-az-filters/assets/css/gravityview-az-filters.css?ver=ef7f21eeb4885ad895f27ba45cf817e4" media="all">
+</noscript><link rel="stylesheet" href="https://brand.colostate.edu/wp-content/themes/csu-theme/assets/css/elementor-overrides.css?ver=1.0.0" media="print" onload="this.media=(('media' in this.dataset) ? this.dataset.media : 'all')">
+<noscript><link rel="stylesheet" href="https://brand.colostate.edu/wp-content/themes/csu-theme/assets/css/elementor-overrides.css?ver=1.0.0" media="all">
+</noscript><link rel="stylesheet" href="https://brand.colostate.edu/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.29.0" media="print" onload="this.media=(('media' in this.dataset) ? this.dataset.media : 'all')">
+<noscript><link rel="stylesheet" href="https://brand.colostate.edu/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.29.0" media="all">
+</noscript><link rel="stylesheet" href="https://brand.colostate.edu/wp-content/uploads/sites/47/elementor/css/custom-frontend.min.css?ver=1710864061" media="print" onload="this.media=(('media' in this.dataset) ? this.dataset.media : 'all')">
+<noscript><link rel="stylesheet" href="https://brand.colostate.edu/wp-content/uploads/sites/47/elementor/css/custom-frontend.min.css?ver=1710864061" media="all">
+</noscript><link rel="stylesheet" href="https://brand.colostate.edu/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css?ver=8.4.5" media="print" onload="this.media=(('media' in this.dataset) ? this.dataset.media : 'all')">
+<noscript><link rel="stylesheet" href="https://brand.colostate.edu/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css?ver=8.4.5" media="all">
+</noscript><link rel="stylesheet" href="https://brand.colostate.edu/wp-content/uploads/sites/47/elementor/css/post-1546.css?ver=1710864061" media="print" onload="this.media=(('media' in this.dataset) ? this.dataset.media : 'all')">
+<noscript><link rel="stylesheet" href="https://brand.colostate.edu/wp-content/uploads/sites/47/elementor/css/post-1546.css?ver=1710864061" media="all">
+</noscript><link rel="stylesheet" href="https://brand.colostate.edu/wp-content/uploads/sites/47/elementor/css/custom-pro-frontend.min.css?ver=1710864061" media="print" onload="this.media=(('media' in this.dataset) ? this.dataset.media : 'all')">
+<noscript><link rel="stylesheet" href="https://brand.colostate.edu/wp-content/uploads/sites/47/elementor/css/custom-pro-frontend.min.css?ver=1710864061" media="all">
+</noscript><link rel="stylesheet" href="https://brand.colostate.edu/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css?ver=3.20.1" media="print" onload="this.media=(('media' in this.dataset) ? this.dataset.media : 'all')">
+<noscript><link rel="stylesheet" href="https://brand.colostate.edu/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css?ver=3.20.1" media="all">
+</noscript><link rel="stylesheet" href="https://brand.colostate.edu/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css?ver=3.20.1" media="print" onload="this.media=(('media' in this.dataset) ? this.dataset.media : 'all')">
+<noscript><link rel="stylesheet" href="https://brand.colostate.edu/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css?ver=3.20.1" media="all">
+</noscript><link rel="stylesheet" href="https://brand.colostate.edu/wp-content/uploads/sites/47/elementor/css/post-25.css?ver=1710896763" media="print" onload="this.media=(('media' in this.dataset) ? this.dataset.media : 'all')">
+<noscript><link rel="stylesheet" href="https://brand.colostate.edu/wp-content/uploads/sites/47/elementor/css/post-25.css?ver=1710896763" media="all">
+</noscript><script type="text/javascript" defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js?ver=3.5.1" id="jquery-core-js"></script>
+<script type="text/javascript" defer src="https://brand.colostate.edu/wp-content/themes/csu-theme/assets/js/vendor/modernizr-2.7.0.min.js" id="modernizr-js"></script>
+<script type="text/javascript" defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.3.1/jquery-migrate.min.js?ver=3.3.1" id="jquery-migrate-js"></script>
+<script type="text/javascript" id="gk-gravityview-blocks-js-extra">
+/* <![CDATA[ */
+var gkGravityViewBlocks = {"home_page":"https:\/\/brand.colostate.edu","ajax_url":"https:\/\/brand.colostate.edu\/wp-admin\/admin-ajax.php","create_new_view_url":"https:\/\/brand.colostate.edu\/wp-admin\/post-new.php?post_type=gravityview","edit_view_url":"https:\/\/brand.colostate.edu\/wp-admin\/post.php?action=edit&post=%s","views":[],"gk-gravityview-blocks\/entry":{"previewImage":"https:\/\/brand.colostate.edu\/wp-content\/plugins\/gravityview\/future\/includes\/gutenberg\/blocks\/entry\/preview.svg"},"gk-gravityview-blocks\/entry-field":{"previewImage":"https:\/\/brand.colostate.edu\/wp-content\/plugins\/gravityview\/future\/includes\/gutenberg\/blocks\/entry-field\/preview.svg"},"gk-gravityview-blocks\/entry-link":{"previewImage":"https:\/\/brand.colostate.edu\/wp-content\/plugins\/gravityview\/future\/includes\/gutenberg\/blocks\/entry-link\/preview.svg"},"gk-gravityview-blocks\/view":{"previewImage":"https:\/\/brand.colostate.edu\/wp-content\/plugins\/gravityview\/future\/includes\/gutenberg\/blocks\/view\/preview.svg"},"gk-gravityview-blocks\/view-details":{"previewImage":"https:\/\/brand.colostate.edu\/wp-content\/plugins\/gravityview\/future\/includes\/gutenberg\/blocks\/view-details\/preview.svg"}};
+/* ]]> */
+</script>
+<script type="text/javascript" defer src="https://brand.colostate.edu/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=3.20.1" id="font-awesome-4-shim-js"></script>
+<link rel="https://api.w.org/" href="https://brand.colostate.edu/wp-json/" /><link rel="alternate" type="application/json" href="https://brand.colostate.edu/wp-json/wp/v2/pages/25" /><link rel="alternate" type="application/json+oembed" href="https://brand.colostate.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fbrand.colostate.edu%2Fsymbol%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://brand.colostate.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fbrand.colostate.edu%2Fsymbol%2F&#038;format=xml" />
+	<script type="text/javascript">
+		var stm_wpcfto_ajaxurl = 'https://brand.colostate.edu/wp-admin/admin-ajax.php';
+	</script>
+
+	<style>
+		.vue_is_disabled {
+			display: none;
+		}
+	</style>
+		<script>
+		var stm_wpcfto_nonces = {"wpcfto_save_settings":"c644b210f6","get_image_url":"0db58b2445","wpcfto_upload_file":"d943096107","wpcfto_search_posts":"0be0326f45"};
+	</script>
+	<meta name="generator" content="Elementor 3.20.1; features: e_optimized_assets_loading, additional_custom_breakpoints, block_editor_assets_optimize, e_image_loading_optimization; settings: css_print_method-external, google_font-enabled, font_display-auto">
+	<link rel="canonical" href="https://brand.colostate.edu/symbol/">
+	<!-- end wp-head -->
+
+	
+</head>
+
+<body class="page page-id-25 symbol sidebar-primary fonts-loaded blog-layout-img-none elementor_v3 elementor-default elementor-kit-1546 elementor-page elementor-page-25">
+<!-- Google Tag Manager (roll-up) (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXMZ4TD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a id="skip-to-main" class="sr-only" href="#maincontent">Skip to main content</a>
+
+  <header id="mainheader" class="mainheader banner navbar navbar-default navbar-static-top navbar-main" role="banner">
+        <div class="brandbar">
+  <div class="container" style="position: relative;">
+  	<div class="row">
+      <div class="signature">
+<!-- logo start -->
+<section id="BrandLogo" style="height:55px; overflow:hidden"><div id="responsiveLogo"><h1><a href="https://www.colostate.edu"><img src="https://static.colostate.edu/logo/reslogo-v2/assets/img/csu-responsive-symbol.min.svg" type="image/svg+xml" id="svgsignature" style="width:100%;" alt="Colorado State University" /></a></h1></div><div id="responsiveLogoSubsytem">
+
+<!-- ⚠️  Change your link, and secondary identifier name here  ⚠️ -->
+<h2 class="fontLarge"><a href="https://brand.colostate.edu">Brand</a></h2>
+<!-- <h2 class="fontSmall"><a href="http://cvmbs.colostate.edu">College of Business</a></h2> -->
+
+</div></section>
+<!-- logo end -->
+
+</div>      <div class="social">
+        <ul>
+        <!--<li class="twitter"><a href="https://twitter.com/admissionscsu"><i class="fa fa-twitter"></i></a></li>-->
+                <!--
+        <li class="twitter"><a href="https://twitter.com/admissionscsu"><i class="fa fa-twitter"></i></a></li>
+        <li class="instagram"><a href="http://instagram.com/admissionscsu"><i class="fa fa-instagram"></i></a></li>
+        <li class="facebook"><a href="https://www.facebook.com/coloradostateuniversityadmissions"><i class="fa fa-facebook"></i></a></li>
+        <li class="googleplus"><a href="https://plus.google.com/b/107038740181719294582/107038740181719294582/posts"><i class="fa fa-google-plus"></i></a></li>
+        -->
+        </ul>
+      </div>
+  	</div>
+  </div>
+  </div>
+</header>
+
+  <div id="maincontent" class="outer-container">
+
+  <div class="wrap container" role="document">
+    <div class="content row  sidebar-left">
+
+      <main class="main col-sm-8 sidebar-left 0" role="main">
+        
+<div class="page-header">
+
+ 
+	<h1>Symbol</h1>
+
+	
+</div>
+
+		<div data-elementor-type="wp-post" data-elementor-id="25" class="elementor elementor-25" data-elementor-post-type="page">
+						<section class="elementor-section elementor-top-section elementor-element elementor-element-6996891 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="6996891" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-7cc1095" data-id="7cc1095" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-29be98d elementor-widget elementor-widget-alert" data-id="29be98d" data-element_type="widget" data-widget_type="alert.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-alert elementor-alert-danger" role="alert">
+			<span class="elementor-alert-title">CSU marks are registered trademarks.</span>
+							<span class="elementor-alert-description">Do not alter the artwork in any way. When reproducing, use only the master copies found on this site.</span>
+								</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-ce20c4b elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="ce20c4b" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-d010284" data-id="d010284" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-613260f elementor-widget elementor-widget-heading" data-id="613260f" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Symbol</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-b0356a8 elementor-widget elementor-widget-text-editor" data-id="b0356a8" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+			
+<p>The Ram’s Head is the University’s official logo. It can be paired with the University word mark and signature. While the Ram’s Head artwork is available as a standalone piece of art, it should never appear in external communication without the logo or signature.</p>
+		</div>
+				</div>
+				<div class="elementor-element elementor-element-118ceba elementor-widget elementor-widget-text-editor" data-id="118ceba" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+			
+<div class="mod block mod-block-text" data-block="2275420" data-help="https://docs.frontify.com/d/2MwJ9kHF57Sc/frontify-style-guide#/product/smart-blocks/rich-text-block" data-feedback="https://frontify.typeform.com/to/Dj3Utn?block=Rich%20Text%20Block" data-ready="true">
+<div class="richtext">The Ram’s Head is available in three color variations:</div>
+</div>
+		</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-ec8e571 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="ec8e571" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-41f7a57" data-id="41f7a57" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-8f09cbf elementor-widget elementor-widget-image" data-id="8f09cbf" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+										<figure class="wp-caption">
+										<img fetchpriority="high" decoding="async" width="768" height="768" src="https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/CSU-Rams-Head-Symbol-357-617-768x768.jpg" class="attachment-medium_large size-medium_large wp-image-31" alt="Secondary CSU Ram&#039;s Head Symbol" srcset="https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/CSU-Rams-Head-Symbol-357-617-768x768.jpg 768w, https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/CSU-Rams-Head-Symbol-357-617-300x300.jpg 300w, https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/CSU-Rams-Head-Symbol-357-617-1024x1024.jpg 1024w, https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/CSU-Rams-Head-Symbol-357-617-150x150.jpg 150w, https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/CSU-Rams-Head-Symbol-357-617-1536x1536.jpg 1536w, https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/CSU-Rams-Head-Symbol-357-617.jpg 1900w" sizes="(max-width: 768px) 100vw, 768px" />											<figcaption class="widget-image-caption wp-caption-text">Pantone 357-617</figcaption>
+										</figure>
+							</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-8668672" data-id="8668672" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-bd113b8 elementor-widget elementor-widget-image" data-id="bd113b8" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+										<figure class="wp-caption">
+										<img decoding="async" width="768" height="768" src="https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/CSU-Rams-Head-Symbol-357-768x768.jpg" class="attachment-medium_large size-medium_large wp-image-30" alt="Primary CSU Ram&#039;s Head Symbol" srcset="https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/CSU-Rams-Head-Symbol-357-768x768.jpg 768w, https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/CSU-Rams-Head-Symbol-357-300x300.jpg 300w, https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/CSU-Rams-Head-Symbol-357-1024x1024.jpg 1024w, https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/CSU-Rams-Head-Symbol-357-150x150.jpg 150w, https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/CSU-Rams-Head-Symbol-357-1536x1536.jpg 1536w, https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/CSU-Rams-Head-Symbol-357.jpg 1900w" sizes="(max-width: 768px) 100vw, 768px" />											<figcaption class="widget-image-caption wp-caption-text">Pantone 357</figcaption>
+										</figure>
+							</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-54980bf" data-id="54980bf" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-caeb18a elementor-widget elementor-widget-image" data-id="caeb18a" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+										<figure class="wp-caption">
+										<img decoding="async" width="768" height="768" src="https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/CSU-Rams-Head-Symbol-rev-768x768.jpg" class="attachment-medium_large size-medium_large wp-image-29" alt="Reverse CSU Ram&#039;s Head Symbol" srcset="https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/CSU-Rams-Head-Symbol-rev-768x768.jpg 768w, https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/CSU-Rams-Head-Symbol-rev-300x300.jpg 300w, https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/CSU-Rams-Head-Symbol-rev-1024x1024.jpg 1024w, https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/CSU-Rams-Head-Symbol-rev-150x150.jpg 150w, https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/CSU-Rams-Head-Symbol-rev-1536x1536.jpg 1536w, https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/CSU-Rams-Head-Symbol-rev.jpg 1900w" sizes="(max-width: 768px) 100vw, 768px" />											<figcaption class="widget-image-caption wp-caption-text">Reversed (one-color)</figcaption>
+										</figure>
+							</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-7fbda95 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="7fbda95" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-75c359d8" data-id="75c359d8" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-7f40d4ee elementor-widget elementor-widget-text-editor" data-id="7f40d4ee" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+			
+<p><strong>CSU Ram 357/617<br /></strong><span style="letter-spacing: 0.459px; word-spacing: 1.071px;">Green and gold ram mark. Signature text is green on the standard mark and white on the reversed for dark backgrounds.</span></p>
+		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-5ac85d75" data-id="5ac85d75" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-e7613fe elementor-align-justify wc-btn--primary elementor-widget elementor-widget-button" data-id="e7613fe" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+			
+			<a class="wc-btn-link wc-btn btn wc-btn--primary" href="https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/CSU-Ram-357-617.eps" target="_blank" download="" role="button">
+			          			    			<span class="elementor-button-text">EPS</span>
+		</a>
+			</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-64bbee91" data-id="64bbee91" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-4eaf0646 wc-btn--secondary elementor-align-justify elementor-widget elementor-widget-button" data-id="4eaf0646" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+			
+			<a class="wc-btn-link wc-btn btn wc-btn--secondary" href="https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/CSU-Ram-357-617.png" target="_blank" download="" role="button">
+			          			    			<span class="elementor-button-text">PNG</span>
+		</a>
+			</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-b0658c9 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="b0658c9" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-aa25d01" data-id="aa25d01" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-215cda7 elementor-widget elementor-widget-text-editor" data-id="215cda7" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+			
+<p><strong>CSU Ram 357<br /></strong><span style="letter-spacing: 0.459px; word-spacing: 1.071px;">Green ram mark with signature text in green on the standard mark and white on the reversed for dark backgrounds.</span></p>
+		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-ed632ac" data-id="ed632ac" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-8e66ba8 elementor-align-justify wc-btn--primary elementor-widget elementor-widget-button" data-id="8e66ba8" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+			
+			<a class="wc-btn-link wc-btn btn wc-btn--primary" href="https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/CSU-Ram-357.eps" target="_blank" download="" role="button">
+			          			    			<span class="elementor-button-text">EPS</span>
+		</a>
+			</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-a89f3f4" data-id="a89f3f4" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-1b844a6 wc-btn--secondary elementor-align-justify elementor-widget elementor-widget-button" data-id="1b844a6" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+			
+			<a class="wc-btn-link wc-btn btn wc-btn--secondary" href="https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/CSU-Ram-357.png" target="_blank" download="" role="button">
+			          			    			<span class="elementor-button-text">PNG</span>
+		</a>
+			</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-54500cb elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="54500cb" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-5acce53" data-id="5acce53" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-27d1285 elementor-widget elementor-widget-text-editor" data-id="27d1285" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+			
+<p><strong>CSU Ram Reversed<br /></strong><span style="letter-spacing: 0.459px; word-spacing: 1.071px;">One color, all white ram mark and text for dark backgrounds.</span></p>
+		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-922651d" data-id="922651d" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-c9b054f elementor-align-justify wc-btn--primary elementor-widget elementor-widget-button" data-id="c9b054f" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+			
+			<a class="wc-btn-link wc-btn btn wc-btn--primary" href="https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/CSU-Ram-Rev.eps" target="_blank" download="" role="button">
+			          			    			<span class="elementor-button-text">EPS <em>(Reversed)</em></span>
+		</a>
+			</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-87319cd" data-id="87319cd" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-60a49bb wc-btn--secondary elementor-align-justify elementor-widget elementor-widget-button" data-id="60a49bb" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+			
+			<a class="wc-btn-link wc-btn btn wc-btn--secondary" href="https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/CSU-Ram-Rev.png" target="_blank" download="" role="button">
+			          			    			<span class="elementor-button-text">PNG <em>(Reversed)</em></span>
+		</a>
+			</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-bbfd4dc elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="bbfd4dc" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-eb5e4e6" data-id="eb5e4e6" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-9a67162 elementor-widget elementor-widget-spacer" data-id="9a67162" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-df5b7cc elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="df5b7cc" data-element_type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-94cdf9a elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="94cdf9a" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-8815651" data-id="8815651" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-7de2192 elementor-widget elementor-widget-heading" data-id="7de2192" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Application</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-3948cf4 elementor-widget elementor-widget-text-editor" data-id="3948cf4" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+			<p>				The Ram’s Head should always be applied to a clean and contrasting background.				</p>
+		</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-65f92a4 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="65f92a4" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-2a414ee" data-id="2a414ee" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-29ca55e elementor-widget elementor-widget-image" data-id="29ca55e" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+										<figure class="wp-caption">
+										<img loading="lazy" decoding="async" width="668" height="794" src="https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-Pantone-357-617.png" class="attachment-medium_large size-medium_large wp-image-42" alt="" srcset="https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-Pantone-357-617.png 668w, https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-Pantone-357-617-252x300.png 252w" sizes="(max-width: 668px) 100vw, 668px" />											<figcaption class="widget-image-caption wp-caption-text">Pantone 357-617</figcaption>
+										</figure>
+							</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-064c1dc" data-id="064c1dc" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-c06c431 elementor-widget elementor-widget-image" data-id="c06c431" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+										<figure class="wp-caption">
+										<img loading="lazy" decoding="async" width="768" height="918" src="https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-Pantone-357-768x918.png" class="attachment-medium_large size-medium_large wp-image-41" alt="" srcset="https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-Pantone-357-768x918.png 768w, https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-Pantone-357-251x300.png 251w, https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-Pantone-357-856x1024.png 856w, https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-Pantone-357.png 1002w" sizes="(max-width: 768px) 100vw, 768px" />											<figcaption class="widget-image-caption wp-caption-text">Pantone 357</figcaption>
+										</figure>
+							</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-c8e82f0" data-id="c8e82f0" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-facfcec elementor-widget elementor-widget-image" data-id="facfcec" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+										<figure class="wp-caption">
+										<img loading="lazy" decoding="async" width="768" height="911" src="https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-Pantone-Reversed-one-color-768x911.png" class="attachment-medium_large size-medium_large wp-image-40" alt="" srcset="https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-Pantone-Reversed-one-color-768x911.png 768w, https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-Pantone-Reversed-one-color-253x300.png 253w, https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-Pantone-Reversed-one-color-863x1024.png 863w, https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-Pantone-Reversed-one-color.png 1010w" sizes="(max-width: 768px) 100vw, 768px" />											<figcaption class="widget-image-caption wp-caption-text">Reversed (one-color)</figcaption>
+										</figure>
+							</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<div class="elementor-element elementor-element-667226f elementor-widget elementor-widget-text-editor" data-id="667226f" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+			
+<p>When applying the Ram’s Head over a photo, select the Pantone 357 version of the artwork, rather than the reversed one-color, to avoid reversing the Ram’s colors.</p>
+		</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-3a1271b elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="3a1271b" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-b1a77dd" data-id="b1a77dd" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-5fb8d95 elementor-widget elementor-widget-image" data-id="5fb8d95" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+										<figure class="wp-caption">
+										<img loading="lazy" decoding="async" width="666" height="796" src="https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-no-photo.png" class="attachment-medium_large size-medium_large wp-image-45" alt="" srcset="https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-no-photo.png 666w, https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-no-photo-251x300.png 251w" sizes="(max-width: 666px) 100vw, 666px" />											<figcaption class="widget-image-caption wp-caption-text">Do NOT place a photo inside the Ram’s Head.</figcaption>
+										</figure>
+							</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-34a0d48" data-id="34a0d48" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-d7c11f4 elementor-widget elementor-widget-image" data-id="d7c11f4" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+													<img loading="lazy" decoding="async" width="670" height="800" src="https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-photo-background.png" class="attachment-medium_large size-medium_large wp-image-44" alt="" srcset="https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-photo-background.png 670w, https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-photo-background-251x300.png 251w" sizes="(max-width: 670px) 100vw, 670px" />													</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-c68d349" data-id="c68d349" data-element_type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+					</div>
+		</section>
+				<div class="elementor-element elementor-element-ee2974c elementor-widget elementor-widget-heading" data-id="ee2974c" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">The following applications of the Ram’s Head are not compliant:</h3>		</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-4de4253 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="4de4253" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-66 elementor-inner-column elementor-element elementor-element-ea02803" data-id="ea02803" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-a743a88 elementor-widget elementor-widget-image" data-id="a743a88" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+													<img loading="lazy" decoding="async" width="768" height="861" src="https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-uses-768x861.jpeg" class="attachment-medium_large size-medium_large wp-image-47" alt="" srcset="https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-uses-768x861.jpeg 768w, https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-uses-267x300.jpeg 267w, https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-uses-913x1024.jpeg 913w, https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-uses.jpeg 1826w" sizes="(max-width: 768px) 100vw, 768px" />													</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-0b331d5" data-id="0b331d5" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-6034085 elementor-widget elementor-widget-text-editor" data-id="6034085" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+			
+<ol>
+<li>Do not make the face gold or any color besides white</li>
+<li>Do not invert the colors</li>
+<li>Do not use a different shade of green</li>
+<li>Do not stretch</li>
+<li>Do not tilt</li>
+<li>Do not distort</li>
+<li>Do not use as a gradient</li>
+<li>Do not place over busy or complicated photos with a drop shadow</li>
+<li>Do not add to or alter the logo to create a new mark. </li>
+</ol>
+		</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<div class="elementor-element elementor-element-897cfde elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="897cfde" data-element_type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-dd9b94d elementor-widget elementor-widget-heading" data-id="dd9b94d" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Size</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-fc8af5c elementor-widget elementor-widget-text-editor" data-id="fc8af5c" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+			
+<p>To maintain legibility, the Ram’s Head may not appear less than 0.4 inches in size. Proportions may not be altered, with the logo always remaining circular.</p>
+		</div>
+				</div>
+				<div class="elementor-element elementor-element-b4fe3b2 elementor-widget elementor-widget-image" data-id="b4fe3b2" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+													<img loading="lazy" decoding="async" width="800" height="300" src="https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-size.jpeg" class="attachment-large size-large wp-image-49" alt="" srcset="https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-size.jpeg 800w, https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-size-300x113.jpeg 300w, https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-size-768x288.jpeg 768w" sizes="(max-width: 800px) 100vw, 800px" />													</div>
+				</div>
+				<div class="elementor-element elementor-element-30115db elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="30115db" data-element_type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-860e29f elementor-widget elementor-widget-heading" data-id="860e29f" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Clear Space</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-37ceea4 elementor-widget elementor-widget-text-editor" data-id="37ceea4" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+			
+<p>When used alone, the Ram’s Head must be surrounded by appropriate clear space. The clear space may be no less than one-half the height of the Ram’s head. Text or additional images may not enter clear space.</p>
+		</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-59b9dff elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="59b9dff" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-8696165" data-id="8696165" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-f8f2424 elementor-widget elementor-widget-image" data-id="f8f2424" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+													<img loading="lazy" decoding="async" width="666" height="796" src="https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-clear-space-do.jpeg" class="attachment-medium_large size-medium_large wp-image-51" alt="" srcset="https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-clear-space-do.jpeg 666w, https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-clear-space-do-251x300.jpeg 251w" sizes="(max-width: 666px) 100vw, 666px" />													</div>
+				</div>
+				<div class="elementor-element elementor-element-e54b540 elementor-widget elementor-widget-text-editor" data-id="e54b540" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+			
+<p><strong>Allow for a live area on the Ram’s head</strong><br />The clear space may be no less than one-half the height of the Ram’s Head.</p>
+		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-5a4ab10" data-id="5a4ab10" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-2715506 elementor-widget elementor-widget-image" data-id="2715506" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+													<img loading="lazy" decoding="async" width="666" height="796" src="https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-clear-space-dont.jpeg" class="attachment-medium_large size-medium_large wp-image-52" alt="" srcset="https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-clear-space-dont.jpeg 666w, https://brand.colostate.edu/wp-content/uploads/sites/47/2019/01/Rams-Logo-Demo-clear-space-dont-251x300.jpeg 251w" sizes="(max-width: 666px) 100vw, 666px" />													</div>
+				</div>
+				<div class="elementor-element elementor-element-ae0bd89 elementor-widget elementor-widget-text-editor" data-id="ae0bd89" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+			
+<p><strong>Avoid adding elements to the Ram&#8217;s head</strong><br />Text, additional images, or art may not enter the clear space.</p>
+		</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<div class="elementor-element elementor-element-4d51897 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="4d51897" data-element_type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-a383dbd elementor-widget elementor-widget-text-editor" data-id="a383dbd" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+			
+<p>For questions or to request a waiver, please email the Marketing &amp; Brand Management team at <a href="mailto:branding@colostate.edu">branding@colostate.edu</a>.</p>
+		</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+		
+
+
+
+      </main><!-- /.main -->
+              <aside class="sidebar col-sm-4 sidebar-left" role="complementary">
+          <div class="sidebar-content">
+<section class="widget nav_menu-3 widget_nav_menu"><h3>Welcome</h3><ul id="menu-welcome" class="menu"><li class="menu-our-brand"><a href="https://brand.colostate.edu/"><span data-hover="Our Brand">Our Brand</span></a></li>
+<li class="menu-university-identification-and-affiliation"><a href="https://brand.colostate.edu/university-identification-and-affiliation/"><span data-hover="University Identification and Affiliation">University Identification and Affiliation</span></a></li>
+</ul></section><section class="widget nav_menu-2 widget_nav_menu"><h3>Style Guide</h3><ul id="menu-style-guide" class="menu"><li class="active menu-symbol"><a href="https://brand.colostate.edu/symbol/" aria-current="page"><span data-hover="Symbol">Symbol</span></a></li>
+<li class="menu-signature"><a href="https://brand.colostate.edu/signature/"><span data-hover="Signature">Signature</span></a></li>
+<li class="menu-unit-identifiers"><a href="https://brand.colostate.edu/unit-identifiers/"><span data-hover="Unit Identifiers">Unit Identifiers</span></a></li>
+<li class="menu-word-mark"><a href="https://brand.colostate.edu/word-mark/"><span data-hover="Word Mark">Word Mark</span></a></li>
+<li class="menu-color"><a href="https://brand.colostate.edu/color/"><span data-hover="Color">Color</span></a></li>
+<li class="menu-typography"><a href="https://brand.colostate.edu/typography/"><span data-hover="Typography">Typography</span></a></li>
+<li class="menu-photography"><a href="https://brand.colostate.edu/photography/"><span data-hover="Photography">Photography</span></a></li>
+<li class="menu-web-guidelines"><a href="https://brand.colostate.edu/web-guidelines/"><span data-hover="Web Guidelines">Web Guidelines</span></a></li>
+<li class="menu-email-signatures"><a href="https://brand.colostate.edu/email-signatures/"><span data-hover="Email Signatures">Email Signatures</span></a></li>
+<li class="menu-templates"><a href="https://brand.colostate.edu/templates/"><span data-hover="Templates">Templates</span></a></li>
+</ul></section></div>
+
+        </aside><!-- /.sidebar -->
+          </div><!-- /.content -->
+  </div><!-- /.wrap -->
+</div>
+  <footer class="content-info main-footer" role="contentinfo">
+	
+	<div class="top-footer default-footer">
+		<div class="container">
+			<div class="row s-grid" >
+				<div class="col-lg-12">
+				  
+					<div class="top-footer">
+						<div class="container">
+							<div class="row s-grid">
+								<div class="col-lg-12">
+									<div class="row s-grid">
+										<div class="col-sm-4 span-1-3">
+											<h3>Colleges:</h3>
+											<ul>
+												<li><a href="https://agsci.colostate.edu/">Agricultural Sciences</a></li>
+												<li><a href="https://biz.colostate.edu/">Business</a></li>
+												<li><a href="https://www.engr.colostate.edu/">Walter Scott, Jr. College of Engineering</a></li>
+												<li><a href="https://www.chhs.colostate.edu/">Health and Human Sciences</a></li>
+												<li><a href="https://www.libarts.colostate.edu/">Liberal Arts</a></li>
+												<li><a href="https://warnercnr.colostate.edu/">Warner College of Natural Resources</a></li>
+												<li><a href="https://www.natsci.colostate.edu/">Natural Sciences</a></li>
+												<li><a href="https://vetmedbiosci.colostate.edu/">Veterinary Medicine and Biomedical Sciences</a></li>
+											</ul>
+
+										</div>
+										<div class="col-sm-4 span-1-3">
+											<h3>Schools &amp; Programs:</h3>
+											<ul>
+												<li><a href="https://graduateschool.colostate.edu/">Graduate School</a></li>
+												<li><a href="https://international.colostate.edu/">International Programs</a></li>
+												<li><a href="https://www.online.colostate.edu/">Online Degrees and Courses</a></li>
+												<li><a href="https://www.research.colostate.edu/samd/">School of Advanced Materials Discovery</a></li>
+												<li><a href="https://smtd.colostate.edu/">School of&nbsp;Music, Theatre and Dance</a></li>
+												<li><a href="https://www.engr.colostate.edu/sbme/">School of Biomedical Engineering</a></li>
+												<li><a href="https://www.chhs.colostate.edu/soe/">School of Education</a></li>
+												<li><a href="https://sustainability.colostate.edu/">School of Global Environmental Sustainability</a></li>
+												<li><a href="https://www.chhs.colostate.edu/ssw/">School of Social Work</a></li>
+												<li><a href="https://publichealth.colostate.edu/">School of Public Health</a></li>
+											</ul>
+
+										</div>
+										<div class="col-sm-4 span-1-3">
+											<div class="feature-btn"><a href="https://giving.colostate.edu/" class="imagelink"><img src="https://static.colostate.edu/site-templates/csu-theme/assets/img/support-csu-nb.svg?v1" alt="Support CSU"></a></div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+									</div>
+			</div>
+		</div>
+
+	</div>
+	<script class="prevent-defer">
+		let defaultFooter = document.querySelector(".top-footer.default-footer");
+		if(defaultFooter){
+			fetch("https://static.colostate.edu/site-templates/csu-theme/footer.html")
+			.then(response => {
+				return response.text()
+			})
+			.then(data => {
+				defaultFooter.innerHTML = data;
+				defaultFooter.classList.add("updated-footer");
+
+			}).catch((error) => {
+				console.error("Error:", error);
+				defaultFooter.classList.add("fallback-footer");
+			});
+		}
+	</script>
+	<style>
+		a.btn.btn-covid {
+			background: #af4323;
+			color: white !important;
+			border-color: currentColor;
+			border-radius: .2rem;
+			text-decoration: none !important;
+			text-transform: uppercase;
+			font-size: 92% !important;
+		}
+		footer.main-footer div.bottom-footer ul li {
+			margin-bottom: .5rem;
+		}
+		a.btn.btn-covid:hover  {
+			background: #C6522F;
+		}
+		p.copyright {margin-top:-.5rem}
+	</style>
+	<div class="bottom-footer">
+				<div class="container">
+			<div class="row s-grid">
+				<div class="col-md-8 span-2-3">
+										<ul>
+						<!-- <li><a href="https://covid.colostate.edu" class="btn btn-covid"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Covid-19 Information</a></li> -->
+						<li><a href="https://admissions.colostate.edu">Apply to CSU</a></li>
+						<li><a href="https://www.colostate.edu/contact">Contact CSU</a></li>
+						<li><a href="https://www.colostate.edu/disclaimer">Disclaimer</a></li>
+						<li><a href="https://www.colostate.edu/equal-opportunity">Equal Opportunity</a></li>
+						<li><a href="https://www.colostate.edu/privacy">Privacy Statement</a></li>
+						<li><a href="https://www.colostate.edu/accessibility/">Accessibility Statement</a></li>
+					</ul>
+					<p class="copyright">&copy; 2024 Colorado State University</p>
+				</div>
+				<div class="col-md-4 span-1-3">
+				 	<!--<p class="copyright">&copy; 2024 Colorado State University</p>-->
+					<div class="bottomlogo"><a href="http://www.colostate.edu/"><img src="https://brand.colostate.edu/wp-content/themes/csu-theme/assets/img/csu-onleline-final.svg" alt="Colorado State University" /></a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</footer>
+<!-- wp footer start -->
+<script type="text/javascript" defer src="https://brand.colostate.edu/wp-content/themes/csu-theme/adminpanel/nuxy/metaboxes/assets/vendors/trumbowyg/strumbowyg.js?ver=ef7f21eeb4885ad895f27ba45cf817e4" id="strumbowyg-js"></script>
+<script type="text/javascript" defer src="https://brand.colostate.edu/wp-content/themes/csu-theme/adminpanel/nuxy/metaboxes/assets/vendors/trumbowyg/vtrumbowyg.js?ver=ef7f21eeb4885ad895f27ba45cf817e4" id="vtrumbowyg-js"></script>
+<script type="text/javascript" defer src="https://brand.colostate.edu/wp-content/themes/csu-theme/adminpanel/nuxy/metaboxes/assets/vendors/trumbowyg/color-trumbowyg.js?ver=ef7f21eeb4885ad895f27ba45cf817e4" id="color-trumbowyg-js"></script>
+<script type="text/javascript" defer src="https://brand.colostate.edu/wp-content/themes/csu-theme/assets/js/script.min.js?ver=1.0.56" id="roots_scripts-js"></script>
+<script type="text/javascript" defer src="https://brand.colostate.edu/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.20.0" id="elementor-pro-webpack-runtime-js"></script>
+<script type="text/javascript" defer src="https://brand.colostate.edu/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.20.1" id="elementor-webpack-runtime-js"></script>
+<script type="text/javascript" defer src="https://brand.colostate.edu/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.20.1" id="elementor-frontend-modules-js"></script>
+<script type="text/javascript" defer src="https://brand.colostate.edu/wp-includes/js/dist/vendor/wp-polyfill-inert.min.js?ver=3.1.2" id="wp-polyfill-inert-js"></script>
+<script type="text/javascript" defer src="https://brand.colostate.edu/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.14.0" id="regenerator-runtime-js"></script>
+<script type="text/javascript" defer src="https://brand.colostate.edu/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0" id="wp-polyfill-js"></script>
+<script type="text/javascript" defer src="https://brand.colostate.edu/wp-includes/js/dist/hooks.min.js?ver=c6aec9a8d4e5a5d543a1" id="wp-hooks-js"></script>
+<script type="text/javascript" defer src="https://brand.colostate.edu/wp-includes/js/dist/i18n.min.js?ver=7701b0c3857f914212ef" id="wp-i18n-js"></script>
+<script type="text/javascript" id="wp-i18n-js-after">
+/* <![CDATA[ */
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+/* ]]> */
+</script>
+<script type="text/javascript" id="elementor-pro-frontend-js-before">
+/* <![CDATA[ */
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/brand.colostate.edu\/wp-admin\/admin-ajax.php","nonce":"edfa8e1169","urls":{"assets":"https:\/\/brand.colostate.edu\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/brand.colostate.edu\/wp-json\/"},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},
+"facebook_sdk":{"lang":"en_US","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/brand.colostate.edu\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+/* ]]> */
+</script>
+<script type="text/javascript" defer src="https://brand.colostate.edu/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.20.0" id="elementor-pro-frontend-js"></script>
+<script type="text/javascript" defer src="https://brand.colostate.edu/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2" id="elementor-waypoints-js"></script>
+<script type="text/javascript" defer src="https://brand.colostate.edu/wp-includes/js/jquery/ui/core.min.js?ver=1.13.2" id="jquery-ui-core-js"></script>
+<script type="text/javascript" id="elementor-frontend-js-before">
+/* <![CDATA[ */
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselWrapperAriaLabel":"Carousel | Horizontal scrolling: Arrow Left & Right","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":992,"lg":992,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":991,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":991,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}}},
+"version":"3.20.1","is_static":false,"experimentalFeatures":{"e_optimized_assets_loading":true,"additional_custom_breakpoints":true,"e_swiper_latest":true,"theme_builder_v2":true,"block_editor_assets_optimize":true,"ai-layout":true,"landing-pages":true,"e_image_loading_optimization":true,"notes":true,"form-submissions":true},"urls":{"assets":"https:\/\/brand.colostate.edu\/wp-content\/plugins\/elementor\/assets\/"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"viewport_mobile":991,"viewport_tablet":991,"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":25,"title":"Symbol%20%7C%20Brand%20%7C%20Colorado%20State%20University","excerpt":"","featuredImage":false}};
+/* ]]> */
+</script>
+<script type="text/javascript" defer src="https://brand.colostate.edu/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.20.1" id="elementor-frontend-js"></script>
+<script type="text/javascript" defer src="https://brand.colostate.edu/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.20.0" id="pro-elements-handlers-js"></script>
+<script class="prevent-defer">
+  (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+  function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+  e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+  e.src='//www.google-analytics.com/analytics.js';
+  r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+  ga('create','UA-901712-61');ga('send','pageview');
+</script>
+
+<!-- wp footer end -->
+<script type='module'>
+jQuery(document).ready(function(){
+    $dlfiles = jQuery('a[href$="eps"], a[href$="png"], a[href$="jpg"], a[href$="pdf"], a[href$="doc"], a[href$="docx"], a[href$="xls"], a[href$="xlsx"], a[href$="ppt"], a[href$="key"], a[href$="ase"]');
+
+    $dlfiles.each( function(index, element) {
+        jQuery(this).attr("download", jQuery(this).attr("href").substring(jQuery(this).attr("href").lastIndexOf('/')+1));
+    });
+    jQuery('a[href$="eps"]').addClass("download-icon download-icon-vector");
+    jQuery('a[href$="png"]').addClass("download-icon download-icon-photo");
+    jQuery('a[href$="jpg"]').addClass("download-icon download-icon-photo");
+    jQuery('a[href$="psd"]').addClass("download-icon download-icon-photo");
+    jQuery('a[href$="pdf"]').addClass("download-icon download-icon-doc");
+    jQuery('a[href$="doc"]').addClass("download-icon download-icon-doc");
+    jQuery('a[href$="docx"]').addClass("download-icon download-icon-doc");
+    jQuery('a[href$="xls"]').addClass("download-icon download-icon-doc");
+    jQuery('a[href$="xlsx"]').addClass("download-icon download-icon-doc");
+    jQuery('a[href$="ppt"]').addClass("download-icon download-icon-presentation");
+    jQuery('a[href$="key"]').addClass("download-icon download-icon-presentation");
+    jQuery('a[href$="ase"]').addClass("download-icon download-icon-swatch");
+});
+</script>
+	<script class="prevent-defer">
+
+	//run any inline-defered scripts
+	// function insertAfter(a,b){b.parentNode.insertBefore(a,b.nextSibling)}window.addEventListener("load",function(){for(var a=document.querySelectorAll("body script[type='text/javascript/defer'], body script:not(.prevent-defer):not([src]):not([type='text/javascript']):not([type*='template']):not([type='text/html'])"),b=0;b<a.length;b++){var c=document.createElement("script");c.appendChild(document.createTextNode(a[b].textContent)),insertAfter(c,a[b])}});
+
+	//trigger a DOMContentLoaded event
+	// window.document.dispatchEvent(new Event("DOMContentLoaded", {bubbles: true,	cancelable: true}));
+	</script>
+	</body>
+</html>
+
+<!-- Performance optimized by Redis Object Cache. Learn more: https://wprediscache.com -->
