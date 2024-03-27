@@ -6,7 +6,7 @@ logging.basicConfig(filename='can_parse.log', level=logging.DEBUG, filemode='w')
 
 try:
 	# Edit to vcan0 or can0
-	process = subprocess.Popen(['candump', 'vcan0', '-L'], stdout=subprocess.PIPE, universal_newlines=True)
+	process = subprocess.Popen(['candump', 'can0', '-L'], stdout=subprocess.PIPE, universal_newlines=True)
 	# process = subprocess.Popen(['candump', 'can0', '-L'], stdout=subprocess.PIPE, universal_newlines=True)
 	# Check to see if shared memory is already created
 
@@ -44,10 +44,10 @@ try:
 		timestamp, interface, data = output = output.strip().split(" ",2)
 		can_id, raw_data = data.split("#", 1)
 		
-		# print("Timestamp: " + timestamp)
-		# print("Interface: " + interface)
-		# print("CAN ID: " + can_id)
-		# print("Raw Data: " + raw_data)
+		print("Timestamp: " + timestamp)
+		print("Interface: " + interface)
+		print("CAN ID: " + can_id)
+		print("Raw Data: " + raw_data)
 		print("Output: " + timestamp + " " + interface + " " + data + "\n")
 
 		if can_id:
