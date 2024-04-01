@@ -4,20 +4,20 @@
 
 ### Comment out CAN or vcan as needed ###
 # Set up CAN interface
-# sudo ip link set can0 up type can bitrate 500000
+sudo ip link set can0 up type can bitrate 500000
 # Set up vcan interface
 # sudo modprobe vcan
-sudo ip link add dev vcan0 type vcan
-sudo ip link set up vcan0
+# sudo ip link add dev vcan0 type vcan
+# sudo ip link set up vcan0
 
 # Start up CAN data parser
-# cd ~/projects/EKartUI
-# nohup python ./can_parse.py &
-# sleep 3
+cd ~/projects/EKartUI
+nohup python ./lib/controllers/can_parse.py &
+sleep 3
 
 # Start up vCAN data parser
 cd ~/projects/EKartUI
-nohup cangen vcan0 | python3 ~/projects/EKartUI/can_parse.py | python3 ~/projects/EKartUI/Main.py
+nohup python3 ~/projects/EKartUI/Main.py
 sleep 3
 
 # Start up APD

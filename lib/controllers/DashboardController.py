@@ -2,7 +2,6 @@ from PySide6.QtCore import QObject, Property, Slot, Signal
 from PySide6.QtQml import QmlElement, QmlSingleton
 from multiprocessing.shared_memory import SharedMemory
 
-
 QML_IMPORT_NAME = "org.ekart.DashboardController"
 QML_IMPORT_MAJOR_VERSION = 1
 
@@ -55,37 +54,27 @@ class DashboardController(QObject):
 
 
 	def update(self):		
-		#tempory test code
-		# if self.testPlus:
-			# self.batteryPercentage += 0.005
-		# else:
-			# self.batteryPercentage -= 0.005
-		
+		# Check if erpm_buffer is initialized before accessing it
+		if hasattr(self, 'erpm_buffer'):
+			# Get RPM value
+			self.erpmVal = int.from_bytes(self.erpm_buffer, byteorder='big')
+			self.rpmVal = int(self.erpmVal / self.pole_pairs)
 
-		# if self.batteryPercentage >= 1:
-			# self.testPlus = False
-			# self.rpmVal = 2500
-		# elif self.batteryPercentage <= 0:
-			# self.testPlus = True
-			# self.rpmVal = 0
-		###################
-		
-		# Get RPM value
-		self.erpmVal = int.from_bytes(self.erpm_buffer, byteorder='big')
-		self.rpmVal = int(self.erpmVal / self.pole_pairs)
-		
-		# new
-		tempCurrent = int.from_bytes(self.current_buffer, byteorder='big')
-		self.currentVal = float(tempCurrent / 10.0)
+			# new
+			tempCurrent = int.from_bytes(self.current_buffer, byteorder='big')
+			self.currentVal = float(tempCurrent / 10.0)
 
-		# TEMPORARY - Set battery value for display for e-days
-		self.batteryPercentage = 0.75 
-		
-		self.rpmChanged.emit(self.rpmVal)
-		self.battPercentChanged.emit(self.batteryPercentage)
+			# TEMPORARY - Set battery value for display for e-days
+			self.batteryPercentage = 0.75 
 
-		# new
-		self.currentChanged.emit(self.currentVal)
+			self.rpmChanged.emit(self.rpmVal)
+			self.battPercentChanged.emit(self.batteryPercentage)
+
+			# new
+			self.currentChanged.emit(self.currentVal)
+		else:
+			print("ERROR: erpm_buffer is not initialized. Check shared memory setup.")
+
 	
 
 #Control Slots
