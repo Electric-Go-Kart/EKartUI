@@ -75877,3 +75877,92 @@ FileNotFoundError: [Errno 2] No such file or directory: '/rpm'
   warnings.warn('resource_tracker: %r: %s' % (name, e))
 /usr/lib/python3.11/multiprocessing/resource_tracker.py:237: UserWarning: resource_tracker: '/rpm': [Errno 2] No such file or directory: '/rpm'
   warnings.warn('resource_tracker: %r: %s' % (name, e))
+Traceback (most recent call last):
+  File "/home/gokart/projects/EKartUI/lib/controllers/APDView.py", line 12, in __init__
+    self.thread = StereoThread()
+                  ^^^^^^^^^^^^
+NameError: name 'StereoThread' is not defined
+>>>>>>>default
+/usr/lib/python3.11/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 2 leaked shared_memory objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+first
+second
+third
+good
+Entering Loop: 
+Traceback (most recent call last):
+  File "/home/gokart/projects/EKartUI/./lib/controllers/can_parse.py", line 122, in <module>
+    close_shared_memory(rpm_shm)
+  File "/home/gokart/projects/EKartUI/./lib/controllers/can_parse.py", line 7, in close_shared_memory
+    shm.unlink()
+  File "/usr/lib/python3.11/multiprocessing/shared_memory.py", line 243, in unlink
+    _posixshmem.shm_unlink(self._name)
+FileNotFoundError: [Errno 2] No such file or directory: '/rpm'
+/usr/lib/python3.11/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 3 leaked shared_memory objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/usr/lib/python3.11/multiprocessing/resource_tracker.py:237: UserWarning: resource_tracker: '/current': [Errno 2] No such file or directory: '/current'
+  warnings.warn('resource_tracker: %r: %s' % (name, e))
+/usr/lib/python3.11/multiprocessing/resource_tracker.py:237: UserWarning: resource_tracker: '/rpm': [Errno 2] No such file or directory: '/rpm'
+  warnings.warn('resource_tracker: %r: %s' % (name, e))
+>>>>>>>default
+>>>>>>>locked
+>>>>>>>default
+>>>>>>>locked
+>>>>>>>default
+>>>>>>>Headlights ON!
+>>>>>>>Headlights OFF!
+>>>>>>>Headlights ON!
+>>>>>>>Headlights OFF!
+>>>>>>>Headlights ON!
+>>>>>>>Headlights OFF!
+QThread: Destroyed while thread is still running
+Stack trace (most recent call last):
+#26   Object "[0xffffffffffffffff]", at 0xffffffffffffffff, in 
+#25   Object "python3", at 0x5cffef, in _start
+#24   Object "/lib/aarch64-linux-gnu/libc.so.6", at 0x7fa4897857, in __libc_start_main
+#23   Object "/lib/aarch64-linux-gnu/libc.so.6", at 0x7fa489777f, in 
+#22   Object "python3", at 0x5d0153, in Py_BytesMain
+#21   Object "python3", at 0x60631b, in Py_RunMain
+#20   Object "python3", at 0x60806f, in _PyRun_AnyFileObject
+#19   Object "python3", at 0x60832b, in _PyRun_SimpleFileObject
+#18   Object "python3", at 0x60ea03, in PyErr_PrintEx
+#17   Object "python3", at 0x60ea43, in 
+#16   Object "python3", at 0x626fd7, in Py_Exit
+#15   Object "python3", at 0x5f9f87, in Py_FinalizeEx
+#14   Object "python3", at 0x60c82b, in 
+#13   Object "python3", at 0x49c6bb, in 
+#12   Object "/home/gokart/gokart-env/lib/python3.11/site-packages/PySide6/QtCore.abi3.so", at 0x7f94ead7bb, in 
+#11   Object "/home/gokart/gokart-env/lib/python3.11/site-packages/PySide6/libpyside6.abi3.so.6.6", at 0x7f9924d0bf, in PySide::runCleanupFunctions()
+#10   Object "/home/gokart/gokart-env/lib/python3.11/site-packages/PySide6/libpyside6.abi3.so.6.6", at 0x7f99249aa3, in PySide::destroyQCoreApplication()
+#9    Object "/home/gokart/gokart-env/lib/python3.11/site-packages/shiboken6/libshiboken6.abi3.so.6.6", at 0x7fa3f8c1f7, in Shiboken::BindingManager::visitAllPyObjects(void (*)(SbkObject*, void*), void*)
+#8    Object "/home/gokart/gokart-env/lib/python3.11/site-packages/PySide6/libpyside6.abi3.so.6.6", at 0x7f99249b63, in 
+#7    Object "/home/gokart/gokart-env/lib/python3.11/site-packages/PySide6/QtCore.abi3.so", at 0x7f94ede9a7, in 
+#6    Object "/home/gokart/gokart-env/lib/python3.11/site-packages/PySide6/Qt/lib/libQt6Core.so.6", at 0x7f984c8297, in QThread::~QThread()
+#5    Object "/home/gokart/gokart-env/lib/python3.11/site-packages/PySide6/Qt/lib/libQt6Core.so.6", at 0x7f98354ee7, in QMessageLogger::fatal(char const*, ...) const
+#4    Object "/home/gokart/gokart-env/lib/python3.11/site-packages/PySide6/Qt/lib/libQt6Core.so.6", at 0x7f9836a437, in 
+#3    Object "/home/gokart/gokart-env/lib/python3.11/site-packages/PySide6/Qt/lib/libQt6Core.so.6", at 0x7f9835465b, in qAbort()
+#2    Object "/lib/aarch64-linux-gnu/libc.so.6", at 0x7fa48974bb, in abort
+#1    Object "/lib/aarch64-linux-gnu/libc.so.6", at 0x7fa48aa76b, in gsignal
+#0    Object "/lib/aarch64-linux-gnu/libc.so.6", at 0x7fa48f0a10, in 
+Aborted (Signal sent by tkill() 11041 1000)
+/usr/lib/python3.11/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 2 leaked shared_memory objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+first
+second
+third
+good
+Entering Loop: 
+Traceback (most recent call last):
+  File "/home/gokart/projects/EKartUI/./lib/controllers/can_parse.py", line 122, in <module>
+    close_shared_memory(rpm_shm)
+  File "/home/gokart/projects/EKartUI/./lib/controllers/can_parse.py", line 7, in close_shared_memory
+    shm.unlink()
+  File "/usr/lib/python3.11/multiprocessing/shared_memory.py", line 243, in unlink
+    _posixshmem.shm_unlink(self._name)
+FileNotFoundError: [Errno 2] No such file or directory: '/rpm'
+/usr/lib/python3.11/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 3 leaked shared_memory objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/usr/lib/python3.11/multiprocessing/resource_tracker.py:237: UserWarning: resource_tracker: '/current': [Errno 2] No such file or directory: '/current'
+  warnings.warn('resource_tracker: %r: %s' % (name, e))
+/usr/lib/python3.11/multiprocessing/resource_tracker.py:237: UserWarning: resource_tracker: '/rpm': [Errno 2] No such file or directory: '/rpm'
+  warnings.warn('resource_tracker: %r: %s' % (name, e))
