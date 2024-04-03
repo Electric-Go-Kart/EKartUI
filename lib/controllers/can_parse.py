@@ -52,7 +52,7 @@ try:
             can_id = int(can_id, 16)
             raw_data = int(raw_data, 16)
             
-            if can_id == 2305:
+            if can_id == 2305: # HEX: 0x09 (command ID) + 0x01 (VESC ID)
                 rpm = raw_data >> 32
                 curr_all_units = (raw_data >> 16) & 0xFFFF
                 latest_duty_cycle = raw_data & 0xFFFF
@@ -63,7 +63,7 @@ try:
                 rpm_buffer[:] = rpm.to_bytes(32, byteorder='big')
                 current_buffer[:] = curr_all_units.to_bytes(16, byteorder='big')
                 
-            elif can_id == 142:
+            elif can_id == 5121: # HEX: 0x14 (command ID) + 0x01 (VESC ID)
                 total_amphrs_consumed = raw_data >> 32
                 total_regen_hrs = raw_data & 0xFFFFFFFF
                 print("Total amp hours consumed by unit * 10000: " + str(total_amphrs_consumed))
