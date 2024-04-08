@@ -44,7 +44,7 @@ Image {
 
 	Text {
 		id: credits
-		text: "Current: " + DashboardController.current + " A\n"
+		text: "Current: " + DashboardController.current + " A\n Watts: " + DashboardController.watts + " W\n"
 		anchors.top: parent.top
 		anchors.left: parent.left
 		anchors.topMargin: 85
