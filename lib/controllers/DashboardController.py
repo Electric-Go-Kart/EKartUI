@@ -1,8 +1,11 @@
+import threading
+import subprocess
+import logging
 from PySide6.QtCore import QObject, Property, Slot, Signal, QTimer
 from PySide6.QtQml import QmlElement, QmlSingleton
-from multiprocessing.shared_memory import SharedMemory
-import math
-import struct
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 QML_IMPORT_NAME = "org.ekart.DashboardController"
 QML_IMPORT_MAJOR_VERSION = 1
@@ -10,164 +13,223 @@ QML_IMPORT_MAJOR_VERSION = 1
 @QmlElement
 @QmlSingleton
 class DashboardController(QObject):
-
-    # These are the signals that will be emitted to QML and are considered important data for the dashboard
-    rpm_changed = Signal(int) # for calculating speed to display
-    current_changed = Signal(float) # for info panel
-    battery_percentage_changed = Signal(float) # for info panel
-    batt_temp_changed = Signal(float) # for info panel
-    motor_temp_changed = Signal(float) # for info panel
-    estimated_range_changed = Signal(int) # for range display (CONCEPT)
-    direction_changed = Signal(str) # for direction 
-    state_changed = Signal(str) # for state
+    rpmChanged = Signal(int)
+    battPercentChanged = Signal(float)
+    directionChanged = Signal(str)
+    stateChanged = Signal(bool)
+    currentChanged = Signal(float)
 
     def __init__(self, parent=None):
-        super().__init__(parent)
-        self._init_shared_memory()
-        self.pole_pairs = 6
-        self.direction = "parked"
-        self.dashState = "locked"
+        super(DashboardController, self).__init__(parent)
+        # constants
+        self.num_pole_pairs = 6
+        self.reverse_pin = 26
+        self.wheel_circumference = 0.0001962  # in miles
+        self.total_wh_cap = 144  # 12 v * 12 Ah
+        # variables
         self.isHeadlightOn = False
-        self.wheel_diameter = 0.622 # inches prob idk need a wheel
-        self.gear_ratio = 1 # for direct drive e days display
-        self.total_watt_hr_capacity = 144 # 12 v * 12 Ah
-        self.currentVal = 0 # Calculate by dividing the raw data (B4-B5) in can_packet_status by 10
-        self.rpmVal = 0 # Calculate by dividing the raw data (B0-B3) in can_packet_status by the number of pole pairs
-        self.batteryPercentage = 0 # % given watt hours used and charged in can_packet_status3
-        self.battTemp = 0 # Calculate by dividing the raw data (B0-B1) in can_packet_status4 by 10
-        self.motorTemp = 0 # Calculate by dividing the raw data (B2-B3) in can_packet_status4 by 10
-        self.estimatedRange = 0 # CONCEPT
-        self.avg_watt_per_mile = 0 # CONCEPT
-        QTimer.singleShot(25, self.update)  # Setup a timer to periodically call update every 25ms
+        self.direction = "parked"
+        self.state = "locked"
+        self.rpmVal = 0
+        self.currentVal = 0.0
+        self.batteryPercentage = 0  # Placeholder for battery percentage
+        self._setup_can_parsing()
 
+    def _setup_can_parsing(self):
+        self.can_parsing_thread = threading.Thread(target=self._parse_can_data, daemon=True)
+        self.can_parsing_thread.start()
 
-    def _init_shared_memory(self):
-        self.shared_memory_segments = {
-            "can_packet_status" : {"name": "can_packet_status", "buffer": None, "value": 0},
-            "can_packet_status2" : {"name": "can_packet_status2", "buffer": None, "value": 0},
-            "can_packet_status3" : {"name": "can_packet_status3", "buffer": None, "value": 0},
-            "can_packet_status4" : {"name": "can_packet_status4", "buffer": None, "value": 0},
-            "can_packet_status5" : {"name": "can_packet_status5", "buffer": None, "value": 0},
-            "can_packet_status6" : {"name": "can_packet_status6", "buffer": None, "value": 0}
-        }
+    def _parse_can_data(self):
+        try:
+            process = subprocess.Popen(['candump', 'can0', '-L'], stdout=subprocess.PIPE, universal_newlines=True)
+            while True:
+                output = process.stdout.readline()
+                if output == '' and process.poll() is not None:
+                    break
+                if output:
+                    self._process_output(output.strip())
+        except Exception as e:
+            logging.error(f"CAN parsing thread encountered an error: {e}")
+        finally:
+            process.terminate()
+            process.wait()
 
-        for key, segment in self.shared_memory_segments.items():
-            try:
-                shm = SharedMemory(name=segment["name"])
-                segment["buffer"] = shm.buf
-            except FileNotFoundError:
-                print(f"ERROR: Unable to connect to {segment['name']} shared memory. Check that can_parse.py is running.")
-                segment["value"] = "ERROR"
+    def _process_output(self, output):
+        # Example processing logic; replace with your actual CAN message parsing
+        timestamp, interface, data = output.split(" ", 2)
+        can_id, raw_data = data.split("#", 1)
 
-    def update(self):
-        # Update shared memory values and unpack correctly
-        for key, segment in self.shared_memory_segments.items():
-            if segment["buffer"] is not None:
-                print(f"Updating {key}...")
-                if key == "can_packet_status":
-                    # Assuming can_packet_status was packed with '>IHH' format
-                    buffer_bytes = bytes(segment["buffer"])
-                    self.rpmVal, current_raw, duty_cycle_raw = struct.unpack(">IHH", buffer_bytes)
-                    self.currentVal = current_raw / 10.0  # Apply scaling if needed
-                    # Update the RPM value based on the number of pole pairs
-                    self.rpmVal = self.rpmVal / self.pole_pairs
-                    
-                # elif key == "can_packet_status3":
-                #     # Assuming can_packet_status3 was packed with '>II' format
-                #     wh_used, wh_charged = struct.unpack(">II", segment["buffer"])
-                #     remaining_wh = self.wattHrCap - wh_used + wh_charged
-                #     self.batteryPercentage = (remaining_wh / self.wattHrCap) * 100
-                #     self.estimatedRange = remaining_wh / avg_watt_per_mile
+        # Mock processing, update the actual logic to process CAN data
+        can_id = int(can_id, 16)
+        raw_data = int(raw_data, 16)
 
-                # elif key == "can_packet_status4":
-                #     # Assuming can_packet_status4 was packed with '>HHHH' format
-                #     fet_temp_raw, motor_temp_raw, _, _ = struct.unpack(">HHHH", segment["buffer"])
-                #     self.battTemp = fet_temp_raw / 10.0
-                #     self.motorTemp = motor_temp_raw / 10.0
+        if can_id == 2305:  # HEX: 0x09 (command ID) + 0x01 (VESC ID)
+            self.rpmVal = (raw_data >> 32) / self.num_pole_pairs  # from the most significant 32 bits (4 bytes)
+            self.currentVal = ((raw_data >> 16) & 0xFFFF) / 10  # from the middle 16 bits (2 bytes)
+            latest_duty_cycle = (raw_data & 0xFFFF) / 1000  # from the least significant 16 bits (2 bytes)
+            logging.info("RPM: " + str(self.rpmVal))
+            logging.info("Current: " + str(self.currentVal))
+            logging.info("Latest duty cycle: " + str(latest_duty_cycle))
 
-        self._emit_signals()
+            # Emit signals to update QML properties
+            self.rpmChanged.emit(self.rpmVal)
+            self.currentChanged.emit(self.currentVal)
 
+        elif can_id == 3585:  # HEX: 0x0E (command ID) + 0x01 (VESC ID)
+            total_amphrs_consumed = (raw_data >> 32) / 10000  # from the most significant 32 bits (4 bytes)
+            total_regen_hrs = (raw_data & 0xFFFFFFFF) / 10000  # from the least significant 32 bits (4 bytes)
+            logging.info("Total amp hours consumed by unit: " + str(total_amphrs_consumed))
+            logging.info("Total regen amp hours consumed by unit: " + str(total_regen_hrs))
 
-    def _emit_signals(self):
-        self.rpm_changed.emit(self.rpmVal)
-        self.current_changed.emit(self.currentVal)
-        self.battery_percentage_changed.emit(self.batteryPercentage)
-        self.batt_temp_changed.emit(self.battTemp)
-        self.motor_temp_changed.emit(self.motorTemp)
-        self.estimated_range_changed.emit(self.estimatedRange)
+        elif can_id == 3841:  # HEX: 0xOF (command ID) + 0x01 (VESC ID)
+            wh_used = (raw_data & 0xFFFFFFFF) / 10000  # from the least significant 32 bits (4 bytes)
+            wh_charged = ((raw_data >> 32) & 0xFFFFFFFF) / 10000  # from the most significant 32 bits (4 bytes)
+            logging.info("Watt hours used: " + str(wh_used))
+            logging.info("Watt hours charged: " + str(wh_charged))
+            self.batteryPercentage = ((self.total_wh_cap - wh_used + wh_charged) / self.total_wh_cap) * 100
 
-    
+            # Emit signal to update QML property
+            self.battPercentChanged.emit(self.batteryPercentage)
 
-    # Speed calculation simplified for demonstration purposes
-    @Slot(result=str)
-    def getSpeed(self):
-        wheel_circumference = self.wheel_diameter * math.pi
-        speed = (self.rpmVal * wheel_circumference * 60) / (self.gear_ratio * 5280)
-        return f"{speed:.2f}"
+        elif can_id == 4097:  # HEX: 0x10 (command ID) + 0x01 (VESC ID)
+            # Extracting bytes from raw_data
+            temp_fet_raw = (raw_data & 0xFFFF) / 10  # B0-B1 from the least significant 16 bits
+            temp_motor_raw = ((raw_data >> 16) & 0xFFFF) / 10  # B2-B3 from the middle 16 bits
+            current_in_raw = ((raw_data >> 32) & 0xFFFF) / 10  # B4-B5
+            pid_pos_raw = ((raw_data >> 48) & 0xFFFF) / 50  # B6-B7 from the most significant 16 bits
+            # Printing unpacked values
+            logging.info("Temperature FET: " + str(temp_fet_raw))
+            logging.info("Temperature Motor: " + str(temp_motor_raw))
+            logging.info("Current In: " + str(current_in_raw))
+            logging.info("PID Position: " + str(pid_pos_raw))
 
-    # @Slot(result=str)
-    # def getRPM(self):
-    #     return str(self.shared_memory_segments["erpm"]["value"])
+        ###########################
+        ### COMMANDS NEVER SEEN ###
+        ###########################
+        elif can_id == 6913:  # HEX: 0x1B (command ID) + 0x01 (VESC ID)
+            tachometer = (raw_data & 0xFFFFFFFF) / 6
+            voltage_in = ((raw_data >> 32) & 0xFFFF) / 10
+            logging.info("Tachometer: " + str(tachometer))
+            logging.info("Voltage In: " + str(voltage_in))
 
-    # @Slot(result=float)
-    # def getBatteryPercent(self):
-    #     return self.batteryPercentage
+        elif can_id == 7169:  # HEX: 0x28 (command ID) + 0x01 (VESC ID)
+            adc1 = (raw_data & 0xFFFF) / 1000
+            adc2 = ((raw_data >> 16) & 0xFFFF) / 1000
+            adc3 = ((raw_data >> 32) & 0xFFFF) / 1000
+            ppm = ((raw_data >> 48) & 0xFFFF) / 1000
+            logging.info("ADC1: " + str(adc1))
+            logging.info("ADC2: " + str(adc2))
+            logging.info("ADC3: " + str(adc3))
+            logging.info("PPM: " + str(ppm))
 
-    # @Slot(result=str)
-    # def getCurrentVal(self):
-    #     return str(self.shared_memory_segments["current"]["value"])
-
-    # @Slot(result=int)
-    # def getWatt_hrVal(self):
-    #     return self.shared_memory_segments["watt_hr"]["value"]
-
-    # @Slot(str)
-    # def setDirection(self, direction):
-    #     if self.shared_memory_segments["erpm"]["value"] == 0 and not self.getLocked():
-    #         self.direction = direction
-    #         self.directionChanged.emit(direction)
-    #         print(f">>>>>>>{direction}")
-
-    # @Slot(result=bool)
-    # def getResting(self):
-    #     return self.shared_memory_segments["erpm"]["value"] < 50
-
-    # @Slot(result=bool)
-    # def getForward(self):
-    #     return self.direction == "forward"
-
-    # @Slot(result=bool)
-    # def getReverse(self):
-    #     return self.direction == "reverse"
-
-    # @Slot(result=bool)
-    # def getParked(self):
-    #     return self.direction == "parked"
-
-    # @Slot(str)
-    # def setState(self, state):
-    #     self.dashState = state
-    #     self.stateChanged.emit(state)
-    #     print(f">>>>>>>{state}")
-
-    # @Slot(result=str)
-    # def getState(self):
-    #     return self.dashState
-
-    # @Slot(result=bool)
-    # def getDefault(self):
-    #     return self.dashState == "default"
-
-    # @Slot(result=bool)
-    # def getLocked(self):
-    #     return self.dashState == "locked"
-
-    # # These slots are for demonstration purposes only and don't acta
+    # Control Property Slots
     # @Slot()
     # def toggleHeadlight(self):
     #     self.isHeadlightOn = not self.isHeadlightOn
-    #     status = "ON" if self.isHeadlightOn else "OFF"
-    #     print(f">>>>>>>Headlights {status}!")
+    #     print("Headlights ON!" if self.isHeadlightOn else "Headlights OFF!")
 
-    # Property definitions...
-    speed = Property(str, getSpeed, notify=rpm_changed)
+    ##############################
+    # Information Property Slots #
+    ##############################
+    @Slot(result=str)
+    def getSpeed(self):
+        # multiply motor rpm by gear ratio
+        # wheelrpm = (self.rpmVal*9)/30
+        speed = round((self.rpmVal * self.wheel_circumference) * 60)
+        if speed > 200:  # clamp it down to 0 because of CAN bus noise
+            speed = 0
+        return str(speed)
+
+    @Slot(result=str)
+    def getRPM(self):
+        rpm = int(self.rpmVal)
+        if rpm > 10000:  # clamp it down to 0 because of CAN bus noise
+            rpm = 0
+        return str(rpm)
+
+    @Slot(result=str)
+    def getBatteryPercent(self):
+        return f'{self.batteryPercentage:.2f}'
+
+    # new
+    @Slot(result=str)
+    def getCurrentVal(self):
+        return str(self.currentVal)
+
+    ############################
+    # Direction Property Slots #
+    ############################
+    @Slot(str)
+    def setDirection(self, direction):
+        if (self.rpmVal == 0 and not (self.getLocked())):
+            self.direction = direction
+            self.directionChanged.emit(direction)
+            print(">>>>>>>" + direction)
+
+    @Slot(result=bool)
+    def getResting(self):
+        if (self.rpmVal < 50):
+            return True
+        else:
+            return False
+
+    @Slot(result=bool)
+    def getForward(self):
+        if (self.direction == "forward"):
+            return True
+        else:
+            return False
+
+    @Slot(result=bool)
+    def getReverse(self):
+        if (self.direction == "reverse"):
+            return True
+        else:
+            return False
+
+    @Slot(result=bool)
+    def getParked(self):
+        if (self.direction == "parked"):
+            return True
+        else:
+            return False
+
+    ########################
+    # State Property Slots #
+    ########################
+    @Slot(str)
+    def setState(self, state):
+        self.dashState = state
+        self.stateChanged.emit(state)
+        print(">>>>>>>" + state)
+
+    @Slot(result=str)
+    def getState(self):
+        return self.dashState
+
+    @Slot(result=bool)
+    def getDefault(self):
+        return self.dashState == "default"
+
+    @Slot(result=bool)
+    def getLocked(self):
+        return self.dashState == "locked"
+
+    # Information Properties
+    speed = Property(str, getSpeed, notify=rpmChanged)
+    rpm = Property(str, getRPM, notify=rpmChanged)
+    batteryPercent = Property(str, getBatteryPercent, notify=battPercentChanged)
+    current = Property(str, getCurrentVal, notify=currentChanged)
+
+    # Direction Properties
+    atRest = Property(bool, getResting, notify=rpmChanged)
+    forward = Property(bool, getForward, notify=directionChanged)
+    reverse = Property(bool, getReverse, notify=directionChanged)
+    parked = Property(bool, getParked, notify=directionChanged)
+
+    # State Properties
+    state = Property(str, getState, setState, notify=stateChanged)
+    default = Property(bool, getDefault, notify=stateChanged)
+    locked = Property(bool, getLocked, notify=stateChanged)
+
+    # Add other getters and setters as needed
