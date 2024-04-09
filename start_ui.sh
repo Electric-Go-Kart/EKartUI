@@ -1,6 +1,16 @@
 #!/bin/bash
 
 #EKartUI Startup Script
+# Function to handle cleanup actions
+cleanup() {
+    # Add your cleanup actions here
+    echo "Performing cleanup actions..."
+    # For example:
+    # Terminate processes, close files, release resources, etc.
+}
+
+# Register the cleanup function to be called on exit or termination signals
+trap cleanup EXIT SIGTERM SIGINT
 
 ### Comment out CAN or vcan as needed ###
 # Set up CAN interface
@@ -12,12 +22,12 @@ sudo ip link set can0 up type can bitrate 500000
 
 # Start up CAN data parser
 cd ~/projects/EKartUI
-nohup python ./lib/controllers/can_parse.py &
+python ./lib/controllers/can_parse.py &
 sleep 3
 
-# Start up vCAN data parser
+# Start up CAN data parser
 cd ~/projects/EKartUI
-nohup python3 ~/projects/EKartUI/Main.py
+python3 ~/projects/EKartUI/Main.py
 sleep 3
 
 # Start up APD

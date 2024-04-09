@@ -1,0 +1,47 @@
+python Main.py 
+file:///home/gokart/projects/EKartUI/ui/dashboard/Speedometer.qml:82:6: Unable to assign [undefined] to bool
+file:///home/gokart/projects/EKartUI/ui/dashboard/Speedometer.qml:77:6: Unable to assign [undefined] to bool
+file:///home/gokart/projects/EKartUI/ui/dashboard/CenterPanel.qml:15:3: Unable to assign [undefined] to bool
+file:///home/gokart/projects/EKartUI/ui/dashboard/InfoPanel.qml:23:3: Unable to assign [undefined] to bool
+file:///home/gokart/projects/EKartUI/ui/dashboard/InfoPanel.qml:65:3: Unable to assign [undefined] to QString
+file:///home/gokart/projects/EKartUI/ui/dashboard/ButtonPanel.qml:96:3: Unable to assign [undefined] to bool
+file:///home/gokart/projects/EKartUI/ui/dashboard/ButtonPanel.qml:145:3: Unable to assign [undefined] to QString
+file:///home/gokart/projects/EKartUI/ui/dashboard/Tachometer.qml:12:3: Unable to assign [undefined] to QString
+Traceback (most recent call last):
+  File /home/gokart/projects/EKartUI/lib/controllers/DashboardController.py, line 64, in update
+    if segment[buffer]:
+ValueError: operation forbidden on released memoryview object
+QThread: Destroyed while thread is still running
+Stack trace (most recent call last):
+#26   Object [0xffffffffffffffff], at 0xffffffffffffffff, in 
+#25   Object python, at 0x5cffef, in _start
+#24   Object /lib/aarch64-linux-gnu/libc.so.6, at 0x7fb4417857, in __libc_start_main
+#23   Object /lib/aarch64-linux-gnu/libc.so.6, at 0x7fb441777f, in 
+#22   Object python, at 0x5d0153, in Py_BytesMain
+#21   Object python, at 0x60631b, in Py_RunMain
+#20   Object python, at 0x60806f, in _PyRun_AnyFileObject
+#19   Object python, at 0x60832b, in _PyRun_SimpleFileObject
+#18   Object python, at 0x60ea03, in PyErr_PrintEx
+#17   Object python, at 0x60ea43, in 
+#16   Object python, at 0x626fd7, in Py_Exit
+#15   Object python, at 0x5f9f87, in Py_FinalizeEx
+#14   Object python, at 0x60c82b, in 
+#13   Object python, at 0x49c6bb, in 
+#12   Object /home/gokart/gokart-env/lib/python3.11/site-packages/PySide6/QtCore.abi3.so, at 0x7fa4a1d7bb, in 
+#11   Object /home/gokart/gokart-env/lib/python3.11/site-packages/PySide6/libpyside6.abi3.so.6.6, at 0x7fa8dbd0bf, in PySide::runCleanupFunctions()
+#10   Object /home/gokart/gokart-env/lib/python3.11/site-packages/PySide6/libpyside6.abi3.so.6.6, at 0x7fa8db9aa3, in PySide::destroyQCoreApplication()
+#9    Object /home/gokart/gokart-env/lib/python3.11/site-packages/shiboken6/libshiboken6.abi3.so.6.6, at 0x7fb3afc1f7, in Shiboken::BindingManager::visitAllPyObjects(void (*)(SbkObject*, void*), void*)
+#8    Object /home/gokart/gokart-env/lib/python3.11/site-packages/PySide6/libpyside6.abi3.so.6.6, at 0x7fa8db9b63, in 
+#7    Object /home/gokart/gokart-env/lib/python3.11/site-packages/PySide6/QtCore.abi3.so, at 0x7fa4a4e9a7, in 
+#6    Object /home/gokart/gokart-env/lib/python3.11/site-packages/PySide6/Qt/lib/libQt6Core.so.6, at 0x7fa8038297, in QThread::~QThread()
+#5    Object /home/gokart/gokart-env/lib/python3.11/site-packages/PySide6/Qt/lib/libQt6Core.so.6, at 0x7fa7ec4ee7, in QMessageLogger::fatal(char const*, ...) const
+#4    Object /home/gokart/gokart-env/lib/python3.11/site-packages/PySide6/Qt/lib/libQt6Core.so.6, at 0x7fa7eda437, in 
+#3    Object /home/gokart/gokart-env/lib/python3.11/site-packages/PySide6/Qt/lib/libQt6Core.so.6, at 0x7fa7ec465b, in qAbort()
+#2    Object /lib/aarch64-linux-gnu/libc.so.6, at 0x7fb44174bb, in abort
+#1    Object /lib/aarch64-linux-gnu/libc.so.6, at 0x7fb442a76b, in gsignal
+#0    Object /lib/aarch64-linux-gnu/libc.so.6, at 0x7fb4470a10, in 
+Aborted (Signal sent by tkill() 128196 1000)
+/usr/lib/python3.11/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 6 leaked shared_memory objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+Aborted
+
