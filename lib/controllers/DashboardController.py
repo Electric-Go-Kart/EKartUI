@@ -86,6 +86,8 @@ class DashboardController(QObject):
 
     @Slot(float)
     def updateCurrent(self, current):
+        if current > 100: # clamp it down to 0 because of CAN bus noise
+            current = 0
         self.currentVal = current
         self.currentChanged.emit(current)
 

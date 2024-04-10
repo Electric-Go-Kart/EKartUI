@@ -2,12 +2,6 @@ import subprocess
 import logging
 from PySide6.QtCore import QThread, Signal
 
-# Configure logging
-logging.basicConfig(level=logging.INFO,
-                    format='%(asctime)s - %(levelname)s - %(message)s',
-                    filename='CAN.log',
-                    filemode='w') 
-
 class CANController(QThread):
     currentChanged = Signal(float)
     rpmChanged = Signal(int)
@@ -20,10 +14,17 @@ class CANController(QThread):
         self.reverse_pin = 26
         self.wheel_circumference = 0.0001962  # in miles
         self.total_wh_cap = 144  # 12 v * 12 Ah
+        self.max_voltage_of_battery = 14 # not needed in the future if we actually impliment a BMS
         # variables
         self.rpmVal = 0
         self.currentVal = 0.0
+        self.cumulativeAh = 0
+        self.cumulativeWh = 0
         self.batteryPercentage = 0
+        self.logging = logging.basicConfig(level=logging.INFO,
+                    format='%(asctime)s - %(levelname)s - %(message)s',
+                    filename='CAN.log',
+                    filemode='w') 
 
     def run(self):
         try:
@@ -67,15 +68,28 @@ class CANController(QThread):
             total_regen_hrs = (raw_data & 0xFFFFFFFF) / 10000  # from the least significant 32 bits (4 bytes)
             logging.info("Total amp hours consumed by unit: " + str(total_amphrs_consumed))
             logging.info("Total regen amp hours consumed by unit: " + str(total_regen_hrs))
+            self.cumulativeAh = total_amphrs_consumed - total_regen_hrs
 
         elif can_id == 3841:  # HEX: 0xOF (command ID) + 0x01 (VESC ID)
             wh_used = (raw_data & 0xFFFFFFFF) / 10000  # from the least significant 32 bits (4 bytes)
             wh_charged = ((raw_data >> 32) & 0xFFFFFFFF) / 10000  # from the most significant 32 bits (4 bytes)
             logging.info("Watt hours used: " + str(wh_used))
             logging.info("Watt hours charged: " + str(wh_charged))
-            self.batteryPercentage = ((self.total_wh_cap - wh_used + wh_charged) / self.total_wh_cap) * 100
-
-            # Emit signal to update the QML property
+            self.cumulativeWh = wh_charged - wh_used
+            # Dynamically calculate voltage
+            if self.cumulativeAh == 0:
+                voltage = 0
+                self.batteryPercentage = 0
+            else:
+                voltage = self.cumulativeWh / self.cumulativeAh
+                self.batteryPercentage = (voltage / self.max_voltage_of_battery) * 100
+            # Dynamically calculate battery percentage
+            # Emit signal to update the QML property    
+            if voltage > self.max_voltage_of_battery:
+                # throw an error and exception
+                logging.error("Battery voltage exceeds the maximum voltage of the battery at " + str(voltage) + "V")
+                # TODO: Implement a BMS to prevent this from happening
+                return
             self.battPercentChanged.emit(self.batteryPercentage)
 
         elif can_id == 4097:  # HEX: 0x10 (command ID) + 0x01 (VESC ID)
