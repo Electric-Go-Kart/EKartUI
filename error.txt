@@ -1,2 +1,0 @@
-python3 Main.py 
-<Unknown File>: qmlRegisterSingletonType(): DashboardController is not available because the callback function returns a null pointer.
