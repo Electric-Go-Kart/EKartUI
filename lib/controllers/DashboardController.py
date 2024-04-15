@@ -4,6 +4,7 @@ import logging
 from PySide6.QtCore import QObject, Property, Slot, Signal, QTimer
 from PySide6.QtQml import QmlElement, QmlSingleton
 from .CANController import CANController
+import RPi.GPIO as GPIO
 
 QML_IMPORT_NAME = "org.ekart.DashboardController"
 QML_IMPORT_MAJOR_VERSION = 1
@@ -36,16 +37,9 @@ class DashboardController(QObject):
         self.reverse_pin = 26
         self.wheel_circumference = 0.0001962  # in miles
         self.total_wh_cap = 144  # 12 v * 12 Ah
-
-    # def _setup_timer(self):
-    #     self.timer = QTimer(self)
-    #     self.timer.timeout.connect(self._update_properties)
-    #     self.timer.start(25)  # Update every _ ms
-
-    # def _update_properties(self):
-    #     self.rpmChanged.emit(self.rpmVal)
-    #     self.currentChanged.emit(self.currentVal)
-    #     self.battPercentChanged.emit(self.batteryPercentage)
+        self.reverse_pin = 26
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(self.reverse_pin, GPIO.OUT)
 
     @Slot()
     def toggleHeadlight(self):
@@ -101,6 +95,10 @@ class DashboardController(QObject):
     @Slot(str)
     def setDirection(self, direction):
         if (self.rpmVal == 0 and not (self.getLocked())):
+            if (direction == "reverse"):
+                GPIO.output(self.reverse_pin, GPIO.LOW)
+            elif (direction == "forward" or direction == "parked"):
+                GPIO.output(self.reverse_pin, GPIO.HIGH)
             self.direction = direction
             self.directionChanged.emit(self.direction)
             print(">>>>>>>" + direction)
@@ -138,6 +136,7 @@ class DashboardController(QObject):
     ########################
     @Slot(str)
     def setState(self, state):
+        # set gpio pin 26 to low if state is reverse
         self.dashState = state
         self.stateChanged.emit(self.dashState)
         print(">>>>>>>" + state)

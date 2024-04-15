@@ -21,10 +21,6 @@ class CANController(QThread):
         self.cumulativeAh = 0
         self.cumulativeWh = 0
         self.batteryPercentage = 0
-        self.logging = logging.basicConfig(level=logging.INFO,
-                    format='%(asctime)s - %(levelname)s - %(message)s',
-                    filename='CAN.log',
-                    filemode='w') 
 
     def run(self):
         try:
